@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-24 02:45:02 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0yNDswMjozNzoyNiBQTTsyMTMx"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0yNDswMjo0NTowMiBQTTsxOzIyMzI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num, num2" type="Integer" array="False" size=""/>
+            <output expression="&quot;How many numbers would you like to input: &quot;" newline="True"/>
+            <input variable="num"/>
+            <assign variable="num2" expression="0"/>
+            <while expression="num != num2">
+                <output expression="&quot;What is your number: &quot;" newline="True"/>
+                <input variable="num2"/>
+                <if expression="num2 % 2 == 0">
+                    <then>
+                        <output expression="&quot;This is even number&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;This is an odd number&quot;" newline="True"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

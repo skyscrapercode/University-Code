@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="user"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-24 02:49:53 PM"/>
+        <attribute name="created" value="dXNlcjtERVNLVE9QLUIzM0RMUzA7MjAyMy0wNS0yNDswMjozNDo1NyBQTTsyNzU2"/>
+        <attribute name="edited" value="dXNlcjtERVNLVE9QLUIzM0RMUzA7MjAyMy0wNS0yNDswMjo0OTo1MyBQTTsxOzI4NjY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="salary, i" type="Integer" array="False" size=""/>
+            <assign variable="salary" expression="0"/>
+            <assign variable="i" expression="0"/>
+            <declare name="choice" type="String" array="False" size=""/>
+            <output expression="&quot;Start program?&quot;" newline="True"/>
+            <input variable="choice"/>
+            <while expression="choice = &quot;yes&quot; || choice = &quot;Yes&quot;">
+                <output expression="&quot;Enter your salary: &quot;" newline="True"/>
+                <input variable="salary"/>
+                <assign variable="salary" expression="0 + salary"/>
+                <assign variable="i" expression="i + 1"/>
+                <output expression="&quot;Do you still want to continue?&quot;" newline="True"/>
+                <input variable="choice"/>
+            </while>
+            <output expression="&quot;numbers of stuff: &quot; &amp;  i" newline="True"/>
+            <output expression="&quot;total salary: RM&quot; &amp; salary" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

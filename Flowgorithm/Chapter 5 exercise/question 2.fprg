@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-24 03:10:19 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0yMjswMToyNjowOCBQTTsyMTI2"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0yMjswMTozMDozOCBQTTsxO3NoZWlrO0hNQjE1OzIwMjMtMDUtMjI7MDE6MTI6MDUgUE07cXVlc3Rpb24gMS5mcHJnOzU5MTQ="/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0yNDswMzoxMDoxOSBQTTszOzIyMzU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="class, marks, highestmark, count" type="Integer" array="False" size=""/>
+            <assign variable="highestmark" expression="0"/>
+            <output expression="&quot;How many people in class?&quot;" newline="True"/>
+            <input variable="class"/>
+            <for variable="count" start="1" end="class" direction="inc" step="1">
+                <output expression="&quot;What is your mark&quot;" newline="True"/>
+                <input variable="marks"/>
+                <while expression="marks &gt; 100 || marks &lt; 0">
+                    <output expression="&quot;Incorrect mark&quot;" newline="True"/>
+                    <output expression="&quot;What is your mark&quot;" newline="True"/>
+                    <input variable="marks"/>
+                </while>
+                <if expression="marks &gt; highestmark">
+                    <then>
+                        <assign variable="highestmark" expression="marks"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;The highest mark in the class is &quot;&amp;highestmark" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,57 @@
+Function Main
+    Declare Real KPI, incentiveA, wage, incentiveB, incentiveC, percent
+    Declare String start, incentive1, incentive2, charity
+    
+    Output "Do you want the program to start?(yes/no)"
+    Input start
+    If start = "yes"
+        Output "What is your KPI?"
+        Input KPI
+        If KPI >= 95 && KPI <= 100
+            Assign incentiveA = 3200
+            Output "Your KPI incentive is RM"&incentiveA
+        Else
+            If KPI >= 90 && KPI < 95
+                Assign incentiveA = 1600
+                Output "Your KPI incentive is RM"&incentiveA
+            Else
+                If KPI >= 80 && KPI < 90
+                    Assign incentiveA = 800
+                    Output "Your KPI incentive is RM"&incentiveA
+                Else
+                    Assign incentiveA = 0
+                End
+            End
+        End
+        Output "Do you have professional board certification?(yes/no)"
+        Input incentive1
+        If incentive1 = "yes"
+            Assign incentiveB = 255
+            Output "Your professional board certification incentive is RM"&incentiveB
+        Else
+            Assign incentiveB = 0
+        End
+        Output "Do you have full attendance?(yes/no)"
+        Input incentive2
+        If incentive2 = "yes"
+            Assign incentiveC = 745
+            Output "Your full attendance incentive is RM"&incentiveC
+        Else
+            Assign incentiveC = 0
+        End
+        Assign wage = incentiveA + incentiveB + incentiveC
+        Output "The total incentive you will receive is currently RM"&wage
+        Output "Would you like to donate a percentage to charity?(yes/no)"
+        Input charity
+        If charity = "yes"
+            Output "How many percent would you like to donate?"
+            Input percent
+            Assign wage = wage - (wage * percent/100)
+            Output "Your new net bonus after donation is RM"&wage
+        Else
+            Output "Your total net bonus is RM"&wage
+        End
+    Else
+        Output "Goodbye"
+    End
+End
