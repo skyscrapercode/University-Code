@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\bin\Debug\LAB_WORK4-3.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\bin\Debug\LAB_WORK4-3.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\bin\Debug\LAB_WORK4-3.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\bin\Debug\LAB_WORK4-3.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4-3.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4_3.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4_3.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4-3.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4-3.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4-3.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4-3.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\LAB_WORK4-3\LAB_WORK4-3\obj\Debug\LAB_WORK4-3.pdb
