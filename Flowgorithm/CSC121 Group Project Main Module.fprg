@@ -1,0 +1,663 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Admin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-07-27 01:13:33 PM"/>
+        <attribute name="created" value="QWRtaW47TEFQVE9QLVRMS0FRUk04OzIwMjMtMDYtMjE7MDI6MTM6NTQgUE07Mjg2OQ=="/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNi0yNzswNjo1OTowNiBQTTs2O0FkbWluO0xBUFRPUC1UTEtBUVJNODsyMDIzLTA2LTIxOzAyOjEzOjU0IFBNO0NTQzEyMSBHcm91cCBQcm9qZWN0IE1haW4gTW9kdWxlIHYyLmZwcmc7ODY2Ng=="/>
+        <attribute name="edited" value="QWRtaW47TEFQVE9QLVRMS0FRUk04OzIwMjMtMDYtMjc7MDc6NDE6NDQgUE07MjsyOTg5"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNy0yNzswMToxMzozMyBQTTszNTsyMjkw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="prebuild, accesories, monitor, keyboard, mouse, membership" type="String" array="False" size=""/>
+            <declare name="casePrice, motherboardPrice, RAMPrice, cpuPrice, gpuPrice, storagePrice, PSUPrice, accesoriesPrice, prebuildPrice, membershipDiscount, totalPrice, priceAfterDiscount, priceAfterTax" type="Real" array="False" size=""/>
+            <assign variable="casePrice" expression="0"/>
+            <assign variable="motherboardPrice" expression="0"/>
+            <assign variable="RAMPrice" expression="0"/>
+            <assign variable="prebuildPrice" expression="0"/>
+            <assign variable="cpuPrice" expression="0"/>
+            <assign variable="gpuPrice" expression="0"/>
+            <assign variable="storagePrice" expression="0"/>
+            <assign variable="PSUPrice" expression="0"/>
+            <output expression="&quot;Welcome to our PC building system&quot;" newline="True"/>
+            <do expression="prebuild != &quot;Y&quot; &amp;&amp; prebuild != &quot;y&quot; &amp;&amp; prebuild != &quot;N&quot; &amp;&amp; prebuild != &quot;n&quot;">
+                <output expression="&quot;Do you want a prebuild?(Y/N):&quot;" newline="True"/>
+                <input variable="prebuild"/>
+                <if expression="prebuild == &quot;Y&quot; || prebuild == &quot;y&quot;">
+                    <then>
+                        <assign variable="prebuildPrice" expression="prebuild()"/>
+                    </then>
+                    <else>
+                        <if expression="prebuild == &quot;N&quot; || prebuild == &quot;n&quot;">
+                            <then>
+                                <output expression="&quot;For the first PC part, please choose your case&quot;" newline="True"/>
+                                <assign variable="casePrice" expression="case()"/>
+                                <assign variable="motherboardPrice" expression="motherboard()"/>
+                                <assign variable="RAMPrice" expression="ram()"/>
+                                <assign variable="cpuPrice" expression="cpu()"/>
+                                <assign variable="gpuPrice" expression="gpu()"/>
+                                <assign variable="storagePrice" expression="storage()"/>
+                                <assign variable="PSUPrice" expression="psu()"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+            <assign variable="accesoriesPrice" expression="accesories()"/>
+            <do expression="membership != &quot;Y&quot; &amp;&amp; membership != &quot;y&quot; &amp;&amp; membership != &quot;N&quot; &amp;&amp; membership != &quot;n&quot;">
+                <output expression="&quot;Do you have a membership?(Y/N)&quot;" newline="True"/>
+                <input variable="membership"/>
+                <if expression="membership == &quot;Y&quot; || membership == &quot;y&quot;">
+                    <then>
+                        <assign variable="membershipDiscount" expression="20"/>
+                    </then>
+                    <else>
+                        <if expression="membership == &quot;N&quot; || membership == &quot;n&quot;">
+                            <then>
+                                <assign variable="membershipDiscount" expression="0"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+            <assign variable="totalPrice" expression="Calctotalprice(casePrice, motherboardPrice, RAMPrice, cpuPrice, gpuPrice, storagePrice, PSUPrice, prebuildPrice, accesoriesPrice)"/>
+            <assign variable="priceAfterDiscount" expression="Calcpricediscount(totalprice,membershipDiscount)"/>
+            <assign variable="priceAfterTax" expression="Calcpricetax(priceAfterDiscount)"/>
+            <call expression="Display(totalPrice, membershipDiscount, priceAfterDiscount, priceAfterTax, casePrice, motherboardPrice, RAMPrice, cpuPrice, gpuPrice, storagePrice, PSUPrice, accesoriesPrice, prebuildPrice)"/>
+        </body>
+    </function>
+    <function name="accesories" type="Real" variable="accesoriesPrice">
+        <parameters/>
+        <body>
+            <declare name="accesoriesPrice, monitorPrice, keyboardPrice, mousePrice" type="Real" array="False" size=""/>
+            <declare name="accesories, monitor, keyboard, mouse" type="String" array="False" size=""/>
+            <do expression="accesories != &quot;Y&quot; &amp;&amp; accesories != &quot;y&quot; &amp;&amp; accesories != &quot;N&quot; &amp;&amp; accesories != &quot;n&quot;">
+                <output expression="&quot;Do you want extra accesories with your PC?(Y/N)&quot;" newline="True"/>
+                <input variable="accesories"/>
+                <if expression="accesories == &quot;Y&quot; || accesories == &quot;y&quot;">
+                    <then>
+                        <do expression="monitor != &quot;y&quot; &amp;&amp; monitor != &quot;Y&quot; &amp;&amp; monitor != &quot;n&quot; &amp;&amp; monitor != &quot;N&quot;">
+                            <output expression="&quot;Would you like to add-on a Monitor?(Y/N)&quot;" newline="True"/>
+                            <input variable="monitor"/>
+                            <if expression="monitor == &quot;y&quot; || monitor == &quot;Y&quot;">
+                                <then>
+                                    <output expression="&quot;We recommend the Acer K202HQL LED Monitor With HD MI (20 inch) for RM120&quot;" newline="True"/>
+                                    <assign variable="monitorPrice" expression="120"/>
+                                </then>
+                                <else>
+                                    <if expression="monitor == &quot;n&quot; || monitor == &quot;N&quot;">
+                                        <then>
+                                            <assign variable="monitorPrice" expression="0"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </do>
+                        <do expression="keyboard != &quot;Y&quot; &amp;&amp; keyboard != &quot;y&quot; &amp;&amp; keyboard != &quot;N&quot; &amp;&amp; keyboard != &quot;n&quot;">
+                            <output expression="&quot;Would you like to add-on a keyboard?(Y/N)&quot;" newline="True"/>
+                            <input variable="keyboard"/>
+                            <if expression="keyboard == &quot;Y&quot; || keyboard == &quot;y&quot;">
+                                <then>
+                                    <output expression="&quot;We recommend the Logitech G213 Prodigy Wired USB Gaming Keyboard for RM80&quot;" newline="True"/>
+                                    <assign variable="keyboardPrice" expression="80"/>
+                                </then>
+                                <else>
+                                    <if expression="keyboard == &quot;N&quot; || keyboard == &quot;n&quot;">
+                                        <then>
+                                            <assign variable="keyboardPrice" expression="0"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </do>
+                        <do expression="mouse != &quot;Y&quot; &amp;&amp; mouse != &quot;y&quot; &amp;&amp; mouse != &quot;N&quot; &amp;&amp; mouse != &quot;n&quot;">
+                            <output expression="&quot;Would you like to add-on a mouse?(Y/N)&quot;" newline="True"/>
+                            <input variable="mouse"/>
+                            <if expression="mouse == &quot;Y&quot; || mouse == &quot;y&quot;">
+                                <then>
+                                    <output expression="&quot;We recommend the Logitech G102 Lightsync Wired USB Gaming Mouse for RM50&quot;" newline="True"/>
+                                    <assign variable="mousePrice" expression="50"/>
+                                </then>
+                                <else>
+                                    <if expression="mouse == &quot;N&quot; || mouse == &quot;n&quot;">
+                                        <then>
+                                            <assign variable="mousePrice" expression="0"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </do>
+                    </then>
+                    <else>
+                        <if expression="accesories == &quot;N&quot; || accesories == &quot;n&quot;">
+                            <then>
+                                <assign variable="monitorPrice" expression="0"/>
+                                <assign variable="keyboardPrice" expression="0"/>
+                                <assign variable="mousePrice" expression="0"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+            <assign variable="accesoriesPrice" expression="monitorPrice + keyboardPrice + mousePrice"/>
+        </body>
+    </function>
+    <function name="Calcpricediscount" type="Real" variable="priceafterdiscount">
+        <parameters>
+            <parameter name="totalprice" type="Real" array="False"/>
+            <parameter name="membershipDiscount" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="priceafterdiscount" type="Real" array="False" size=""/>
+            <assign variable="priceafterdiscount" expression="totalprice*((100-membershipDiscount)/100)"/>
+        </body>
+    </function>
+    <function name="Calcpricetax" type="Real" variable="pricetax">
+        <parameters>
+            <parameter name="priceAfterDiscount" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="pricetax" type="Real" array="False" size=""/>
+            <assign variable="pricetax" expression="priceAfterDiscount* 106/100"/>
+        </body>
+    </function>
+    <function name="Calctotalprice" type="Real" variable="totalprice">
+        <parameters>
+            <parameter name="casePrice" type="Real" array="False"/>
+            <parameter name="motherboardPrice" type="Real" array="False"/>
+            <parameter name="RAMPrice" type="Real" array="False"/>
+            <parameter name="cpuPrice" type="Real" array="False"/>
+            <parameter name="gpuPrice" type="Real" array="False"/>
+            <parameter name="storagePrice" type="Real" array="False"/>
+            <parameter name="PSUPrice" type="Real" array="False"/>
+            <parameter name="prebuildPrice" type="Real" array="False"/>
+            <parameter name="accesoriesPrice" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="totalprice" type="Real" array="False" size=""/>
+            <assign variable="totalprice" expression="casePrice + motherboardPrice + RAMPrice + cpuPrice + gpuPrice + storagePrice + PSUPrice + prebuildPrice + accesoriesPrice"/>
+        </body>
+    </function>
+    <function name="case" type="Real" variable="casePrice">
+        <parameters/>
+        <body>
+            <declare name="casePrice" type="Real" array="False" size=""/>
+            <declare name="case" type="String" array="False" size=""/>
+            <do expression="case != &quot;A&quot; &amp;&amp; case != &quot;a&quot; &amp;&amp; case != &quot;B&quot; &amp;&amp; case != &quot;b&quot; &amp;&amp; case != &quot;C&quot; &amp;&amp; case != &quot;c&quot;">
+                <output expression="&quot;You only have to input A, B or C to choose your PC part&quot;" newline="True"/>
+                <output expression="&quot;Would you like: A. big case B. medium case C. small case&quot;" newline="True"/>
+                <input variable="case"/>
+                <if expression="case == &quot;A&quot; || case == &quot;a&quot;">
+                    <then>
+                        <assign variable="casePrice" expression="150"/>
+                    </then>
+                    <else>
+                        <if expression="case == &quot;B&quot; || case == &quot;b&quot;">
+                            <then>
+                                <assign variable="casePrice" expression="100"/>
+                            </then>
+                            <else>
+                                <if expression="case == &quot;C&quot; || case == &quot;c&quot;">
+                                    <then>
+                                        <assign variable="casePrice" expression="50"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="cpu" type="Real" variable="cpuPrice">
+        <parameters/>
+        <body>
+            <declare name="cpu, cpuSpec" type="String" array="False" size=""/>
+            <declare name="cpuPrice" type="Real" array="False" size=""/>
+            <do expression="cpu != &quot;A&quot; &amp;&amp; cpu != &quot;a&quot; &amp;&amp; cpu != &quot;B&quot; &amp;&amp; cpu != &quot;b&quot;">
+                <output expression="&quot;What type of CPU would you like: A. INTEL B. AMD&quot;" newline="True"/>
+                <input variable="cpu"/>
+                <if expression="cpu == &quot;A&quot; || cpu == &quot;a&quot; || cpu == &quot;B&quot; || cpu == &quot;b&quot;">
+                    <then/>
+                    <else>
+                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+            <do expression="cpuSpec != &quot;A&quot; &amp;&amp; cpuSpec != &quot;a&quot; &amp;&amp; cpuSpec != &quot;B&quot; &amp;&amp; cpuSpec != &quot;b&quot; &amp;&amp; cpuSpec != &quot;C&quot; &amp;&amp; cpuSpec != &quot;c&quot; &amp;&amp; cpuSpec != &quot;D&quot; &amp;&amp; cpuSpec != &quot;d&quot;">
+                <output expression="&quot;You only have to input A, B, C or D to choose your PC part&quot;" newline="True"/>
+                <if expression="cpu == &quot;B&quot; || cpu == &quot;b&quot;">
+                    <then>
+                        <output expression="&quot;What would you like: A. Ryzen 3 B. Ryzen 5 C. Ryzen 7 D. Ryzen 9&quot;" newline="True"/>
+                        <input variable="cpuSpec"/>
+                        <if expression="cpuSpec == &quot;A&quot; || cpuSpec == &quot;a&quot;">
+                            <then>
+                                <assign variable="cpuPrice" expression="300"/>
+                            </then>
+                            <else>
+                                <if expression="cpuSpec == &quot;B&quot; || cpuSpec == &quot;b&quot;">
+                                    <then>
+                                        <assign variable="cpuPrice" expression="500"/>
+                                    </then>
+                                    <else>
+                                        <if expression="cpuSpec == &quot;C&quot; || cpuSpec == &quot;c&quot;">
+                                            <then>
+                                                <assign variable="cpuPrice" expression="900"/>
+                                            </then>
+                                            <else>
+                                                <if expression="cpuSpec == &quot;D&quot; || cpuSpec == &quot;d&quot;">
+                                                    <then>
+                                                        <assign variable="cpuPrice" expression="1700"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <output expression="&quot;What would you like: A. Intel i3 B. Intel i5 C. Intel i7 D. intel i9&quot;" newline="True"/>
+                        <input variable="cpuSpec"/>
+                        <if expression="cpuSpec == &quot;A&quot; || cpuSpec == &quot;a&quot;">
+                            <then>
+                                <assign variable="cpuPrice" expression="300"/>
+                            </then>
+                            <else>
+                                <if expression="cpuSpec == &quot;B&quot; || cpuSpec == &quot;b&quot;">
+                                    <then>
+                                        <assign variable="cpuPrice" expression="500"/>
+                                    </then>
+                                    <else>
+                                        <if expression="cpuSpec == &quot;C&quot; || cpuSpec == &quot;c&quot;">
+                                            <then>
+                                                <assign variable="cpuPrice" expression="900"/>
+                                            </then>
+                                            <else>
+                                                <if expression="cpuSpec == &quot;D&quot; || cpuSpec == &quot;d&quot;">
+                                                    <then>
+                                                        <assign variable="cpuPrice" expression="1700"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="Display" type="None" variable="">
+        <parameters>
+            <parameter name="totalPrice" type="Real" array="False"/>
+            <parameter name="membershipDiscount" type="Real" array="False"/>
+            <parameter name="priceAfterDiscount" type="Real" array="False"/>
+            <parameter name="priceAfterTax" type="Real" array="False"/>
+            <parameter name="casePrice" type="Real" array="False"/>
+            <parameter name="motherboardPrice" type="Real" array="False"/>
+            <parameter name="RAMPrice" type="Real" array="False"/>
+            <parameter name="cpuPrice" type="Real" array="False"/>
+            <parameter name="gpuPrice" type="Real" array="False"/>
+            <parameter name="storagePrice" type="Real" array="False"/>
+            <parameter name="PSUPrice" type="Real" array="False"/>
+            <parameter name="accesoriesPrice" type="Real" array="False"/>
+            <parameter name="prebuildPrice" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <output expression="&quot;*****ORDER RECEIPT*****&quot;" newline="True"/>
+            <if expression="casePrice &gt; 0">
+                <then>
+                    <output expression="&quot;Case = RM &quot;&amp;casePrice" newline="True"/>
+                    <output expression="&quot;Motherboard = RM &quot;&amp;motherboardPrice" newline="True"/>
+                    <output expression="&quot;RAM = RM &quot;&amp;RAMPrice" newline="True"/>
+                    <output expression="&quot;CPU = RM &quot;&amp;cpuPrice" newline="True"/>
+                    <output expression="&quot;GPU = RM &quot;&amp;gpuPrice" newline="True"/>
+                    <output expression="&quot;Storage = RM &quot;&amp;storagePrice" newline="True"/>
+                    <output expression="&quot;PSU = RM &quot;&amp;PSUPrice" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;PREBUILD = RM &quot; &amp;prebuildPrice" newline="True"/>
+                </else>
+            </if>
+            <if expression="accesoriesPrice &gt; 0">
+                <then>
+                    <output expression="&quot;Accessories = RM &quot;&amp; accesoriesPrice" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;The Total Price is RM&quot; &amp;totalPrice" newline="True"/>
+            <output expression="&quot;The price after &quot; &amp;membershipDiscount&amp;&quot;% discount is RM&quot; &amp;priceAfterDiscount" newline="True"/>
+            <output expression="&quot;The price after 6% tax is RM&quot; &amp;priceAfterTax" newline="True"/>
+            <output expression="&quot;Thank you for using our PC Builder!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="gpu" type="Real" variable="gpuPrice">
+        <parameters/>
+        <body>
+            <declare name="gpuPrice" type="Real" array="False" size=""/>
+            <declare name="gpu, gpuSpec" type="String" array="False" size=""/>
+            <do expression="gpu != &quot;A&quot; &amp;&amp; gpu != &quot;a&quot; &amp;&amp; gpu != &quot;B&quot; &amp;&amp; gpu != &quot;b&quot;">
+                <output expression="&quot;Which GPU would you like: A. AMD B. NVIDIA&quot;" newline="True"/>
+                <input variable="gpu"/>
+                <if expression="gpu == &quot;A&quot; || gpu == &quot;a&quot; || gpu == &quot;B&quot; || gpu == &quot;b&quot;">
+                    <then/>
+                    <else>
+                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+            <do expression="gpuSpec != &quot;A&quot; &amp;&amp; gpuSpec != &quot;a&quot; &amp;&amp; gpuSpec != &quot;B&quot; &amp;&amp; gpuSpec != &quot;b&quot; &amp;&amp; gpuSpec != &quot;C&quot; &amp;&amp; gpuSpec != &quot;c&quot; &amp;&amp; gpuSpec != &quot;D&quot; &amp;&amp; gpuSpec != &quot;d&quot;">
+                <if expression="gpu == &quot;B&quot; || gpu == &quot;b&quot;">
+                    <then>
+                        <output expression="&quot;Which Nvidia GPU would you like: A. RTX 4060 B. RTX 4070 C. RTX 4080 D. RTX 4090&quot;" newline="True"/>
+                        <input variable="gpuSpec"/>
+                        <if expression="gpuSpec == &quot;A&quot; || gpuSpec == &quot;a&quot;">
+                            <then>
+                                <assign variable="gpuPrice" expression="2000"/>
+                            </then>
+                            <else>
+                                <if expression="gpuSpec == &quot;B&quot; || gpuSpec == &quot;b&quot;">
+                                    <then>
+                                        <assign variable="gpuPrice" expression="3000"/>
+                                    </then>
+                                    <else>
+                                        <if expression="gpuSpec == &quot;C&quot; || gpuSpec == &quot;c&quot;">
+                                            <then>
+                                                <assign variable="gpuPrice" expression="5000"/>
+                                            </then>
+                                            <else>
+                                                <if expression="gpuSpec == &quot;D&quot; || gpuSpec == &quot;d&quot;">
+                                                    <then>
+                                                        <assign variable="gpuPrice" expression="8000"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <output expression="&quot;Which Radeon GPU would you like: A. RX 7600 B. RX 7900 XT C. RX 7900 XTX&quot;" newline="True"/>
+                        <input variable="gpuSpec"/>
+                        <if expression="gpuSpec == &quot;A&quot; || gpuSpec == &quot;a&quot;">
+                            <then>
+                                <assign variable="gpuPrice" expression="1700"/>
+                            </then>
+                            <else>
+                                <if expression="gpuSpec == &quot;B&quot; || gpuSpec == &quot;b&quot;">
+                                    <then>
+                                        <assign variable="gpuPrice" expression="4000"/>
+                                    </then>
+                                    <else>
+                                        <if expression="gpuSpec == &quot;C&quot; || gpuSpec == &quot;c&quot;">
+                                            <then>
+                                                <assign variable="gpuPrice" expression="5000"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="motherboard" type="Real" variable="motherboardPrice">
+        <parameters/>
+        <body>
+            <declare name="motherboardPrice" type="Real" array="False" size=""/>
+            <declare name="motherboard" type="String" array="False" size=""/>
+            <do expression="motherboard != &quot;A&quot; &amp;&amp; motherboard != &quot;a&quot; &amp;&amp; motherboard != &quot;B&quot; &amp;&amp; motherboard != &quot;b&quot; &amp;&amp; motherboard != &quot;C&quot; &amp;&amp; motherboard != &quot;c&quot;">
+                <output expression="&quot;What would you like: A. high-end motherboard B. mid-end motherboard C. low-end motherboard&quot;" newline="True"/>
+                <input variable="motherboard"/>
+                <if expression="motherboard == &quot;A&quot; || motherboard == &quot;a&quot;">
+                    <then>
+                        <assign variable="motherboardPrice" expression="600"/>
+                    </then>
+                    <else>
+                        <if expression="motherboard == &quot;B&quot; || motherboard == &quot;b&quot;">
+                            <then>
+                                <assign variable="motherboardPrice" expression="300"/>
+                            </then>
+                            <else>
+                                <if expression="motherboard == &quot;C&quot; || motherboard == &quot;c&quot;">
+                                    <then>
+                                        <assign variable="motherboardPrice" expression="150"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="prebuild" type="Real" variable="prebuildPrice">
+        <parameters/>
+        <body>
+            <declare name="prebuildPrice" type="Real" array="False" size=""/>
+            <declare name="prebuild" type="Integer" array="False" size=""/>
+            <output expression="&quot;We can recommend top quality prebuilds such as HP, ACER, ASUS, MSI&quot;" newline="True"/>
+            <do expression="prebuild != 1 &amp;&amp; prebuild != 2 &amp;&amp; prebuild != 3 &amp;&amp; prebuild != 4">
+                <output expression="&quot;You only have to input 1, 2, 3 or 4 to choose your prebuild&quot;" newline="True"/>
+                <output expression="&quot;Which brand would you like to choose? 1. HP 2. ACER 3. ASUS 4. MSI&quot;" newline="True"/>
+                <input variable="prebuild"/>
+                <if expression="prebuild == 4">
+                    <then>
+                        <output expression="&quot;MSI: We recommend the MSI PRO 5S GAMING PC for RM4199&quot;" newline="True"/>
+                        <assign variable="prebuildPrice" expression="4199"/>
+                    </then>
+                    <else>
+                        <if expression="prebuild == 3">
+                            <then>
+                                <output expression="&quot;ASUS: We recommend the ASUS ROG Strix G15CF for RM5000&quot;" newline="True"/>
+                                <assign variable="prebuildPrice" expression="5000"/>
+                            </then>
+                            <else>
+                                <if expression="prebuild == 2">
+                                    <then>
+                                        <output expression="&quot;ACER: We recommend the Acer Nitro N50-120-5600W10D for RM2500&quot;" newline="True"/>
+                                        <assign variable="prebuildPrice" expression="2500"/>
+                                    </then>
+                                    <else>
+                                        <if expression="prebuild == 1">
+                                            <then>
+                                                <output expression="&quot;HP: We recommend the HP Victus TG02-0018D for RM 5399&quot;" newline="True"/>
+                                                <assign variable="prebuildPrice" expression="5399"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="psu" type="Real" variable="PSUPrice">
+        <parameters/>
+        <body>
+            <declare name="PSUPrice" type="Real" array="False" size=""/>
+            <declare name="PSU" type="String" array="False" size=""/>
+            <do expression="PSU != &quot;A&quot; &amp;&amp; PSU != &quot;a&quot; &amp;&amp; PSU != &quot;B&quot; &amp;&amp; PSU != &quot;b&quot; &amp;&amp; PSU != &quot;C&quot; &amp;&amp; PSU != &quot;c&quot;">
+                <output expression="&quot;Which PSU would you like: A. 400W B. 600W C. 1000W&quot;" newline="True"/>
+                <input variable="PSU"/>
+                <if expression="PSU == &quot;A&quot; || PSU == &quot;a&quot;">
+                    <then>
+                        <assign variable="PSUPrice" expression="50"/>
+                    </then>
+                    <else>
+                        <if expression="PSU == &quot;B&quot; || PSU == &quot;b&quot;">
+                            <then>
+                                <assign variable="PSUPrice" expression="100"/>
+                            </then>
+                            <else>
+                                <if expression="PSU == &quot;C&quot; || PSU == &quot;c&quot;">
+                                    <then>
+                                        <assign variable="PSUPrice" expression="200"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="ram" type="Real" variable="RAMPrice">
+        <parameters/>
+        <body>
+            <declare name="RAMPrice" type="Real" array="False" size=""/>
+            <declare name="RAM" type="String" array="False" size=""/>
+            <do expression="RAM != &quot;A&quot; &amp;&amp; RAM != &quot;a&quot; &amp;&amp; RAM != &quot;B&quot; &amp;&amp; RAM != &quot;b&quot; &amp;&amp; RAM != &quot;C&quot; &amp;&amp; RAM != &quot;c&quot;">
+                <output expression="&quot;How much RAM would you like: A. 8GB B. 16GB C. 32GB&quot;" newline="True"/>
+                <input variable="RAM"/>
+                <if expression="RAM == &quot;C&quot; || RAM == &quot;c&quot;">
+                    <then>
+                        <assign variable="RAMPrice" expression="300"/>
+                    </then>
+                    <else>
+                        <if expression="RAM == &quot;B&quot; || RAM == &quot;b&quot;">
+                            <then>
+                                <assign variable="RAMPrice" expression="166"/>
+                            </then>
+                            <else>
+                                <if expression="RAM == &quot;A&quot; || RAM == &quot;a&quot;">
+                                    <then>
+                                        <assign variable="RAMPrice" expression="90"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="storage" type="Real" variable="storagePrice">
+        <parameters/>
+        <body>
+            <declare name="storagePrice" type="Real" array="False" size=""/>
+            <declare name="storage, storageSpace" type="String" array="False" size=""/>
+            <do expression="storage != &quot;A&quot; &amp;&amp; storage != &quot;a&quot; &amp;&amp; storage != &quot;B&quot; &amp;&amp; storage != &quot;b&quot;">
+                <output expression="&quot;Which would you like A. SSD B. HDD&quot;" newline="True"/>
+                <input variable="storage"/>
+                <if expression="storage == &quot;A&quot; || storage == &quot;a&quot; || storage == &quot;B&quot; || storage == &quot;b&quot;">
+                    <then/>
+                    <else>
+                        <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+            <do expression="storageSpace != &quot;A&quot; &amp;&amp; storageSpace != &quot;a&quot; &amp;&amp; storageSpace != &quot;B&quot; &amp;&amp; storageSpace != &quot;b&quot; &amp;&amp; storageSpace != &quot;C&quot; &amp;&amp; storageSpace != &quot;c&quot;">
+                <output expression="&quot;Would you like: A. 256GB B. 512GB C. 1TB&quot;" newline="True"/>
+                <input variable="storageSpace"/>
+                <if expression="storage == &quot;A&quot; || storage == &quot;a&quot;">
+                    <then>
+                        <if expression="storageSpace == &quot;A&quot; || storageSpace == &quot;a&quot;">
+                            <then>
+                                <assign variable="storagePrice" expression="60"/>
+                            </then>
+                            <else>
+                                <if expression="storageSpace == &quot;B&quot; || storageSpace == &quot;b&quot;">
+                                    <then>
+                                        <assign variable="storagePrice" expression="100"/>
+                                    </then>
+                                    <else>
+                                        <if expression="storageSpace == &quot;C&quot; || storageSpace == &quot;c&quot;">
+                                            <then>
+                                                <assign variable="storagePrice" expression="200"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="storageSpace == &quot;A&quot; || storageSpace == &quot;a&quot;">
+                            <then>
+                                <assign variable="storagePrice" expression="40"/>
+                            </then>
+                            <else>
+                                <if expression="storageSpace == &quot;B&quot; || storageSpace == &quot;b&quot;">
+                                    <then>
+                                        <assign variable="storagePrice" expression="60"/>
+                                    </then>
+                                    <else>
+                                        <if expression="storageSpace == &quot;C&quot; || storageSpace == &quot;c&quot;">
+                                            <then>
+                                                <assign variable="storagePrice" expression="80"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Wrong Input, please try again!&quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
