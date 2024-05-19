@@ -1,0 +1,4 @@
+stainless steel;sapphire;true;rubber;100
+titanium;crystal;true;leather;90
+titanium;mineral_glass;false;rubber;150
+stainless steel;mineral_glass;false;bracelet;80

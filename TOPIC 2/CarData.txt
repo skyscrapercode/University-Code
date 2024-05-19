@@ -1,0 +1,7 @@
+Toyota;86300
+Alfa Romeo;34800
+Perodua;22000
+Mazda;42800
+Nissan;62500
+Proton;47800
+BMW;62800
