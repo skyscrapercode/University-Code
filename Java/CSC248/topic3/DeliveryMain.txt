@@ -1,0 +1,6 @@
+Ali;Tapah Perak;Fatimah;100;001
+Ahmad;Slim River Perak;Aminah;90;002
+Bakar;Kampar Perak;Farid;200;003
+Abu;Tapah Road Perak;Alif;70;004
+Daud;Jasin Melaka;Jenny;300;005
+Kamarul;Jasin Melaka;Que;170;006
