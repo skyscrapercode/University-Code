@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=PhotoPrints
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ PhotoPrints\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=m\ p\ ps\ q
+comment1.target=PhotoPrints(java.lang.String,\ char,\ int,\ int)
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment2.params=m
+comment2.target=void\ setMethod(java.lang.String)
+comment3.params=p
+comment3.target=void\ setPaperType(char)
+comment4.params=ps
+comment4.target=void\ setPhotoSize(int)
+comment5.params=q
+comment5.target=void\ setQuantity(int)
+comment6.params=
+comment6.target=java.lang.String\ getMethod()
+comment7.params=
+comment7.target=char\ getPaperType()
+comment8.params=
+comment8.target=int\ getPhotoSize()
+comment9.params=
+comment9.target=int\ getQuantity()
+numComments=11
