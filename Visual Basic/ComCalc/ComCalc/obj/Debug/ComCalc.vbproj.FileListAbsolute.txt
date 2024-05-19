@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\bin\Debug\ComCalc.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\bin\Debug\ComCalc.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\bin\Debug\ComCalc.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\bin\Debug\ComCalc.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\ComCalc\ComCalc\obj\Debug\ComCalc.pdb
