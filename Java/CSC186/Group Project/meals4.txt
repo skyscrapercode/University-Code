@@ -1,0 +1,4 @@
+Crispy Beef Bacon;14.90;Sweet Corn;4.00;Double Choc Milkshake;10.90;true
+Fully Beef Johnny Oblong;18.90;Apple Tartar;4.50;Americano with Ice Cubes;5.90;true
+Buttermilk Chicken Filet with Rice;14.90;Curly Fries with Salad;4.00;Oreo Milkshake;10.90;true
+Nasi Daging Goreng Kunyit;13.90;Chicken Coleslaw;4.00;Butterscotch Coffee;10.90;true

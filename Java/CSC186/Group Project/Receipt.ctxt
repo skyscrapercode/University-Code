@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Receipt
+comment1.params=c\ r\ tp\ p
+comment1.target=Receipt(Customer,\ Restaurant,\ double,\ double)
+comment2.params=p
+comment2.target=void\ setPay(double)
+comment3.params=
+comment3.target=double\ getPay()
+comment4.params=
+comment4.target=double\ calcPayment()
+comment5.params=
+comment5.target=java.lang.String\ printReceipt()
+numComments=6

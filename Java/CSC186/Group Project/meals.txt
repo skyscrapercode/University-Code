@@ -1,0 +1,4 @@
+Yakitori BBQ Chicken;15.99;Mini Okonomiyaki;4.5;Yakult;5.0;false
+Chicken Salad;10.99;Sweet Potato Risotto;5.5;Okinawa;4.0;true
+Beef Jerky;21.0;Grilled Tomato;3.0;Flavored Soy Milk;4.5;true
+Instant Beef Ramen;12.99;Japanese Rolled Omelette Salad;5.0;Green Tea;4.5;true

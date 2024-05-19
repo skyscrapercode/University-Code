@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=MainCourse
+comment1.params=
+comment1.target=MainCourse()
+comment2.params=n\ p\ a
+comment2.target=MainCourse(java.lang.String,\ double,\ boolean)
+comment3.params=
+comment3.target=java.lang.String\ getMainCourse()
+comment4.params=
+comment4.target=double\ getMainCoursePrice()
+comment5.params=
+comment5.target=boolean\ category()
+comment6.params=
+comment6.target=boolean\ checkAvailable()
+numComments=7

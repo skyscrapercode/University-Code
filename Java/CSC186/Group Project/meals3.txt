@@ -1,0 +1,4 @@
+Cooked Chicken Chop;12.00;Mint Chocolate Icecream;2.00;Iced Teh O Drink;4.00;true
+Grilled Chicken Chop;18.00;Caramel Pudding;3.50;Iced Teh Drink;4.50;true
+SuperSized Beef Burger;14.00;French Fries with Salad;2.00;Coca-Cola Soda;4.00;true
+Sizzling Beef Yee Mee;10.99;Thousand Island with Mayo Salad;3.50;A&W Soda;4.00;true

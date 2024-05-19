@@ -1,0 +1,4 @@
+Hibachi Chicken;29.59;Pumpkin Pie;14.00;Tropical Sunset;6.99;true
+Chicken Oysters;60.99;Oven Roasted Carrots;10.99;Strawberry G&T;5.99;true
+Aged Beef Tartare;45.99;Apple Tarte Tatin;16.99;Melon Punch;6.99;true
+Wagyu Sirloin 300g;85.99;Koffman Coleslaw;10.99;Barrel-Aged Negroni;20.99;true

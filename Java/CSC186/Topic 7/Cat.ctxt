@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Cat
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Cat\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Cat()
+comment2.params=o\ s\ n\ h\ c
+comment2.target=Cat(java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean,\ java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
