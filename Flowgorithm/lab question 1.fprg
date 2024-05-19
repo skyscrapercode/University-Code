@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-16 10:35:59 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNC0xMjswMjozOToxMyBQTTsyMTI1"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNjsxMDozNTo1OSBQTTs1OzIyNDc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="coins, drinkprice, coke, coke2" type="Real" array="False" size=""/>
+            <assign variable="drinkprice" expression="2.2"/>
+            <output expression="&quot;How many cans of coke would you like to buy?&quot;" newline="True"/>
+            <input variable="coke"/>
+            <output expression="&quot;How many coins do you have&quot;" newline="True"/>
+            <input variable="coins"/>
+            <while expression="coins &lt; 2.20 * coke">
+                <assign variable="coke2" expression="2.20 * coke"/>
+                <output expression="&quot;Please input at least RM&quot; &amp;coke2" newline="True"/>
+                <output expression="&quot;How many coins do you have&quot;" newline="True"/>
+                <input variable="coins"/>
+            </while>
+            <assign variable="drinkprice" expression="coins - (2.20 * coke)"/>
+            <output expression="&quot;Congrats, you have enough money to pay for your coke order!&quot;" newline="True"/>
+            <output expression="&quot;Your balance is RM&quot;&amp;drinkprice" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

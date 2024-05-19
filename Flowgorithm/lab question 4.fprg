@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-16 10:35:20 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNTswNjozOToxMCBQTTsyMTMw"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNTswODo0NDozNyBQTTs5O3VzZXI7REVTS1RPUC1CMzNETFMwOzIwMjMtMDUtMTU7MTA6MjU6MjIgQU07dGVzdDQuZnByZzs2MDgw"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNjsxMDozNToyMCBQTTs1OzIyMzU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="membership, treatment1, treatment2, treatment3" type="String" array="False" size=""/>
+            <declare name="price" type="Real" array="False" size=""/>
+            <assign variable="price" expression="0"/>
+            <output expression="&quot;Welcome to muslimah's hair salon!&quot;" newline="True"/>
+            <output expression="&quot;Are you a member?(yes/no)&quot;" newline="True"/>
+            <input variable="membership"/>
+            <output expression="&quot;Do you want a scalp treatment that cost RM60?(yes/no)&quot;" newline="True"/>
+            <input variable="treatment1"/>
+            <output expression="&quot;Do you want a rebonding treatment that cost RM100?(yes/no)&quot;" newline="True"/>
+            <input variable="treatment2"/>
+            <output expression="&quot;Do you want a manicure &amp; padicure treatment that cost RM50?(yes/no)&quot;" newline="True"/>
+            <input variable="treatment3"/>
+            <if expression="membership = &quot;yes&quot;">
+                <then>
+                    <if expression="treatment1 = &quot;yes&quot;">
+                        <then>
+                            <assign variable="price" expression="45 + 0"/>
+                            <if expression="treatment2 = &quot;yes&quot;">
+                                <then>
+                                    <assign variable="price" expression="price + 75"/>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 37.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 37.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="treatment2 = &quot;yes&quot;">
+                                <then>
+                                    <assign variable="price" expression="price + 75"/>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 37.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 37.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Wrong Input&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="treatment1 = &quot;yes&quot;">
+                        <then>
+                            <assign variable="price" expression="51 + 0"/>
+                            <if expression="treatment2 = &quot;yes&quot;">
+                                <then>
+                                    <assign variable="price" expression="price + 85"/>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 42.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 42.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="treatment2 = &quot;yes&quot;">
+                                <then>
+                                    <assign variable="price" expression="price + 85"/>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 42.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="treatment3 = &quot;yes&quot;">
+                                        <then>
+                                            <assign variable="price" expression="price + 42.5"/>
+                                            <output expression="&quot;your total price is RM&quot; &amp; price" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Wrong Input&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

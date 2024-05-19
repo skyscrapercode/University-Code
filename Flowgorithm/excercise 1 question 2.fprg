@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-04 10:11:36 AM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0wMzswMzoxNzo1OCBQTTsyMTMy"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0wNDsxMDoxMTozNiBBTTsyOzIyMTU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="money, RM100, RM50, RM10, RM5, RM1" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter money in ringgit&quot;" newline="True"/>
+            <input variable="money"/>
+            <assign variable="RM100" expression="money / 100"/>
+            <assign variable="RM50" expression="money % 100 / 50"/>
+            <assign variable="RM10" expression="(money % 100) % 50 / 10"/>
+            <assign variable="RM5" expression="(money % 100) % 10 / 5"/>
+            <assign variable="RM1" expression="(money % 100) % 10 % 5"/>
+            <output expression="&quot;RM100 = &quot; &amp;RM100" newline="True"/>
+            <output expression="&quot;RM50 = &quot;&amp;RM50" newline="True"/>
+            <output expression="&quot;RM10 = &quot;&amp;RM10" newline="True"/>
+            <output expression="&quot;RM5 = &quot;&amp;RM5" newline="True"/>
+            <output expression="&quot;RM1 = &quot;&amp;RM1" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

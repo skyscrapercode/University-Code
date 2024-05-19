@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-16 11:03:20 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNC0yODswNDozODoyMyBQTTsyMTM0"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNjsxMTowMzoyMCBQTTs1OzIyMzE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="coupon, firstorder" type="String" array="False" size=""/>
+            <output expression="&quot;Is this your first time ordering?(yes/no)&quot;" newline="True"/>
+            <input variable="firstorder"/>
+            <if expression="firstorder = &quot;yes&quot;">
+                <then>
+                    <output expression="&quot;What is your coupon code&quot;" newline="True"/>
+                    <input variable="coupon"/>
+                    <if expression="coupon = &quot;THANKYOU&quot;">
+                        <then>
+                            <output expression="&quot;Congrats, you got free delivery!&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;You have to pay the delivery fee&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;You have to pay the delivery fee&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

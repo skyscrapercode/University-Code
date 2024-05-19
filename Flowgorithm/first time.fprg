@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-03 02:47:51 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0wMzswMjozOTo1MSBQTTsyMTI4"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0wMzswMjo0Nzo1MSBQTTsxOzIyMzU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="name, location" type="String" array="False" size=""/>
+            <declare name="test" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter your name&quot;" newline="True"/>
+            <input variable="name"/>
+            <output expression="name" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

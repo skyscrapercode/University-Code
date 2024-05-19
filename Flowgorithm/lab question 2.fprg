@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-16 06:36:16 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNC0yODswNDoyNDoxOSBQTTsyMTM0"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNjswNjozNjoxNiBQTTs0OzIyNDU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="perimeter, area, length, width" type="Integer" array="False" size=""/>
+            <declare name="option" type="String" array="False" size=""/>
+            <output expression="&quot;What is the length&quot;" newline="True"/>
+            <input variable="length"/>
+            <output expression="&quot;What is the width&quot;" newline="True"/>
+            <input variable="width"/>
+            <assign variable="perimeter" expression="2 * (length + width)"/>
+            <assign variable="area" expression="length * width"/>
+            <output expression="&quot;Do you want perimeter, area or both?&quot;" newline="True"/>
+            <input variable="option"/>
+            <if expression="option = &quot;both&quot;">
+                <then>
+                    <output expression="&quot;Perimeter = &quot;&amp;perimeter" newline="True"/>
+                    <output expression="&quot;Area = &quot;&amp;area" newline="True"/>
+                </then>
+                <else>
+                    <if expression="option = &quot;perimeter&quot;">
+                        <then>
+                            <output expression="&quot;Perimeter = &quot;&amp;perimeter" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="option = &quot;area&quot;">
+                                <then>
+                                    <output expression="&quot;Area = &quot;&amp;area" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Wrong Input&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

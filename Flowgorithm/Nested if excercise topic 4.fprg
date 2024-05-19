@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-15 09:53:05 AM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xMDswMzozNDoxMiBQTTsyMTE5"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNTswOTo1MzowNSBBTTszOzIyMjg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalFee, Fee, Quantity" type="Real" array="False" size=""/>
+            <declare name="Nationality" type="String" array="False" size=""/>
+            <declare name="Age" type="Integer" array="False" size=""/>
+            <output expression="&quot;Are you malaysian? (Y or N)&quot;" newline="True"/>
+            <input variable="Nationality"/>
+            <output expression="&quot;What is your age&quot;" newline="True"/>
+            <input variable="Age"/>
+            <output expression="&quot;What is your quantity&quot;" newline="True"/>
+            <input variable="Quantity"/>
+            <if expression="Nationality = &quot;Y&quot; || Nationality = &quot;y&quot;">
+                <then>
+                    <if expression="Age &lt; 60">
+                        <then>
+                            <assign variable="Fee" expression="10"/>
+                        </then>
+                        <else>
+                            <assign variable="Fee" expression="5"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="Age &lt; 60">
+                        <then>
+                            <assign variable="Fee" expression="25"/>
+                        </then>
+                        <else>
+                            <assign variable="Fee" expression="15"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <assign variable="totalFee" expression="Fee * Quantity"/>
+            <output expression="&quot;The total fee is RM&quot; &amp;totalFee" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-03 03:16:13 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0wMzswMjo0Nzo1NyBQTTsyMTMz"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0wMzswMzoxNjoxMyBQTTsxOzIyMzA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="time, hour, minute, second" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter time in second&quot;" newline="True"/>
+            <input variable="time"/>
+            <assign variable="hour" expression="time / 3600"/>
+            <assign variable="minute" expression="time % 3600 / 60"/>
+            <assign variable="second" expression="time % 3600 % 60"/>
+            <output expression="&quot;hour = &quot;&amp;hour" newline="True"/>
+            <output expression="&quot;minute = &quot;&amp;minute" newline="True"/>
+            <output expression="&quot;second = &quot;&amp;second" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

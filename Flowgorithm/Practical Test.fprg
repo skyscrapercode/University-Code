@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-17 02:33:11 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNzswMToyMDoxMSBQTTsyMTE4"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xNzswMjozMzoxMSBQTTszOzIyMzM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="KPI, incentiveA, wage, incentiveB, incentiveC, percent" type="Real" array="False" size=""/>
+            <declare name="start, incentive1, incentive2, charity" type="String" array="False" size=""/>
+            <output expression="&quot;Do you want the program to start?(yes/no)&quot;" newline="True"/>
+            <input variable="start"/>
+            <if expression="start = &quot;yes&quot;">
+                <then>
+                    <output expression="&quot;What is your KPI?&quot;" newline="True"/>
+                    <input variable="KPI"/>
+                    <if expression="KPI &gt;= 95 &amp;&amp; KPI &lt;= 100">
+                        <then>
+                            <assign variable="incentiveA" expression="3200"/>
+                            <if expression="KPI &lt;= 90 &amp;&amp; KPI &lt; 95">
+                                <then>
+                                    <assign variable="incentiveA" expression="1600"/>
+                                    <if expression="KPI &gt;= 80 &amp;&amp; KPI &lt; 90">
+                                        <then>
+                                            <assign variable="incentiveA" expression="800"/>
+                                        </then>
+                                        <else>
+                                            <if expression="KPI &lt; 80">
+                                                <then>
+                                                    <assign variable="incentiveA" expression="0"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="KPI &gt;= 80 &amp;&amp; KPI &lt; 90">
+                                        <then>
+                                            <assign variable="incentiveA" expression="800"/>
+                                        </then>
+                                        <else>
+                                            <if expression="KPI &lt; 80">
+                                                <then>
+                                                    <assign variable="incentiveA" expression="0"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="KPI &lt;= 90 &amp;&amp; KPI &lt; 95">
+                                <then>
+                                    <assign variable="incentiveA" expression="1600"/>
+                                    <if expression="KPI &gt;= 80 &amp;&amp; KPI &lt; 90">
+                                        <then>
+                                            <assign variable="incentiveA" expression="800"/>
+                                        </then>
+                                        <else>
+                                            <if expression="KPI &lt; 80">
+                                                <then>
+                                                    <assign variable="incentiveA" expression="0"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="KPI &gt;= 80 &amp;&amp; KPI &lt; 90">
+                                        <then>
+                                            <assign variable="incentiveA" expression="800"/>
+                                        </then>
+                                        <else>
+                                            <if expression="KPI &lt; 80">
+                                                <then>
+                                                    <assign variable="incentiveA" expression="0"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <output expression="&quot;Do you have a professional board certification?(yes/no)&quot;" newline="True"/>
+                    <input variable="incentive1"/>
+                    <if expression="incentive1 = &quot;yes&quot;">
+                        <then>
+                            <assign variable="incentiveB" expression="255"/>
+                        </then>
+                        <else>
+                            <assign variable="incentiveB" expression="0"/>
+                        </else>
+                    </if>
+                    <output expression="&quot;Do you have full attendance?(yes/no)&quot;" newline="True"/>
+                    <input variable="incentive2"/>
+                    <if expression="incentive2 = &quot;yes&quot;">
+                        <then>
+                            <assign variable="incentiveC" expression="745"/>
+                        </then>
+                        <else>
+                            <assign variable="incentiveC" expression="0"/>
+                        </else>
+                    </if>
+                    <assign variable="wage" expression="incentiveA + incentiveB + incentiveC"/>
+                    <output expression="&quot;The total insentive you will receive is RM&quot;&amp;wage" newline="True"/>
+                    <output expression="&quot;Would you like to donate a percentage to charity?(yes/no)&quot;" newline="True"/>
+                    <input variable="charity"/>
+                    <if expression="charity = &quot;yes&quot;">
+                        <then>
+                            <output expression="&quot;How many percent would you like to donate?&quot;" newline="True"/>
+                            <input variable="percent"/>
+                            <assign variable="wage" expression="wage - (wage * percent/100)"/>
+                            <output expression="&quot;Your new net bonus after donation is RM&quot;&amp;wage" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sheik"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-05-10 03:22:52 PM"/>
+        <attribute name="created" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xMDswMzowMzo1NCBQTTsyMTIx"/>
+        <attribute name="edited" value="c2hlaWs7SE1CMTU7MjAyMy0wNS0xMDswMzoyMjo1MiBQTTsxOzIyMjg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="CGPA" type="Real" array="False" size=""/>
+            <output expression="&quot;What is your CGPA&quot;" newline="True"/>
+            <input variable="CGPA"/>
+            <if expression="CGPA&gt;=3.50">
+                <then>
+                    <output expression="&quot;You are on the dean's list!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="CGPA&gt;=1.80 &amp;&amp; CGPA&lt;3.50">
+                        <then>
+                            <output expression="&quot;Congrats, you passed!&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="CGPA&lt;1.80">
+                                <then>
+                                    <output expression="&quot;You failed, try again next time&quot;" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
