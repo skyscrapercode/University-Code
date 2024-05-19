@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\bin\Debug\2023135385.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\bin\Debug\2023135385.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\bin\Debug\2023135385.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\bin\Debug\2023135385.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\2023135385.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\_2023135385.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\_2023135385.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\2023135385.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\2023135385.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\2023135385.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\2023135385.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\2023135385\2023135385\obj\Debug\2023135385.pdb
