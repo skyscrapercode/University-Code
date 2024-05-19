@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\bin\Debug\LabWork3-2.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\bin\Debug\LabWork3-2.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\bin\Debug\LabWork3-2.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\bin\Debug\LabWork3-2.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3-2.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3_2.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3_2.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3-2.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3-2.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3-2.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3-2.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\LabWork3-2\LabWork3-2\obj\Debug\LabWork3-2.pdb
