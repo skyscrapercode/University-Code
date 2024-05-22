@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\bin\Debug\StadiumSeatingApplication.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\bin\Debug\StadiumSeatingApplication.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\bin\Debug\StadiumSeatingApplication.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\bin\Debug\StadiumSeatingApplication.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\StadiumSeatingApplication\StadiumSeatingApplication\obj\Debug\StadiumSeatingApplication.pdb

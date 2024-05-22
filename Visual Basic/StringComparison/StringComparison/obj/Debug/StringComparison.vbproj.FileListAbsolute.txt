@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\bin\Debug\StringComparison.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\bin\Debug\StringComparison.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\bin\Debug\StringComparison.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\bin\Debug\StringComparison.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\StringComparison\StringComparison\obj\Debug\StringComparison.pdb
