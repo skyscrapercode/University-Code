@@ -1,0 +1,8 @@
+
+Alfa Romeo;34800.0
+BMW;66668.0
+Mazda;42800.0
+Nissan;62500.0
+Perodua;22000.0
+Proton;47800.0
+Toyota;86300.0

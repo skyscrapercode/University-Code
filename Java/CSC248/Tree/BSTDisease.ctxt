@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=BSTDisease
+comment1.params=
+comment1.target=BSTDisease()
+comment10.params=node\ year
+comment10.target=double\ printBySpec(TreeNode,\ int)
+comment11.params=d
+comment11.target=double\ calByDisease(java.lang.String)
+comment12.params=node\ d
+comment12.target=double\ calculateByDisease(TreeNode,\ java.lang.String)
+comment2.params=d
+comment2.target=void\ insertNode(Disease)
+comment3.params=
+comment3.target=void\ printRecords()
+comment4.params=node
+comment4.target=void\ inorder(TreeNode)
+comment5.params=
+comment5.target=void\ printAll()
+comment6.params=node
+comment6.target=void\ descOrder(TreeNode)
+comment7.params=
+comment7.target=void\ printBySpecific()
+comment8.params=node
+comment8.target=void\ printBySpec(TreeNode)
+comment9.params=year
+comment9.target=void\ calTotByYear(int)
+numComments=13

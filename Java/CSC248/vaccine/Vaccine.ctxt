@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Vaccine
+comment1.params=v\ vp\ vy\ vt
+comment1.target=Vaccine(java.lang.String,\ double,\ double,\ java.lang.String)
+comment2.params=v\ vp\ vy\ vt
+comment2.target=void\ setVaccine(java.lang.String,\ double,\ double,\ java.lang.String)
+comment3.params=vp
+comment3.target=void\ setVacPrice(double)
+comment4.params=
+comment4.target=java.lang.String\ getVacNo()
+comment5.params=
+comment5.target=java.lang.String\ getVacType()
+comment6.params=
+comment6.target=double\ getVacPrice()
+comment7.params=
+comment7.target=double\ getVacYear()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

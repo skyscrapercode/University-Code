@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.34526.175
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "karateAppsDatabase", "karateAppsDatabase\karateAppsDatabase.vbproj", "{0130D0B3-8ACB-4326-8E50-87B24F2A94AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0130D0B3-8ACB-4326-8E50-87B24F2A94AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0130D0B3-8ACB-4326-8E50-87B24F2A94AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0130D0B3-8ACB-4326-8E50-87B24F2A94AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0130D0B3-8ACB-4326-8E50-87B24F2A94AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E54783C9-A9BE-4ABC-8A6E-F21B75F470CB}
+	EndGlobalSection
+EndGlobal

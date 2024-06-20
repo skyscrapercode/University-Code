@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\bin\Debug\rainfallStatistics.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\bin\Debug\rainfallStatistics.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\bin\Debug\rainfallStatistics.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\bin\Debug\rainfallStatistics.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\rainfallStatistics\rainfallStatistics\obj\Debug\rainfallStatistics.pdb

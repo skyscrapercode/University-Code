@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.34526.175
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "rainfallStatistics", "rainfallStatistics\rainfallStatistics.vbproj", "{CE5AF319-15B2-4384-B1D1-77402EAA57B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE5AF319-15B2-4384-B1D1-77402EAA57B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5AF319-15B2-4384-B1D1-77402EAA57B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5AF319-15B2-4384-B1D1-77402EAA57B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5AF319-15B2-4384-B1D1-77402EAA57B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFE765D5-C082-4285-98B2-909358F9A237}
+	EndGlobalSection
+EndGlobal

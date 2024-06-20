@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\bin\Debug\SeatingChart.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\bin\Debug\SeatingChart.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\bin\Debug\SeatingChart.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\bin\Debug\SeatingChart.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\SeatingChart\SeatingChart\obj\Debug\SeatingChart.pdb

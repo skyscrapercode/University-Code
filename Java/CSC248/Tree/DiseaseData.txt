@@ -1,0 +1,15 @@
+Pneumonia;11.4;2020
+Ischaemic heart diseases;17.0;2020
+Transport accidents;2.9;2020
+Cerebrovascular diseases;8.3;2020
+Malignant neoplasm oftrachea bronchus & lung;2.5;2020
+Pneumonia;12.2;2019
+Ischaemic heart diseases;15.0;2019
+Transport accidents;3.8;2019
+Cerebrovascular diseases;8.0;2019
+Malignant neoplasm of trachea bronchus& lung;2.4;2019
+Pneumonia;11.8;2018
+Ischaemic heart diseases;15.6;2018
+Transport accidents;3.7;2018
+Cerebrovascular diseases;7.8;2018
+Malignant neoplasm of trachea bronchus & lung;2.4;2018

@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\bin\Debug\gameShowApp.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\bin\Debug\gameShowApp.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\bin\Debug\gameShowApp.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\bin\Debug\gameShowApp.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\gameShowApp\gameShowApp\obj\Debug\gameShowApp.pdb

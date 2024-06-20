@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\bin\Debug\sumOfNumbersLoop.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\bin\Debug\sumOfNumbersLoop.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\bin\Debug\sumOfNumbersLoop.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\bin\Debug\sumOfNumbersLoop.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\sumOfNumbersLoop\sumOfNumbersLoop\obj\Debug\sumOfNumbersLoop.pdb
