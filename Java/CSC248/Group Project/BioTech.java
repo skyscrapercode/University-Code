@@ -40,7 +40,14 @@ public class BioTech
     
     public String toString()
     {
-        return ("Vaccine Name: " + vacName + " Date: " + vacDate + " Type: " + vacType + " Price: RM" + vacPrice + " Stock: " + vacStock + " ID: " + vacID); 
+        return ("\n\t====================================" + "\n" +
+                "\t|Vaccine Name: " + vacName + "\n" +
+                "\t|Date: " + vacDate + "\n" +
+                "\t|Type: " + vacType + "\n" +
+                "\t|Price: RM" + vacPrice + "\n" +
+                "\t|Stock: " + vacStock + "\n" +
+                "\t|ID: " + vacID + "\n" +
+                "\t===================================="); 
     }
     
     public String toStringToFile()

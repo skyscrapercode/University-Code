@@ -65,8 +65,15 @@ public class LinkedList
     {
         if(current != tail)
         {
-            current = current.next;
-            return current.data;
+            if (current.next != null) 
+            {
+                current = current.next;
+                return current.data; 
+            } 
+            else 
+            {
+                return null; 
+            }
         }
         else
             return null;
@@ -130,7 +137,7 @@ public class LinkedList
     public Object removeChosenNode(int position)
     {
         //Temp is head and previous is null, previous will only need to be updated if position is more then 1
-        Node temp = head, previous = null;
+        Node temp = head, previous = null,secondPrevious = null;
         
         // If the position is the first ever node then the head will point to the next node and return the removed data, no need to loop to reach the position
         if (position == 0)
@@ -145,16 +152,19 @@ public class LinkedList
         for (int i = 0; i < position; i++)
         {
             previous = temp;
-                    
-            if (previous == null) 
-            {
-                break;  
-            } 
             temp = temp.getNext(); 
         }
         
+        
         //With the location of previous we can set it to point to the next node of temp which will bypass it in the linkedlist
-        previous.setNext(temp.getNext());
+        if (temp == tail)
+        {
+            tail = previous;
+        }
+        else
+        {
+            previous.setNext(temp.getNext());    
+        }
         
         //This is just to return what was removed after the loop
         return temp.getData();

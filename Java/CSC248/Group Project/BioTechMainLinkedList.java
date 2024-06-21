@@ -53,7 +53,16 @@ public class BioTechMainLinkedList
         {
             while (choice < 1 || choice > 6)
             {
-                System.out.println("What would you like to do in BioTech Vaccine's LinkedList System?" + "\n" + "1. Remove certain vaccines information" + "\n" + "2. Search and display any vaccine information" + "\n" + "3. Update any vaccine information" + "\n" + "4. Access and display any vaccine information" + "\n" + "5. Calculate if the vaccine has expired" + "\n" + "6. Exit" );
+                System.out.println("What would you like to do in BioTech Vaccine's LinkedList System?" + "\n\t" + 
+                                    "====================================================" + "\n\t" +
+                                    "|[1] Remove certain vaccines information           |" + "\n\t" + 
+                                    "|[2] Search and display any vaccine information    |" + "\n\t" + 
+                                    "|[3] Update any vaccine information                |" + "\n\t" + 
+                                    "|[4] Access and display any vaccine information    |" + "\n\t" + 
+                                    "|[5] Calculate if the vaccine has expired          |" + "\n\t" + 
+                                    "|[6] Exit                                          |" + "\n\t" +
+                                    "====================================================");
+                System.out.print("\n\t                  = ");
                 choice = s.nextInt();
                 
                 if (choice < 1 || choice > 6)
@@ -72,13 +81,16 @@ public class BioTechMainLinkedList
                 while (obj != null)
                 {
                     BioTech BT = (BioTech) obj;
-                    str += i + ". " + BT.getVacName() + " " + BT.getVacID() + "\n";
+                    str += "[" + i + "] " + BT.getVacID() + "\n";
                     i++;
                     obj = BioTechLL.getNext();
                 }
                 s.nextLine();
-                System.out.println("Input the vaccine ID of the vaccine you would like to remove:");
+                System.out.println("Which vaccine ID would you like to remove:");
+                System.out.println("==========================================");
                 System.out.println(str);
+                System.out.println("==========================================");
+                System.out.print("\n\t                  = ");
                 input = s.nextLine(); 
                 
                 Object obj2 = BioTechLL.getFirst();
@@ -92,7 +104,7 @@ public class BioTechMainLinkedList
                     {
                         Object removedNode = BioTechLL.removeChosenNode(index);
                         BioTech removed = (BioTech) removedNode;
-                        System.out.println("The data information of: " + removed.toString() + " has been removed");
+                        System.out.println("The below vaccine information has been removed: " + BT.toString());
                         notRemoved = false;
                     }
                     
@@ -109,7 +121,7 @@ public class BioTechMainLinkedList
                 int printChoice = 0;
                 while (printChoice < 1 || printChoice > 2)
                 {
-                    System.out.println("Would you like to write the new data in a text file?" +"\n"+ "1.Yes" +"\n"+ "2.No");
+                    System.out.println("Would you like to write the new data in a text file?" +"\n"+ "[1]Yes" +"\n"+ "[2]No");
                     printChoice = s.nextInt();
                     if (printChoice < 1 || printChoice > 2)
                     {
@@ -121,7 +133,9 @@ public class BioTechMainLinkedList
                 String fileName;
                 if (printChoice == 1)
                 {
-                    System.out.println("What would you like the new file to be named: ");
+                    System.out.println("\tWhat would you like the new file to be named: ");
+                    System.out.println("\t==============================================");
+                    System.out.print("\n\t                  = ");
                     s.nextLine();
                     fileName = s.nextLine();
                     
@@ -135,26 +149,27 @@ public class BioTechMainLinkedList
                     }
                     pw.close();
                     
-                    System.out.println("File named " + fileName + ".txt has been created.");
+                    System.out.println("\tFile name " + fileName + ".txt has been created.");
+                    System.out.println("\t===============================================");
                 }
-                
-                
             }
             else if (choice == 2)
             {
                 //Azim's code
-                
+                s.nextLine();
                 int i = 1;
                 Object obj = BioTechLL.getFirst();
                 while (obj != null)
                 {
                     BioTech BT = (BioTech) obj;
-                    System.out.println(i + "." + BT.getVacID());
+                    System.out.println("[" + i + "] " + BT.getVacID());
                     i++;
                     obj = BioTechLL.getNext();
                 }
                 
-                System.out.println("Enter Vaccine ID you want to search:");
+                System.out.println("\tEnter the Vaccine ID you want to search:");
+                System.out.println("\t==============================================");
+                System.out.print("\n\t                  = ");
                 String search = s.nextLine();
                 BioTech found = null;
                 
@@ -182,17 +197,20 @@ public class BioTechMainLinkedList
             else if (choice == 3)
             {
                 //Azim's code
+                s.nextLine();
                 int i = 1;
                 Object obj = BioTechLL.getFirst();
                 while (obj != null)
                 {
                     BioTech BT = (BioTech) obj;
-                    System.out.println(i + "." + BT.getVacID());
+                    System.out.println("[" + i + "] " + BT.getVacID());
                     i++;
                     obj = BioTechLL.getNext();
                 }
                 
-                System.out.println("Enter Vaccine ID you want to update:");
+                System.out.println("\tEnter Vaccine ID you want to update:");
+                System.out.println("\t=====================================");
+                System.out.print("\n\t                  = ");
                 String search2 = s.nextLine();
                 boolean indicator = false; 
                 BioTech found2 = null;
@@ -211,7 +229,17 @@ public class BioTechMainLinkedList
                 
                 if(indicator)
                 {
-                    System.out.println("What do you want to update?\n[0]Exit\n[1]Vaccine Name\n[2]Vaccine Expiry Date\n[3]Vaccine Type\n[4]Vaccine Price\n[5]Vaccine Stock\n[6]Vaccine ID");
+                    System.out.println("\tWhat do you want to update?\n" +
+                                        "\t================================" + "\n" +
+                                        "\t|[0]Exit                       |\n" + 
+                                        "\t|[1]Vaccine Name               |\n" +
+                                        "\t|[2]Vaccine Expiry Date        |\n" +
+                                        "\t|[3]Vaccine Type               |\n" +
+                                        "\t|[4]Vaccine Price              |\n" +
+                                        "\t|[5]Vaccine Stock              |\n" +
+                                        "\t|[6]Vaccine ID                 |\n" +
+                                        "\t================================");
+                    System.out.print("\n\t                  = ");
                     int option = s.nextInt();
                     switch (option) {
                         case 1:
@@ -243,12 +271,15 @@ public class BioTechMainLinkedList
                 {
                     System.out.println("Information for the Vaccine ID NOT FOUND");
                 }
-                
-                
+
                 int printChoice;
                 do
                 {
-                    System.out.println("Would you like to write the new data in a text file?\n1.Yes\n2.No");
+                    System.out.println("\tWould you like to write the new data in a text file?\n" +
+                                        "\t======================================================\n" +
+                                        "\t|              [1]Yes              [2]No             |\n" +
+                                        "\t======================================================");
+                    System.out.print("\n\t                  = ");
                     printChoice = s.nextInt(); s.nextLine();
                     if(printChoice < 1 || printChoice > 2)
                     {
@@ -258,7 +289,9 @@ public class BioTechMainLinkedList
                 
                 if(printChoice == 1)
                 {
-                    System.out.println("What would you like the new file to be named:");
+                    System.out.println("\tWhat would you like the new file to be named:");
+                    System.out.println("\t===============================================");
+                    System.out.print("\n\t                  = ");
                     String fileName = s.nextLine();
                     PrintWriter pw  = new PrintWriter(new FileWriter(fileName + ".txt"));
                     obj1 = BioTechLL.getFirst();
@@ -278,13 +311,14 @@ public class BioTechMainLinkedList
                 //Adam's code
                 int i = 1, option = 0;
                 String vacID;
+                boolean found = false;
                 System.out.println("Which vaccine ID would you like to get more information on?"); 
                 
                 Object obj = BioTechLL.getFirst();
                 while (obj != null)
                 {
                     BioTech BT = (BioTech) obj;
-                    System.out.println(i + "." + BT.getVacID());
+                    System.out.println("[" + i + "] " + BT.getVacID());
                     i++;
                     obj = BioTechLL.getNext();
                 }
@@ -299,6 +333,7 @@ public class BioTechMainLinkedList
                     {
                         while (option < 1 || option > 6)
                         {
+                            found = true;
                             System.out.println("What would you like to access: " +" \n" + "1. Vaccine Name" +"\n"+ "2. Vaccine Date" +"\n"+ "3. Vaccine Type" +"\n"+ "4. Vaccine Price" +"\n"+ "5. Vaccine Stock" +"\n"+ "6. Vaccine ID" );
                             option = s.nextInt();
                             if (option == 1)
@@ -334,7 +369,8 @@ public class BioTechMainLinkedList
                     obj = BioTechLL.getNext();
                 }
                 
-                
+                if (!found)
+                    System.out.println("Information for the Vaccine ID NOT FOUND");
                 
             }
             else if(choice == 5)
@@ -343,6 +379,7 @@ public class BioTechMainLinkedList
                 
                 int i = 1;
                 LocalDate currentDate = LocalDate.now();
+                boolean indicator = false;
                 s.nextLine();
                 System.out.println("Enter Vaccine ID you want to search:");
                 
@@ -350,7 +387,7 @@ public class BioTechMainLinkedList
                 while (obj != null)
                 {
                     BioTech BT = (BioTech) obj;
-                    System.out.println(i + "." + BT.getVacID());
+                    System.out.println("[" + i + "] " + BT.getVacID());
                     i++;
                     obj = BioTechLL.getNext();
                 }
@@ -373,30 +410,36 @@ public class BioTechMainLinkedList
                     exp = BioTechLL.getNext();
                 }
                 
-                DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate targetDate = LocalDate.parse(inputDate, format);
-                System.out.println( "Vaccine ID: " + found.getVacID() + " Vaccine expiry date : " + targetDate + "\nCurrent date : " + currentDate ); 
-                long daysBetween = ChronoUnit.DAYS.between(currentDate, targetDate);
-                
-                if(daysBetween > 0)
+                if(!indicator)
                 {
-                    System.out.println(found.getVacID() + " expires in: " + daysBetween + " days");
-                }
-                else if (daysBetween == 0)
-                {
-                    System.out.println("The vaccine expires today");
+                    System.out.println("Information for the Vaccine ID NOT FOUND");
                 }
                 else
                 {
-                    daysBetween = daysBetween * -1;
-                    System.out.println(found.getVacID() + " has expired " + daysBetween + " days ago");
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate targetDate = LocalDate.parse(inputDate, format);
+                    System.out.println( "Vaccine ID: " + found.getVacID() + " Vaccine expiry date : " + targetDate + "\nCurrent date : " + currentDate ); 
+                    long daysBetween = ChronoUnit.DAYS.between(currentDate, targetDate);
+                    
+                    if(daysBetween > 0)
+                    {
+                        System.out.println(found.getVacID() + " expires in: " + daysBetween + " days");
+                    }
+                    else if (daysBetween == 0)
+                    {
+                        System.out.println("The vaccine expires today");
+                    }
+                    else
+                    {
+                        daysBetween = daysBetween * -1;
+                        System.out.println(found.getVacID() + " has expired " + daysBetween + " days ago");
+                    }
                 }
             }
             else
             {
                 System.exit(0);
             }
-            
             choice = 0;
         }
         
