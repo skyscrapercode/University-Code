@@ -53,7 +53,7 @@ public class BioTechMainQueue
         {
             while (choice < 1 || choice > 6)
             {
-                System.out.println("What would you like to do in BioTech Vaccine's LinkedList System?" + "\n\t" + 
+                System.out.println("What would you like to do in BioTech Vaccine's Queue System?" + "\n\t" + 
                                     "====================================================" + "\n\t" +
                                     "|[1] Remove certain vaccines information           |" + "\n\t" + 
                                     "|[2] Search and display any vaccine information    |" + "\n\t" + 
@@ -103,7 +103,6 @@ public class BioTechMainQueue
                 {
                     Object obj = BioTechQ.dequeue();
                     BioTech BT = (BioTech) obj;
-    
                     
                     if (BT.getVacID().equalsIgnoreCase(input))
                     {
@@ -114,6 +113,11 @@ public class BioTechMainQueue
                     {
                         tempQ.enqueue(BT);
                     }
+                }
+                
+                while (!tempQ.isEmpty())
+                {
+                    BioTechQ.enqueue(tempQ.dequeue());
                 }
                 
                 if (notRemoved)
@@ -216,7 +220,7 @@ public class BioTechMainQueue
             {
                 //Azim's code
                 s.nextLine();
-                int i = 1;
+                int i = 1, option = 0;
                 while (!BioTechQ.isEmpty())
                 {
                     Object obj = BioTechQ.dequeue();
@@ -259,7 +263,7 @@ public class BioTechMainQueue
                                         "\t|[6]Vaccine ID                 |\n" +
                                         "\t================================");
                     System.out.print("\n\t                  = ");
-                    int option = s.nextInt();
+                    option = s.nextInt();
                     switch (option) {
                         case 1:
                             s.nextLine(); System.out.println("Enter new vaccine name:"); String newname = s.nextLine();
@@ -284,21 +288,27 @@ public class BioTechMainQueue
                             System.out.println("Exiting without making any updates.");
                             break;
                     }
-                    System.out.println("\n" + found2.toString());
-                    int printChoice;
-                    do
+                    
+                    
+                    int printChoice = 0;
+                    if (option != 0)
                     {
-                        System.out.println("\tWould you like to write the new data in a text file?\n" +
-                                           "\t======================================================\n" +
-                                           "\t|              [1]Yes              [2]No             |\n" +
-                                           "\t======================================================");
-                        System.out.print("\n\t                  = ");
-                        printChoice = s.nextInt(); s.nextLine();
-                        if(printChoice < 1 || printChoice > 2)
+                        System.out.println("\n" + found2.toString());
+                        do
                         {
-                            System.out.println("Wrong input, Please input either 1 or 2");
-                        }
-                    }while(printChoice < 1 || printChoice > 2);
+                            System.out.println("\tWould you like to write the new data in a text file?\n" +
+                                                "\t======================================================\n" +
+                                                "\t|              [1]Yes              [2]No             |\n" +
+                                                "\t======================================================");
+                            System.out.print("\n\t                  = ");
+                            printChoice = s.nextInt(); s.nextLine();
+                            if(printChoice < 1 || printChoice > 2)
+                            {
+                                System.out.println("Wrong input, Please input either 1 or 2");
+                            }
+                        }while(printChoice < 1 || printChoice > 2);   
+                    }
+                
                     if(printChoice == 1)
                     {
                         System.out.println("\tWhat would you like the new file to be named:");
@@ -350,7 +360,7 @@ public class BioTechMainQueue
                 System.out.print("\n\t                  = ");
                 vacID = s.nextLine();
                 
-                while (BioTechQ.isEmpty())
+                while (!BioTechQ.isEmpty())
                 {
                     Object obj = BioTechQ.dequeue();
                     BioTech BT = (BioTech) obj;
@@ -360,7 +370,17 @@ public class BioTechMainQueue
                         found = true;
                         while (option < 1 || option > 6)
                         {
-                            System.out.println("What would you like to access: " +" \n" + "1. Vaccine Name" +"\n"+ "2. Vaccine Date" +"\n"+ "3. Vaccine Type" +"\n"+ "4. Vaccine Price" +"\n"+ "5. Vaccine Stock" +"\n"+ "6. Vaccine ID" );
+                            System.out.println("\tWhat do you want to search?\n" +
+                                        "\t================================" + "\n" +
+                                        "\t|[0]Exit                       |\n" + 
+                                        "\t|[1]Vaccine Name               |\n" +
+                                        "\t|[2]Vaccine Expiry Date        |\n" +
+                                        "\t|[3]Vaccine Type               |\n" +
+                                        "\t|[4]Vaccine Price              |\n" +
+                                        "\t|[5]Vaccine Stock              |\n" +
+                                        "\t|[6]Vaccine ID                 |\n" +
+                                        "\t================================");
+                            System.out.print("\n\t                  = ");
                             option = s.nextInt();
                             if (option == 1)
                             {
@@ -386,13 +406,19 @@ public class BioTechMainQueue
                             {
                                 System.out.println("The Vaccine ID is: " + BT.getVacID());
                             }
+                            else if (option == 0)
+                            {
+                                System.out.println("Exiting without searching");
+                                break;
+                            }
                             else
                             {
                                 System.out.println("Wrong Input, Please Input 1-6");
-                            }    
+                            }
                         }
                     }
                 }
+                
                 while(!tempQ.isEmpty())
                 {
                     BioTechQ.enqueue(tempQ.dequeue());
@@ -459,6 +485,7 @@ public class BioTechMainQueue
             }
             else
             {
+                System.out.println("Thank you for using our system, goodbye!");
                 System.exit(0);
             }
             choice = 0;

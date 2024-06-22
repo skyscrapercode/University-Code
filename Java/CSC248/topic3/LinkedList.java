@@ -133,4 +133,38 @@ public class LinkedList
             
         return d;
     }
+    
+    public Object removeChosenNode(int position)
+    {
+        //Temp is head and previous is null, previous will only need to be updated if position is more then 1
+        Node temp = head, previous = null;
+        
+        // If the position is the first ever node then the program will point to the next node and return the removed data, no need to loop to reach the position
+        if (position == 0)
+        {
+            Node removedNode = head;
+            head = head.getNext();
+            return removedNode.getData();
+        }
+        
+        //If the position is not the first ever node then the program will go through the linkedlist until it reaches the correct position
+        //Previous and temp are equal until it reaches the position where temp will be one node infront
+        for (int i = 0; i < position; i++)
+        {
+            previous = temp;
+                    
+            if (previous == null) 
+            {
+                break;  
+            } 
+            temp = temp.getNext(); 
+        }
+        
+        //With the location of previous we can set it to point to the next node of temp which will bypass it in the linkedlist
+        previous.setNext(temp.getNext());
+        
+        //This is just to return what was removed after the loop
+        return temp.getData();
+    }
+
 }

@@ -134,23 +134,35 @@ public class LinkedList
     }
     
     //Remove node anywhere in the list
-    public Object removeChosenNode(int position)
+    public Object removeChosenNode(String key)
     {
         //Temp is head and previous is null, previous will only need to be updated if position is more then 1
-        Node temp = head, previous = null,secondPrevious = null;
+        Node temp = head, previous = null;
         
         // If the position is the first ever node then the head will point to the next node and return the removed data, no need to loop to reach the position
-        if (position == 0)
+        if (temp != null)
         {
-            Node removedNode = head;
-            head = head.getNext();
-            return removedNode.getData();
+            Object obj = temp.getData();
+            BioTech BT = (BioTech) obj;
+            if (BT.getVacID().equalsIgnoreCase(key))
+            {
+                Node removedNode = head;
+                head = head.getNext();
+                return removedNode.getData();
+            }
+            
         }
         
         //If the position is not the first ever node then the program will go through the linkedlist until it reaches the correct position
         //Previous and temp are equal until it reaches the position where temp will be one node infront
-        for (int i = 0; i < position; i++)
+        while (temp != null)
         {
+            Object obj = temp.getData();
+            BioTech BT = (BioTech) obj;
+            if (BT.getVacID().equalsIgnoreCase(key))
+            {
+                break;
+            }
             previous = temp;
             temp = temp.getNext(); 
         }
@@ -161,9 +173,13 @@ public class LinkedList
         {
             tail = previous;
         }
+        else if (temp == null)
+        {
+            return null;   
+        }
         else
         {
-            previous.setNext(temp.getNext());    
+            previous.setNext(temp.getNext()); 
         }
         
         //This is just to return what was removed after the loop
