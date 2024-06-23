@@ -342,7 +342,8 @@ public class BioTechMainQueue
                 int i = 1, option = 0;
                 String vacID;
                 boolean found = false;
-                System.out.println("Which vaccine ID would you like to get more information on:"); 
+                System.out.println("Which vaccine ID would you like to get more information on:");
+                System.out.println("===========================================================");
                 while (!BioTechQ.isEmpty())
                 {
                     Object obj = BioTechQ.dequeue();
@@ -433,7 +434,8 @@ public class BioTechMainQueue
                 int i = 1;
                 LocalDate currentDate = LocalDate.now();
                 s.nextLine();
-                System.out.println("Enter Vaccine ID you want to search:");
+                System.out.println("Enter Vaccine ID you want to check expiry:");
+                System.out.println("==========================================");
                 while (!BioTechQ.isEmpty())
                 {
                     Object obj = BioTechQ.dequeue();
@@ -446,6 +448,7 @@ public class BioTechMainQueue
                 {
                     BioTechQ.enqueue(tempQ.dequeue());
                 }
+                System.out.print("\n\t                  = ");
                 String search = s.nextLine();
                 String inputDate = "";
                 BioTech found = null;

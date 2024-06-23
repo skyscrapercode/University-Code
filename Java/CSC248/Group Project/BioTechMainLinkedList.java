@@ -309,7 +309,8 @@ public class BioTechMainLinkedList
                 int i = 1, option = 0;
                 String vacID;
                 boolean found = false;
-                System.out.println("Which vaccine ID would you like to get more information on?"); 
+                System.out.println("Which vaccine ID would you like to get more information on:");
+                System.out.println("===========================================================");
                 
                 Object obj = BioTechLL.getFirst();
                 while (obj != null)
@@ -320,6 +321,7 @@ public class BioTechMainLinkedList
                     obj = BioTechLL.getNext();
                 }
                 s.nextLine();
+                System.out.print("\n\t                  = ");
                 vacID = s.nextLine();
                 obj = BioTechLL.getFirst();
                 while (obj != null)
@@ -395,8 +397,8 @@ public class BioTechMainLinkedList
                 LocalDate currentDate = LocalDate.now();
                 boolean indicator = false;
                 s.nextLine();
-                System.out.println("Enter Vaccine ID you want to search:");
-                
+                System.out.println("Enter Vaccine ID you want to check expiry:");
+                System.out.println("==========================================");
                 Object obj = BioTechLL.getFirst();
                 while (obj != null)
                 {
@@ -405,7 +407,7 @@ public class BioTechMainLinkedList
                     i++;
                     obj = BioTechLL.getNext();
                 }
-                
+                System.out.print("\n\t                  = ");
                 String search = s.nextLine();
                 
                 String inputDate = "";
