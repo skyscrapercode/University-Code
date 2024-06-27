@@ -82,7 +82,7 @@ public class BioTechMainQueue
                 {
                     Object obj = BioTechQ.dequeue();
                     BioTech BT = (BioTech) obj;
-                    str += "\n\t[ " + BT.getVacID() + " ]";
+                    str += "[" + i + "] " + BT.getVacID() + "\n";
                     i++;
                     tempQ.enqueue(BT);
                 }
@@ -120,23 +120,31 @@ public class BioTechMainQueue
                     BioTechQ.enqueue(tempQ.dequeue());
                 }
                 
+                int printChoice = 0;
+                
                 if (notRemoved)
                 {
                     System.out.println("Wrong Input, Please Input the correct vaccine ID");
-                    System.exit(0);
+                    printChoice = 2;
+                }
+                else
+                {
+                    while (printChoice < 1 || printChoice > 2)
+                    {
+                        System.out.println("\tWould you like to write the new data in a text file?\n" +
+                                                "\t======================================================\n" +
+                                                "\t|              [1]Yes              [2]No             |\n" +
+                                                "\t======================================================");
+                            System.out.print("\n\t                  = ");
+                        printChoice = s.nextInt();
+                        if (printChoice < 1 || printChoice > 2)
+                        {
+                            System.out.println("Wrong Input, Please Input either 1 or 2");
+                        }
+                        
+                    }    
                 }
                 
-                int printChoice = 0;
-                while (printChoice < 1 || printChoice > 2)
-                {
-                    System.out.println("Would you like to write the new data in a text file?" +"\n"+ "[1]Yes" +"\n"+ "[2]No");
-                    printChoice = s.nextInt();
-                    if (printChoice < 1 || printChoice > 2)
-                    {
-                        System.out.println("Wrong Input, Please Input either 1 or 2");
-                    }
-                    
-                }
                 
                 String fileName;
                 if (printChoice == 1)
@@ -324,7 +332,7 @@ public class BioTechMainQueue
                             BioTechQ.enqueue(obj);
                         }
                         pw.close();
-                        System.out.println("\tFile named: " + fileName + ".txt has been succesfully created!");
+                        System.out.println("\tFile named: " + fileName + ".txt has been successfully created!");
                     }
                 }
                 else

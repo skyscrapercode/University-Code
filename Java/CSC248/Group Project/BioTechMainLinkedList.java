@@ -1,3 +1,4 @@
+
 /**
  * Write a description of class BioTechMainLinkedList here.
  *
@@ -73,7 +74,7 @@ public class BioTechMainLinkedList
             
             if (choice == 1)
             {
-                //Adam's code
+                //Adam's code - Remove anywhere in the list
                 String str = "", input;
                 int i = 1;
                 boolean notRemoved = true;
@@ -97,31 +98,33 @@ public class BioTechMainLinkedList
                 Object removedNode = BioTechLL.removeChosenNode(input);
                 BioTech removed = (BioTech) removedNode;
                 
+                int printChoice = 0;
+                
                 if (removedNode != null)
                 {
                     System.out.println("The below vaccine information has been removed: " + removed.toString());
+                    while (printChoice < 1 || printChoice > 2)
+                    {
+                        System.out.println("\tWould you like to write the new data in a text file?\n" +
+                                            "\t======================================================\n" +
+                                            "\t|              [1]Yes              [2]No             |\n" +
+                                            "\t======================================================");
+                        System.out.print("\n\t                  = ");
+                        printChoice = s.nextInt();
+                        if (printChoice < 1 || printChoice > 2)
+                        {
+                            System.out.println("Wrong Input, Please Input either 1 or 2");
+                        }
+                        
+                    }
                 }
                 else
                 {
                     System.out.println("Wrong Input, Please Input the correct vaccine ID");
+                    printChoice = 2;
                 }
     
                 
-                int printChoice = 0;
-                while (printChoice < 1 || printChoice > 2)
-                {
-                    System.out.println("\tWould you like to write the new data in a text file?\n" +
-                                        "\t======================================================\n" +
-                                        "\t|              [1]Yes              [2]No             |\n" +
-                                        "\t======================================================");
-                    System.out.print("\n\t                  = ");
-                    printChoice = s.nextInt();
-                    if (printChoice < 1 || printChoice > 2)
-                    {
-                        System.out.println("Wrong Input, Please Input either 1 or 2");
-                    }
-                    
-                }
                 
                 String fileName;
                 if (printChoice == 1)
@@ -148,7 +151,7 @@ public class BioTechMainLinkedList
             }
             else if (choice == 2)
             {
-                //Azim's code
+                //Azim's code - Search and Display
                 s.nextLine();
                 int i = 1;
                 Object obj = BioTechLL.getFirst();
@@ -189,7 +192,7 @@ public class BioTechMainLinkedList
             }
             else if (choice == 3)
             {
-                //Azim's code
+                //Azim's code - Vaccine to update
                 s.nextLine();
                 int i = 1, option = 0;
                 Object obj = BioTechLL.getFirst();
@@ -299,13 +302,13 @@ public class BioTechMainLinkedList
                         obj1 = BioTechLL.getNext();
                     }
                     pw.close();
-                    System.out.println("File named: " + fileName + ".txt has been succesfully created!");
+                    System.out.println("File named: " + fileName + ".txt has been successfully created!");
                 }
                 
             }
             else if (choice == 4)
             {
-                //Adam's code
+                //Adam's code - Access specific vaccine details
                 int i = 1, option = 0;
                 String vacID;
                 boolean found = false;

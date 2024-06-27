@@ -31,15 +31,15 @@ Partial Class paymentForm
         Me.txtAmount = New System.Windows.Forms.TextBox()
         Me.btnInsertPayment = New System.Windows.Forms.Button()
         Me.dgvPayments = New System.Windows.Forms.DataGridView()
-        Me.PaymentsDataSet = New karateAppsDatabase.PaymentsDataSet()
-        Me.PaymentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PaymentsTableAdapter = New karateAppsDatabase.PaymentsDataSetTableAdapters.PaymentsTableAdapter()
         Me.MemberIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PaymentDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PaymentsDataSet = New karateAppsDatabase.PaymentsDataSet()
+        Me.PaymentsTableAdapter = New karateAppsDatabase.PaymentsDataSetTableAdapters.PaymentsTableAdapter()
         CType(Me.dgvPayments, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PaymentsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PaymentsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PaymentsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -116,20 +116,6 @@ Partial Class paymentForm
         Me.dgvPayments.Size = New System.Drawing.Size(729, 251)
         Me.dgvPayments.TabIndex = 7
         '
-        'PaymentsDataSet
-        '
-        Me.PaymentsDataSet.DataSetName = "PaymentsDataSet"
-        Me.PaymentsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PaymentsBindingSource
-        '
-        Me.PaymentsBindingSource.DataMember = "Payments"
-        Me.PaymentsBindingSource.DataSource = Me.PaymentsDataSet
-        '
-        'PaymentsTableAdapter
-        '
-        Me.PaymentsTableAdapter.ClearBeforeFill = True
-        '
         'MemberIDDataGridViewTextBoxColumn
         '
         Me.MemberIDDataGridViewTextBoxColumn.DataPropertyName = "Member_ID"
@@ -151,6 +137,20 @@ Partial Class paymentForm
         Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
         Me.AmountDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'PaymentsBindingSource
+        '
+        Me.PaymentsBindingSource.DataMember = "Payments"
+        Me.PaymentsBindingSource.DataSource = Me.PaymentsDataSet
+        '
+        'PaymentsDataSet
+        '
+        Me.PaymentsDataSet.DataSetName = "PaymentsDataSet"
+        Me.PaymentsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PaymentsTableAdapter
+        '
+        Me.PaymentsTableAdapter.ClearBeforeFill = True
+        '
         'paymentForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -167,8 +167,8 @@ Partial Class paymentForm
         Me.Name = "paymentForm"
         Me.Text = "Insert Karate Payments"
         CType(Me.dgvPayments, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PaymentsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PaymentsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaymentsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

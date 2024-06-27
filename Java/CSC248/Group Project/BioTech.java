@@ -52,6 +52,6 @@ public class BioTech
     
     public String toStringToFile()
     {
-        return "\n" + vacName + ";" + vacDate + ";" + vacType + ";" + vacPrice + ";" + vacStock + ";" + vacID;
+        return vacName + ";" + vacDate + ";" + vacType + ";" + vacPrice + ";" + vacStock + ";" + vacID + "\n";
     }
 }

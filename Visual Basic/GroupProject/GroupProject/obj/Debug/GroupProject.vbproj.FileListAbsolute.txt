@@ -1,0 +1,38 @@
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.exe.config
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.exe
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.pdb
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.xml
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.vbprojAssemblyReference.cache
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.Form1.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.Resources.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.GenerateResource.cache
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.CoreCompileInputs.cache
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.exe
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.xml
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.formAccInterface.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.frmAbout.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.frmOrderHistory.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.login.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.home.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.OrderMenu.resources
+C:\Users\VICTUS\source\repos\GroupProject\GroupProject\bin\Debug\databasegp.mdb
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\bin\Debug\databasegp.mdb
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\bin\Debug\GroupProject.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\bin\Debug\GroupProject.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\bin\Debug\GroupProject.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\bin\Debug\GroupProject.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.formAccInterface.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.FrmAbout.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.frmOrderHistory.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.login.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.home.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.OrderMenu.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.CoreCompileInputs.cache

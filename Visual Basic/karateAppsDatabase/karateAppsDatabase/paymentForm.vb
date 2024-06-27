@@ -11,4 +11,6 @@
         Me.PaymentsTableAdapter.Insert(CInt(txtMemberID.Text), CDate(txtDate.Text), CDec(txtAmount.Text))
         Me.PaymentsTableAdapter.Fill(PaymentsDataSet.Payments)
     End Sub
+
+
 End Class
