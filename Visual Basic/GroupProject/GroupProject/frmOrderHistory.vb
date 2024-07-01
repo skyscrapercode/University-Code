@@ -19,7 +19,11 @@ Public Class frmOrderHistory
         Dim connection As New OleDbConnection(connectionString)
         Me.ReceiptTableAdapter.Connection = connection
 
+        Me.PaymentTableAdapter.Connection = connection
+        'TODO: This line of code loads data into the 'DatabasegpDataSet.Payment' table. You can move, or remove it, as needed.
+        Me.PaymentTableAdapter.Fill(Me.DatabasegpDataSet.Payment)
 
+        'TODO: This line of code loads data into the 'DatabasegpDataSet.Receipt' table. You can move, or remove it, as needed.
         Me.ReceiptTableAdapter.Fill(Me.DatabasegpDataSet.Receipt)
     End Sub
 End Class

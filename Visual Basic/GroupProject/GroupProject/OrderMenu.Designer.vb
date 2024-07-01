@@ -395,7 +395,7 @@ Partial Class OrderMenu
         Me.btnCalculate.Name = "btnCalculate"
         Me.btnCalculate.Size = New System.Drawing.Size(181, 52)
         Me.btnCalculate.TabIndex = 25
-        Me.btnCalculate.Text = "Payment"
+        Me.btnCalculate.Text = "Checkout"
         Me.btnCalculate.UseVisualStyleBackColor = False
         '
         'OrderMenu

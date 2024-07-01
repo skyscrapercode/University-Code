@@ -106,6 +106,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>databasegpDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="databasegpDataSet.vb">
+      <DependentUpon>databasegpDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbout.Designer.vb">
       <DependentUpon>FrmAbout.vb</DependentUpon>
     </Compile>
@@ -131,6 +134,7 @@
     <Compile Include="home.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

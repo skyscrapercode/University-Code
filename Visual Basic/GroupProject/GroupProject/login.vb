@@ -11,24 +11,29 @@ Public Class login
 
     Private Function CheckUserCredentials(ByVal email As String, ByVal password As String) As Boolean
         ' Connection string to your Access database
-        Dim query As String = "SELECT COUNT(*) FROM Customer WHERE Email = @Email AND Password = @Password"
+        Dim query As String = "SELECT CUST_ID FROM Customer WHERE Email = @Email AND Password = @Password"
 
         ' Use OleDbConnection, OleDbCommand to connect and query the database
         Using connection As New OleDbConnection(connectionString)
             Using command As New OleDbCommand(query, connection)
                 ' Add parameters to prevent SQL injection
-                command.Parameters.AddWithValue("@Email", email)
-                command.Parameters.AddWithValue("@Password", password)
+                command.Parameters.AddWithValue("@Email", email.Trim())
+                command.Parameters.AddWithValue("@Password", password.Trim())
 
                 Try
                     'Open the connection
                     connection.Open()
 
                     ' Execute the query and get the result
-                    Dim userCount As Integer = Convert.ToInt32(command.ExecuteScalar())
+                    Dim userID As Integer = Convert.ToInt32(command.ExecuteScalar())
 
-                    ' If userCount is greater than 0, it means the user exists
-                    Return userCount > 0
+                    If userID > 0 Then
+                        Module1.CUSTID.Add(userID)
+                    End If
+
+
+
+                    Return userID > 0
                 Catch ex As Exception
                     ' Handle exceptions
                     MessageBox.Show("An error occurred: " & ex.Message)
@@ -70,9 +75,12 @@ Public Class login
         Using connection As New OleDbConnection(connectionString)
             connection.Open()
             Dim command As New OleDbCommand("INSERT INTO Customer(Email, [Password]) VALUES(@email, @pass)", connection)
-            command.Parameters.AddWithValue("@email", registerEmail)
-            command.Parameters.AddWithValue("@pass", registerPassword)
+            command.Parameters.AddWithValue("@email", registerEmail.Trim())
+            command.Parameters.AddWithValue("@pass", registerPassword.Trim())
             command.ExecuteNonQuery()
+
+            Dim command1 As New OleDbCommand("SELECT CUST_ID FROM CUSTOMER WHERE Email = @Email AND Password = @Password", connection)
+            Module1.CUSTID.Add(command1.ExecuteScalar())
             connection.Close()
         End Using
     End Sub
