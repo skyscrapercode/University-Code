@@ -1008,15 +1008,15 @@ Partial Public Class databasegpDataSet
         
         Private columnReceipt_ID As Global.System.Data.DataColumn
         
-        Private columnCurrentDate As Global.System.Data.DataColumn
-        
-        Private columnFoodName As Global.System.Data.DataColumn
+        Private columnTotalPrice As Global.System.Data.DataColumn
         
         Private columnDrinksName As Global.System.Data.DataColumn
         
         Private columnSidesName As Global.System.Data.DataColumn
         
-        Private columnTotalPrice As Global.System.Data.DataColumn
+        Private columnFoodName As Global.System.Data.DataColumn
+        
+        Private columnCurrentDate As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -1063,17 +1063,9 @@ Partial Public Class databasegpDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property CurrentDateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TotalPriceColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCurrentDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property FoodNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFoodName
+                Return Me.columnTotalPrice
             End Get
         End Property
         
@@ -1095,9 +1087,17 @@ Partial Public Class databasegpDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property TotalPriceColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property FoodNameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTotalPrice
+                Return Me.columnFoodName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CurrentDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCurrentDate
             End Get
         End Property
         
@@ -1138,9 +1138,9 @@ Partial Public Class databasegpDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddReceiptRow(ByVal CurrentDate As Date, ByVal FoodName As String, ByVal DrinksName As String, ByVal SidesName As String, ByVal TotalPrice As Decimal) As ReceiptRow
+        Public Overloads Function AddReceiptRow(ByVal TotalPrice As Decimal, ByVal DrinksName As String, ByVal SidesName As String, ByVal FoodName As String, ByVal CurrentDate As Date) As ReceiptRow
             Dim rowReceiptRow As ReceiptRow = CType(Me.NewRow,ReceiptRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CurrentDate, FoodName, DrinksName, SidesName, TotalPrice}
+            Dim columnValuesArray() As Object = New Object() {Nothing, TotalPrice, DrinksName, SidesName, FoodName, CurrentDate}
             rowReceiptRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReceiptRow)
             Return rowReceiptRow
@@ -1170,11 +1170,11 @@ Partial Public Class databasegpDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnReceipt_ID = MyBase.Columns("Receipt_ID")
-            Me.columnCurrentDate = MyBase.Columns("CurrentDate")
-            Me.columnFoodName = MyBase.Columns("FoodName")
+            Me.columnTotalPrice = MyBase.Columns("TotalPrice")
             Me.columnDrinksName = MyBase.Columns("DrinksName")
             Me.columnSidesName = MyBase.Columns("SidesName")
-            Me.columnTotalPrice = MyBase.Columns("TotalPrice")
+            Me.columnFoodName = MyBase.Columns("FoodName")
+            Me.columnCurrentDate = MyBase.Columns("CurrentDate")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1182,30 +1182,25 @@ Partial Public Class databasegpDataSet
         Private Sub InitClass()
             Me.columnReceipt_ID = New Global.System.Data.DataColumn("Receipt_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnReceipt_ID)
-            Me.columnCurrentDate = New Global.System.Data.DataColumn("CurrentDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCurrentDate)
-            Me.columnFoodName = New Global.System.Data.DataColumn("FoodName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFoodName)
+            Me.columnTotalPrice = New Global.System.Data.DataColumn("TotalPrice", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTotalPrice)
             Me.columnDrinksName = New Global.System.Data.DataColumn("DrinksName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDrinksName)
             Me.columnSidesName = New Global.System.Data.DataColumn("SidesName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSidesName)
-            Me.columnTotalPrice = New Global.System.Data.DataColumn("TotalPrice", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTotalPrice)
+            Me.columnFoodName = New Global.System.Data.DataColumn("FoodName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFoodName)
+            Me.columnCurrentDate = New Global.System.Data.DataColumn("CurrentDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCurrentDate)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnReceipt_ID}, true))
             Me.columnReceipt_ID.AutoIncrement = true
             Me.columnReceipt_ID.AutoIncrementSeed = -1
             Me.columnReceipt_ID.AutoIncrementStep = -1
             Me.columnReceipt_ID.AllowDBNull = false
             Me.columnReceipt_ID.Unique = true
-            Me.columnFoodName.ReadOnly = true
-            Me.columnFoodName.Caption = "CurrentDate"
-            Me.columnDrinksName.ReadOnly = true
-            Me.columnDrinksName.Caption = "FoodName"
-            Me.columnSidesName.ReadOnly = true
-            Me.columnSidesName.Caption = "DrinksName"
-            Me.columnTotalPrice.ReadOnly = true
-            Me.columnTotalPrice.Caption = "SidesName"
+            Me.columnDrinksName.MaxLength = 255
+            Me.columnSidesName.MaxLength = 255
+            Me.columnFoodName.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1660,31 +1655,16 @@ Partial Public Class databasegpDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property CurrentDate() As Date
+        Public Property TotalPrice() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableReceipt.CurrentDateColumn),Date)
+                    Return CType(Me(Me.tableReceipt.TotalPriceColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CurrentDate' in table 'Receipt' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TotalPrice' in table 'Receipt' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableReceipt.CurrentDateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property FoodName() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableReceipt.FoodNameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FoodName' in table 'Receipt' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableReceipt.FoodNameColumn) = value
+                Me(Me.tableReceipt.TotalPriceColumn) = value
             End Set
         End Property
         
@@ -1720,41 +1700,44 @@ Partial Public Class databasegpDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property TotalPrice() As Decimal
+        Public Property FoodName() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableReceipt.TotalPriceColumn),Decimal)
+                    Return CType(Me(Me.tableReceipt.FoodNameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TotalPrice' in table 'Receipt' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FoodName' in table 'Receipt' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableReceipt.TotalPriceColumn) = value
+                Me(Me.tableReceipt.FoodNameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsCurrentDateNull() As Boolean
-            Return Me.IsNull(Me.tableReceipt.CurrentDateColumn)
+        Public Property CurrentDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableReceipt.CurrentDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CurrentDate' in table 'Receipt' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReceipt.CurrentDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTotalPriceNull() As Boolean
+            Return Me.IsNull(Me.tableReceipt.TotalPriceColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetCurrentDateNull()
-            Me(Me.tableReceipt.CurrentDateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsFoodNameNull() As Boolean
-            Return Me.IsNull(Me.tableReceipt.FoodNameColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetFoodNameNull()
-            Me(Me.tableReceipt.FoodNameColumn) = Global.System.Convert.DBNull
+        Public Sub SetTotalPriceNull()
+            Me(Me.tableReceipt.TotalPriceColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1783,14 +1766,26 @@ Partial Public Class databasegpDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsTotalPriceNull() As Boolean
-            Return Me.IsNull(Me.tableReceipt.TotalPriceColumn)
+        Public Function IsFoodNameNull() As Boolean
+            Return Me.IsNull(Me.tableReceipt.FoodNameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetTotalPriceNull()
-            Me(Me.tableReceipt.TotalPriceColumn) = Global.System.Convert.DBNull
+        Public Sub SetFoodNameNull()
+            Me(Me.tableReceipt.FoodNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCurrentDateNull() As Boolean
+            Return Me.IsNull(Me.tableReceipt.CurrentDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCurrentDateNull()
+            Me(Me.tableReceipt.CurrentDateColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2112,12 +2107,18 @@ Namespace databasegpDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Cust_ID, Email, [Password], Username, Favourite_Food, Age, Location FROM C"& _ 
                 "ustomer"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT Cust_ID, Email, [Password], Username, Favourite_Food, Age, Location"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "& _ 
+                "    Customer"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  (Cust_ID = ?)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cust_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cust_ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2139,6 +2140,32 @@ Namespace databasegpDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As databasegpDataSet.CustomerDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As databasegpDataSet.CustomerDataTable = New databasegpDataSet.CustomerDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByCUSTID(ByVal dataTable As databasegpDataSet.CustomerDataTable, ByVal Cust_ID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cust_ID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByCUSTID(ByVal Cust_ID As Integer) As databasegpDataSet.CustomerDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cust_ID,Integer)
             Dim dataTable As databasegpDataSet.CustomerDataTable = New databasegpDataSet.CustomerDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -2883,41 +2910,73 @@ Namespace databasegpDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Receipt"
             tableMapping.ColumnMappings.Add("Receipt_ID", "Receipt_ID")
-            tableMapping.ColumnMappings.Add("CurrentDate", "CurrentDate")
-            tableMapping.ColumnMappings.Add("FoodName", "FoodName")
+            tableMapping.ColumnMappings.Add("TotalPrice", "TotalPrice")
             tableMapping.ColumnMappings.Add("DrinksName", "DrinksName")
             tableMapping.ColumnMappings.Add("SidesName", "SidesName")
-            tableMapping.ColumnMappings.Add("TotalPrice", "TotalPrice")
+            tableMapping.ColumnMappings.Add("FoodName", "FoodName")
+            tableMapping.ColumnMappings.Add("CurrentDate", "CurrentDate")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Receipt` WHERE ((`Receipt_ID` = ?) AND ((? = 1 AND `TotalPrice` IS N"& _ 
-                "ULL) OR (`TotalPrice` = ?)))"
+                "ULL) OR (`TotalPrice` = ?)) AND ((? = 1 AND `DrinksName` IS NULL) OR (`DrinksNam"& _ 
+                "e` = ?)) AND ((? = 1 AND `SidesName` IS NULL) OR (`SidesName` = ?)) AND ((? = 1 "& _ 
+                "AND `FoodName` IS NULL) OR (`FoodName` = ?)) AND ((? = 1 AND `CurrentDate` IS NU"& _ 
+                "LL) OR (`CurrentDate` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Receipt_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Receipt_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_TotalPrice", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TotalPrice", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_TotalPrice", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TotalPrice", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_DrinksName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DrinksName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DrinksName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DrinksName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_SidesName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SidesName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_SidesName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SidesName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FoodName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FoodName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FoodName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FoodName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CurrentDate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CurrentDate", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CurrentDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CurrentDate", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Receipt` (`TotalPrice`) VALUES (?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Receipt` (`TotalPrice`, `DrinksName`, `SidesName`, `FoodName`, `Curr"& _ 
+                "entDate`) VALUES (?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TotalPrice", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TotalPrice", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DrinksName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DrinksName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SidesName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SidesName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FoodName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FoodName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CurrentDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CurrentDate", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Receipt` SET `TotalPrice` = ? WHERE ((`Receipt_ID` = ?) AND ((? = 1 AND `"& _ 
-                "TotalPrice` IS NULL) OR (`TotalPrice` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Receipt` SET `TotalPrice` = ?, `DrinksName` = ?, `SidesName` = ?, `FoodNa"& _ 
+                "me` = ?, `CurrentDate` = ? WHERE ((`Receipt_ID` = ?) AND ((? = 1 AND `TotalPrice"& _ 
+                "` IS NULL) OR (`TotalPrice` = ?)) AND ((? = 1 AND `DrinksName` IS NULL) OR (`Dri"& _ 
+                "nksName` = ?)) AND ((? = 1 AND `SidesName` IS NULL) OR (`SidesName` = ?)) AND (("& _ 
+                "? = 1 AND `FoodName` IS NULL) OR (`FoodName` = ?)) AND ((? = 1 AND `CurrentDate`"& _ 
+                " IS NULL) OR (`CurrentDate` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TotalPrice", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TotalPrice", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DrinksName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DrinksName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SidesName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SidesName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FoodName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FoodName", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CurrentDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CurrentDate", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Receipt_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Receipt_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_TotalPrice", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TotalPrice", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_TotalPrice", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TotalPrice", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_DrinksName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DrinksName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DrinksName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DrinksName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_SidesName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SidesName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_SidesName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SidesName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FoodName", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FoodName", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FoodName", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FoodName", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CurrentDate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CurrentDate", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CurrentDate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CurrentDate", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.GroupProject.My.MySettings.Default.databasegpConnectionString1
+            Me._connection.ConnectionString = Global.GroupProject.My.MySettings.Default.databasegpConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2926,8 +2985,8 @@ Namespace databasegpDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Receipt_ID, [CurrentDate], FoodName, DrinksName, SidesName, TotalPrice FRO"& _ 
-                "M Receipt"
+            Me._commandCollection(0).CommandText = "SELECT Receipt_ID, TotalPrice, DrinksName, SidesName, FoodName, CurrentDate FROM "& _ 
+                "Receipt"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2987,7 +3046,7 @@ Namespace databasegpDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Receipt_ID As Integer, ByVal Original_TotalPrice As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Receipt_ID As Integer, ByVal Original_TotalPrice As Global.System.Nullable(Of Decimal), ByVal Original_DrinksName As String, ByVal Original_SidesName As String, ByVal Original_FoodName As String, ByVal Original_CurrentDate As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Receipt_ID,Integer)
             If (Original_TotalPrice.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -2995,6 +3054,34 @@ Namespace databasegpDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DrinksName Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_DrinksName,String)
+            End If
+            If (Original_SidesName Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_SidesName,String)
+            End If
+            If (Original_FoodName Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_FoodName,String)
+            End If
+            If (Original_CurrentDate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_CurrentDate.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3015,11 +3102,31 @@ Namespace databasegpDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal TotalPrice As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Insert(ByVal TotalPrice As Global.System.Nullable(Of Decimal), ByVal DrinksName As String, ByVal SidesName As String, ByVal FoodName As String, ByVal CurrentDate As Global.System.Nullable(Of Date)) As Integer
             If (TotalPrice.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(TotalPrice.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DrinksName Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(DrinksName,String)
+            End If
+            If (SidesName Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(SidesName,String)
+            End If
+            If (FoodName Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(FoodName,String)
+            End If
+            If (CurrentDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(CurrentDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3040,19 +3147,67 @@ Namespace databasegpDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal TotalPrice As Global.System.Nullable(Of Decimal), ByVal Original_Receipt_ID As Integer, ByVal Original_TotalPrice As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Update(ByVal TotalPrice As Global.System.Nullable(Of Decimal), ByVal DrinksName As String, ByVal SidesName As String, ByVal FoodName As String, ByVal CurrentDate As Global.System.Nullable(Of Date), ByVal Original_Receipt_ID As Integer, ByVal Original_TotalPrice As Global.System.Nullable(Of Decimal), ByVal Original_DrinksName As String, ByVal Original_SidesName As String, ByVal Original_FoodName As String, ByVal Original_CurrentDate As Global.System.Nullable(Of Date)) As Integer
             If (TotalPrice.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(TotalPrice.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_Receipt_ID,Integer)
-            If (Original_TotalPrice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_TotalPrice.Value,Decimal)
+            If (DrinksName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DrinksName,String)
+            End If
+            If (SidesName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(SidesName,String)
+            End If
+            If (FoodName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(FoodName,String)
+            End If
+            If (CurrentDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(CurrentDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Receipt_ID,Integer)
+            If (Original_TotalPrice.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_TotalPrice.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DrinksName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_DrinksName,String)
+            End If
+            If (Original_SidesName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_SidesName,String)
+            End If
+            If (Original_FoodName Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FoodName,String)
+            End If
+            If (Original_CurrentDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_CurrentDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

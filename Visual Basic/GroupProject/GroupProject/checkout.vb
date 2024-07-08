@@ -1,5 +1,6 @@
 ﻿Imports System.Data.OleDb
 Imports System.IO
+Imports System.Text
 Public Class checkout
 
     Dim strFood, strDrink, strSide As String
@@ -7,7 +8,6 @@ Public Class checkout
     Dim startupPath As String = Application.StartupPath
     Dim directoryInfo As New DirectoryInfo(startupPath)
     Dim parentDirectory As DirectoryInfo = directoryInfo.Parent.Parent.Parent
-
     Dim databaseFile As String = IO.Path.Combine(parentDirectory.FullName, "databasegp.mdb")
     Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & databaseFile
 
@@ -16,18 +16,21 @@ Public Class checkout
         strFood = lblFood.Text
         strDrink = lblDrinks.Text
         strSide = lblSides.Text
-
-        Dim totalText As String = lblTotal.Text.Replace("RM", "").Replace("$", "").Replace(",", "").Trim()
+        Dim totalText As String = lblTotal.Text.Replace("RM", "").Replace(",", "").Trim()
         Dim dblTotal As Double
         If Double.TryParse(totalText, dblTotal) Then
             CheckoutToDB(strFood, strDrink, strSide, dblTotal)
         Else
             MessageBox.Show("Total price format is incorrect. Please check the value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
         CheckoutToPayment("Cash")
-
-        Me.Hide()
+        Dim result As Integer
+        result = MessageBox.Show("Do you want to save your receipt ?", "Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If (result = DialogResult.Yes) Then
+            SaveReceipt()
+        End If
+        clearModule()
+        Me.Close()
         home.Show()
     End Sub
 
@@ -37,17 +40,21 @@ Public Class checkout
         strDrink = lblDrinks.Text
         strSide = lblSides.Text
 
-        Dim totalText As String = lblTotal.Text.Replace("RM", "").Replace("$", "").Replace(",", "").Trim()
+        Dim totalText As String = lblTotal.Text.Replace("RM", "").Replace(",", "").Trim()
         Dim dblTotal As Double
         If Double.TryParse(totalText, dblTotal) Then
             CheckoutToDB(strFood, strDrink, strSide, dblTotal)
         Else
             MessageBox.Show("Total price format is incorrect. Please check the value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
         CheckoutToPayment("FPX")
-
-        Me.Hide()
+        Dim result As Integer
+        result = MessageBox.Show("Do you want to save your receipt ?", "Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If (result = DialogResult.Yes) Then
+            SaveReceipt()
+        End If
+        clearModule()
+        Me.Close()
         home.Show()
 
     End Sub
@@ -58,17 +65,21 @@ Public Class checkout
         strDrink = lblDrinks.Text
         strSide = lblSides.Text
 
-        Dim totalText As String = lblTotal.Text.Replace("RM", "").Replace("$", "").Replace(",", "").Trim()
+        Dim totalText As String = lblTotal.Text.Replace("RM", "").Replace(",", "").Trim()
         Dim dblTotal As Double
         If Double.TryParse(totalText, dblTotal) Then
             CheckoutToDB(strFood, strDrink, strSide, dblTotal)
         Else
             MessageBox.Show("Total price format is incorrect. Please check the value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
         CheckoutToPayment("Card")
-
-        Me.Hide()
+        Dim result As Integer
+        result = MessageBox.Show("Do you want to save your receipt ?", "Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If (result = DialogResult.Yes) Then
+            SaveReceipt()
+        End If
+        clearModule()
+        Me.Close()
         home.Show()
     End Sub
 
@@ -76,14 +87,19 @@ Public Class checkout
         lblFood.Text = String.Join(", ", Module1.SelectedFood)
         lblDrinks.Text = String.Join(", ", Module1.SelectedDrink)
         lblSides.Text = String.Join(", ", Module1.SelectedSides)
-
         lblTotal.Text = "RM" + String.Join(", ", Module1.SelectedTotal)
-
-        Me.Hide()
-        home.Show()
+        Me.BackgroundImage = Module1.bg.First()
+        Me.BackgroundImageLayout = ImageLayout.Stretch
     End Sub
 
+
     Private Sub PictureBox2_Click_1(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        clearModule()
+        Me.Close()
+        OrderMenu.Show()
+    End Sub
+
+    Private Sub clearModule()
         lblDrinks.Text = String.Empty
         lblFood.Text = String.Empty
         lblSides.Text = String.Empty
@@ -93,9 +109,6 @@ Public Class checkout
         Module1.SelectedFood.Clear()
         Module1.SelectedDrink.Clear()
         Module1.SelectedSides.Clear()
-
-        Me.Close()
-        OrderMenu.Show()
     End Sub
 
     Private Sub CheckoutToDB(food As String, drinks As String, sides As String, totalprice As Double)
@@ -112,7 +125,6 @@ Public Class checkout
             Dim command1 As New OleDbCommand("SELECT TOP 1 RECEIPT_ID FROM RECEIPT ORDER BY RECEIPT_ID DESC", connection)
             Module1.RECEIPTID.Clear()
             Module1.RECEIPTID.Add(command1.ExecuteScalar())
-
             connection.Close()
         End Using
     End Sub
@@ -128,5 +140,44 @@ Public Class checkout
             connection.Close()
         End Using
     End Sub
+
+    Private Sub SaveReceipt()
+        SaveFileDialog1.Filter = "Text Files (*.txt)|*.txt"
+        SaveFileDialog1.Title = "Save Receipt"
+        SaveFileDialog1.FileName = "Receipt.txt"
+        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+            Try
+                SaveReceiptToFile(SaveFileDialog1.FileName)
+                MessageBox.Show("Receipt saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show("Error saving receipt: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub SaveReceiptToFile(filePath As String)
+        Dim receiptText As String = GenerateReceiptText()
+        ' Save the receipt text to the specified file path
+        File.WriteAllText(filePath, receiptText)
+    End Sub
+
+    Private Function GenerateReceiptText() As String
+        ' Generate receipt text from labels
+        Dim receiptBuilder As New StringBuilder()
+        receiptBuilder.AppendLine("********** Receipt **********")
+        receiptBuilder.AppendLine("FoodCheetah, Your Food Ordering Buddy!")
+        receiptBuilder.AppendLine("Date: " & DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+        receiptBuilder.AppendLine("-----------------------------")
+        receiptBuilder.AppendLine("Order Summary:")
+        receiptBuilder.AppendLine("Food: " & lblFood.Text)
+        receiptBuilder.AppendLine("Drinks: " & lblDrinks.Text)
+        receiptBuilder.AppendLine("Sides: " & lblSides.Text)
+        receiptBuilder.AppendLine("-----------------------------")
+        receiptBuilder.AppendLine("Total payment: " & lblTotal.Text)
+        receiptBuilder.AppendLine("-----------------------------")
+        receiptBuilder.AppendLine("Thank you for your purchase!")
+        receiptBuilder.AppendLine("*****************************")
+        Return receiptBuilder.ToString()
+    End Function
 
 End Class

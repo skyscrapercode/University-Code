@@ -42,10 +42,12 @@ Partial Class login
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupBoxLogin.SuspendLayout()
         Me.groupBoxRegister.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -105,7 +107,7 @@ Partial Class login
         Me.txtEmailLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmailLogin.Location = New System.Drawing.Point(110, 19)
         Me.txtEmailLogin.Name = "txtEmailLogin"
-        Me.txtEmailLogin.Size = New System.Drawing.Size(195, 30)
+        Me.txtEmailLogin.Size = New System.Drawing.Size(195, 35)
         Me.txtEmailLogin.TabIndex = 13
         '
         'txtPasswordLogin
@@ -115,7 +117,7 @@ Partial Class login
         Me.txtPasswordLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPasswordLogin.Location = New System.Drawing.Point(110, 76)
         Me.txtPasswordLogin.Name = "txtPasswordLogin"
-        Me.txtPasswordLogin.Size = New System.Drawing.Size(195, 30)
+        Me.txtPasswordLogin.Size = New System.Drawing.Size(195, 35)
         Me.txtPasswordLogin.TabIndex = 16
         '
         'Label2
@@ -124,7 +126,7 @@ Partial Class login
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(17, 27)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 19)
+        Me.Label2.Size = New System.Drawing.Size(73, 25)
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "Email:"
         '
@@ -134,18 +136,20 @@ Partial Class login
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(5, 73)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(92, 19)
+        Me.Label4.Size = New System.Drawing.Size(113, 25)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Password:"
         '
         'btnEnterLogin
         '
+        Me.btnEnterLogin.BackColor = System.Drawing.Color.ForestGreen
+        Me.btnEnterLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEnterLogin.Location = New System.Drawing.Point(10, 131)
         Me.btnEnterLogin.Name = "btnEnterLogin"
         Me.btnEnterLogin.Size = New System.Drawing.Size(101, 40)
         Me.btnEnterLogin.TabIndex = 12
         Me.btnEnterLogin.Text = "Enter"
-        Me.btnEnterLogin.UseVisualStyleBackColor = True
+        Me.btnEnterLogin.UseVisualStyleBackColor = False
         '
         'groupBoxRegister
         '
@@ -164,12 +168,14 @@ Partial Class login
         '
         'btnEnterRegister
         '
+        Me.btnEnterRegister.BackColor = System.Drawing.Color.ForestGreen
+        Me.btnEnterRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEnterRegister.Location = New System.Drawing.Point(9, 136)
         Me.btnEnterRegister.Name = "btnEnterRegister"
         Me.btnEnterRegister.Size = New System.Drawing.Size(101, 40)
         Me.btnEnterRegister.TabIndex = 13
         Me.btnEnterRegister.Text = "Enter"
-        Me.btnEnterRegister.UseVisualStyleBackColor = True
+        Me.btnEnterRegister.UseVisualStyleBackColor = False
         '
         'txtEmailRegister
         '
@@ -178,7 +184,7 @@ Partial Class login
         Me.txtEmailRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmailRegister.Location = New System.Drawing.Point(109, 22)
         Me.txtEmailRegister.Name = "txtEmailRegister"
-        Me.txtEmailRegister.Size = New System.Drawing.Size(195, 30)
+        Me.txtEmailRegister.Size = New System.Drawing.Size(195, 35)
         Me.txtEmailRegister.TabIndex = 8
         '
         'txtPasswordRegister
@@ -188,7 +194,7 @@ Partial Class login
         Me.txtPasswordRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPasswordRegister.Location = New System.Drawing.Point(109, 79)
         Me.txtPasswordRegister.Name = "txtPasswordRegister"
-        Me.txtPasswordRegister.Size = New System.Drawing.Size(195, 30)
+        Me.txtPasswordRegister.Size = New System.Drawing.Size(195, 35)
         Me.txtPasswordRegister.TabIndex = 11
         '
         'Label8
@@ -197,7 +203,7 @@ Partial Class login
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(16, 30)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 19)
+        Me.Label8.Size = New System.Drawing.Size(73, 25)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "Email:"
         '
@@ -207,18 +213,20 @@ Partial Class login
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(4, 76)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(92, 19)
+        Me.Label9.Size = New System.Drawing.Size(113, 25)
         Me.Label9.TabIndex = 10
         Me.Label9.Text = "Password:"
         '
         'btnAccount
         '
+        Me.btnAccount.BackColor = System.Drawing.Color.ForestGreen
+        Me.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAccount.Location = New System.Drawing.Point(243, 474)
         Me.btnAccount.Name = "btnAccount"
         Me.btnAccount.Size = New System.Drawing.Size(314, 57)
         Me.btnAccount.TabIndex = 15
         Me.btnAccount.Text = "Create account"
-        Me.btnAccount.UseVisualStyleBackColor = True
+        Me.btnAccount.UseVisualStyleBackColor = False
         '
         'PictureBox2
         '
@@ -239,7 +247,7 @@ Partial Class login
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.Label1.Location = New System.Drawing.Point(282, 452)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(236, 19)
+        Me.Label1.Size = New System.Drawing.Size(295, 25)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Don't have an account yet?"
         '
@@ -251,17 +259,31 @@ Partial Class login
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.Label3.Location = New System.Drawing.Point(145, 143)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(638, 28)
+        Me.Label3.Size = New System.Drawing.Size(744, 34)
         Me.Label3.TabIndex = 17
         Me.Label3.Text = "Welcome to FoodCheetah, Your food ordering buddy!"
         '
+        'PictureBox9
+        '
+        Me.PictureBox9.BackColor = System.Drawing.Color.ForestGreen
+        Me.PictureBox9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PictureBox9.Image = Global.GroupProject.My.Resources.Resources.backBtn
+        Me.PictureBox9.Location = New System.Drawing.Point(754, 466)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(65, 65)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 18
+        Me.PictureBox9.TabStop = False
+        Me.PictureBox9.Visible = False
+        '
         'login
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.GroupProject.My.Resources.Resources.greenBG
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(831, 536)
+        Me.Controls.Add(Me.PictureBox9)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox2)
@@ -272,7 +294,9 @@ Partial Class login
         Me.Controls.Add(Me.lblLogin)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FoodCheetah"
@@ -282,6 +306,7 @@ Partial Class login
         Me.groupBoxRegister.ResumeLayout(False)
         Me.groupBoxRegister.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -310,4 +335,5 @@ Partial Class login
     Friend WithEvents txtPasswordLogin As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents PictureBox9 As PictureBox
 End Class

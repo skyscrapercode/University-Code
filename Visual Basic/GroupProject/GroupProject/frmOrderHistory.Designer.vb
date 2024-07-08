@@ -23,30 +23,26 @@ Partial Class frmOrderHistory
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOrderHistory))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ReceiptIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CurrentDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FoodNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DrinksNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SidesNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Receipt_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DrinksName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SidesName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FoodName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CurrentDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentMethod = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ReceiptBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DatabasegpDataSet = New GroupProject.databasegpDataSet()
         Me.ReceiptTableAdapter = New GroupProject.databasegpDataSetTableAdapters.ReceiptTableAdapter()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.PaymentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PaymentTableAdapter = New GroupProject.databasegpDataSetTableAdapters.PaymentTableAdapter()
-        Me.PaymentIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CustIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReceiptIDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaymentMethodDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReceiptBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabasegpDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PaymentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -55,9 +51,10 @@ Partial Class frmOrderHistory
         Me.PictureBox1.BackColor = System.Drawing.Color.ForestGreen
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = Global.GroupProject.My.Resources.Resources.backBtn
-        Me.PictureBox1.Location = New System.Drawing.Point(765, 404)
+        Me.PictureBox1.Location = New System.Drawing.Point(861, 505)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(59, 59)
+        Me.PictureBox1.Size = New System.Drawing.Size(66, 74)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -68,63 +65,68 @@ Partial Class frmOrderHistory
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(422, 0)
+        Me.Label1.Location = New System.Drawing.Point(475, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(402, 74)
+        Me.Label1.Size = New System.Drawing.Size(484, 87)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Order History"
         '
         'DataGridView1
         '
-        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReceiptIDDataGridViewTextBoxColumn, Me.CurrentDateDataGridViewTextBoxColumn, Me.FoodNameDataGridViewTextBoxColumn, Me.DrinksNameDataGridViewTextBoxColumn, Me.SidesNameDataGridViewTextBoxColumn, Me.TotalPriceDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.ReceiptBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 77)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Receipt_ID, Me.TotalPrice, Me.DrinksName, Me.SidesName, Me.FoodName, Me.CurrentDate, Me.PaymentMethod})
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 96)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(747, 172)
+        Me.DataGridView1.Size = New System.Drawing.Size(840, 482)
         Me.DataGridView1.TabIndex = 2
         '
-        'ReceiptIDDataGridViewTextBoxColumn
+        'Receipt_ID
         '
-        Me.ReceiptIDDataGridViewTextBoxColumn.DataPropertyName = "Receipt_ID"
-        Me.ReceiptIDDataGridViewTextBoxColumn.HeaderText = "Receipt_ID"
-        Me.ReceiptIDDataGridViewTextBoxColumn.Name = "ReceiptIDDataGridViewTextBoxColumn"
+        Me.Receipt_ID.HeaderText = "Receipt_ID"
+        Me.Receipt_ID.Name = "Receipt_ID"
+        Me.Receipt_ID.ReadOnly = True
         '
-        'CurrentDateDataGridViewTextBoxColumn
+        'TotalPrice
         '
-        Me.CurrentDateDataGridViewTextBoxColumn.DataPropertyName = "CurrentDate"
-        Me.CurrentDateDataGridViewTextBoxColumn.HeaderText = "CurrentDate"
-        Me.CurrentDateDataGridViewTextBoxColumn.Name = "CurrentDateDataGridViewTextBoxColumn"
+        Me.TotalPrice.HeaderText = "TotalPrice"
+        Me.TotalPrice.Name = "TotalPrice"
+        Me.TotalPrice.ReadOnly = True
         '
-        'FoodNameDataGridViewTextBoxColumn
+        'DrinksName
         '
-        Me.FoodNameDataGridViewTextBoxColumn.DataPropertyName = "FoodName"
-        Me.FoodNameDataGridViewTextBoxColumn.HeaderText = "FoodName"
-        Me.FoodNameDataGridViewTextBoxColumn.Name = "FoodNameDataGridViewTextBoxColumn"
-        Me.FoodNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DrinksName.HeaderText = "DrinksName"
+        Me.DrinksName.Name = "DrinksName"
+        Me.DrinksName.ReadOnly = True
         '
-        'DrinksNameDataGridViewTextBoxColumn
+        'SidesName
         '
-        Me.DrinksNameDataGridViewTextBoxColumn.DataPropertyName = "DrinksName"
-        Me.DrinksNameDataGridViewTextBoxColumn.HeaderText = "DrinksName"
-        Me.DrinksNameDataGridViewTextBoxColumn.Name = "DrinksNameDataGridViewTextBoxColumn"
-        Me.DrinksNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SidesName.HeaderText = "SidesName"
+        Me.SidesName.Name = "SidesName"
+        Me.SidesName.ReadOnly = True
         '
-        'SidesNameDataGridViewTextBoxColumn
+        'FoodName
         '
-        Me.SidesNameDataGridViewTextBoxColumn.DataPropertyName = "SidesName"
-        Me.SidesNameDataGridViewTextBoxColumn.HeaderText = "SidesName"
-        Me.SidesNameDataGridViewTextBoxColumn.Name = "SidesNameDataGridViewTextBoxColumn"
-        Me.SidesNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FoodName.HeaderText = "FoodName"
+        Me.FoodName.Name = "FoodName"
+        Me.FoodName.ReadOnly = True
         '
-        'TotalPriceDataGridViewTextBoxColumn
+        'CurrentDate
         '
-        Me.TotalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice"
-        Me.TotalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice"
-        Me.TotalPriceDataGridViewTextBoxColumn.Name = "TotalPriceDataGridViewTextBoxColumn"
-        Me.TotalPriceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CurrentDate.HeaderText = "CurrentDate"
+        Me.CurrentDate.Name = "CurrentDate"
+        Me.CurrentDate.ReadOnly = True
+        '
+        'PaymentMethod
+        '
+        Me.PaymentMethod.HeaderText = "PaymentMethod"
+        Me.PaymentMethod.Name = "PaymentMethod"
+        Me.PaymentMethod.ReadOnly = True
+        Me.PaymentMethod.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'ReceiptBindingSource
         '
@@ -140,18 +142,6 @@ Partial Class frmOrderHistory
         '
         Me.ReceiptTableAdapter.ClearBeforeFill = True
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.AutoGenerateColumns = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PaymentIDDataGridViewTextBoxColumn, Me.CustIDDataGridViewTextBoxColumn, Me.ReceiptIDDataGridViewTextBoxColumn1, Me.PaymentMethodDataGridViewTextBoxColumn})
-        Me.DataGridView2.DataSource = Me.PaymentBindingSource
-        Me.DataGridView2.Location = New System.Drawing.Point(12, 255)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowTemplate.Height = 24
-        Me.DataGridView2.Size = New System.Drawing.Size(747, 208)
-        Me.DataGridView2.TabIndex = 3
-        '
         'PaymentBindingSource
         '
         Me.PaymentBindingSource.DataMember = "Payment"
@@ -161,42 +151,20 @@ Partial Class frmOrderHistory
         '
         Me.PaymentTableAdapter.ClearBeforeFill = True
         '
-        'PaymentIDDataGridViewTextBoxColumn
-        '
-        Me.PaymentIDDataGridViewTextBoxColumn.DataPropertyName = "Payment_ID"
-        Me.PaymentIDDataGridViewTextBoxColumn.HeaderText = "Payment_ID"
-        Me.PaymentIDDataGridViewTextBoxColumn.Name = "PaymentIDDataGridViewTextBoxColumn"
-        '
-        'CustIDDataGridViewTextBoxColumn
-        '
-        Me.CustIDDataGridViewTextBoxColumn.DataPropertyName = "Cust_ID"
-        Me.CustIDDataGridViewTextBoxColumn.HeaderText = "Cust_ID"
-        Me.CustIDDataGridViewTextBoxColumn.Name = "CustIDDataGridViewTextBoxColumn"
-        '
-        'ReceiptIDDataGridViewTextBoxColumn1
-        '
-        Me.ReceiptIDDataGridViewTextBoxColumn1.DataPropertyName = "Receipt_ID"
-        Me.ReceiptIDDataGridViewTextBoxColumn1.HeaderText = "Receipt_ID"
-        Me.ReceiptIDDataGridViewTextBoxColumn1.Name = "ReceiptIDDataGridViewTextBoxColumn1"
-        '
-        'PaymentMethodDataGridViewTextBoxColumn
-        '
-        Me.PaymentMethodDataGridViewTextBoxColumn.DataPropertyName = "PaymentMethod"
-        Me.PaymentMethodDataGridViewTextBoxColumn.HeaderText = "PaymentMethod"
-        Me.PaymentMethodDataGridViewTextBoxColumn.Name = "PaymentMethodDataGridViewTextBoxColumn"
-        '
         'frmOrderHistory
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.GroupProject.My.Resources.Resources.greenBG
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(836, 475)
-        Me.Controls.Add(Me.DataGridView2)
+        Me.ClientSize = New System.Drawing.Size(950, 604)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
         Me.Name = "frmOrderHistory"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Order History"
@@ -204,7 +172,6 @@ Partial Class frmOrderHistory
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReceiptBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabasegpDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PaymentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -217,17 +184,13 @@ Partial Class frmOrderHistory
     Friend WithEvents DatabasegpDataSet As databasegpDataSet
     Friend WithEvents ReceiptBindingSource As BindingSource
     Friend WithEvents ReceiptTableAdapter As databasegpDataSetTableAdapters.ReceiptTableAdapter
-    Friend WithEvents ReceiptIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CurrentDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FoodNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DrinksNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SidesNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TotalPriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents PaymentBindingSource As BindingSource
     Friend WithEvents PaymentTableAdapter As databasegpDataSetTableAdapters.PaymentTableAdapter
-    Friend WithEvents PaymentIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CustIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ReceiptIDDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents PaymentMethodDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Receipt_ID As DataGridViewTextBoxColumn
+    Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
+    Friend WithEvents DrinksName As DataGridViewTextBoxColumn
+    Friend WithEvents SidesName As DataGridViewTextBoxColumn
+    Friend WithEvents FoodName As DataGridViewTextBoxColumn
+    Friend WithEvents CurrentDate As DataGridViewTextBoxColumn
+    Friend WithEvents PaymentMethod As DataGridViewTextBoxColumn
 End Class

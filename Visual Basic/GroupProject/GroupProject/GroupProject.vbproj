@@ -8,11 +8,11 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>GroupProject.My.MyApplication</StartupObject>
     <RootNamespace>GroupProject</RootNamespace>
-    <AssemblyName>GroupProject</AssemblyName>
+    <AssemblyName>I</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -37,7 +37,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>GroupProject.xml</DocumentationFile>
+    <DocumentationFile>I.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -48,7 +48,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>GroupProject.xml</DocumentationFile>
+    <DocumentationFile>I.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -62,6 +62,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logo ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -104,9 +107,6 @@
     <Compile Include="databasegpDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>databasegpDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="databasegpDataSet.vb">
       <DependentUpon>databasegpDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FrmAbout.Designer.vb">
@@ -156,6 +156,12 @@
     <Compile Include="OrderMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="splashScreenCheetah.Designer.vb">
+      <DependentUpon>splashScreenCheetah.vb</DependentUpon>
+    </Compile>
+    <Compile Include="splashScreenCheetah.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AccountInterface.resx">
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderMenu.resx">
       <DependentUpon>OrderMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splashScreenCheetah.resx">
+      <DependentUpon>splashScreenCheetah.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -240,9 +249,10 @@
     <None Include="Resources\WhatsApp Image 2023-07-11 at 11.46.49.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="databasegp.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\foodvariety.jpg" />
+    <None Include="Resources\logoutbtn.png" />
+    <None Include="Resources\Black Green Abstract Esport Streamer Youtube Banner.png" />
+    <None Include="Resources\greenBGLight.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -255,6 +265,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo ico.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

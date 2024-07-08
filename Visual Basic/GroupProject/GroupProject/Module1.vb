@@ -7,4 +7,5 @@
 
     Public CUSTID As New List(Of Integer)
     Public RECEIPTID As New List(Of Integer)
+    Public bg As New List(Of Image)
 End Module

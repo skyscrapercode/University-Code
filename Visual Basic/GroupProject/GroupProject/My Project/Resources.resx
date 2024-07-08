@@ -169,4 +169,19 @@
   <data name="WhatsApp_Image_2023_07_11_at_11_46_49" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp Image 2023-07-11 at 11.46.49.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="greenBGLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\greenBGLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Black_Green_Abstract_Esport_Streamer_Youtube_Banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Black Green Abstract Esport Streamer Youtube Banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foodvariety" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foodvariety.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoutbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoutbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

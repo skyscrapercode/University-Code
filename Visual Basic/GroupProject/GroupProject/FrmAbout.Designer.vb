@@ -36,9 +36,10 @@ Partial Class FrmAbout
         '
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Default
         Me.PictureBox2.Image = Global.GroupProject.My.Resources.Resources.WhatsApp_Image_2023_07_11_at_11_46_49
-        Me.PictureBox2.Location = New System.Drawing.Point(443, 39)
+        Me.PictureBox2.Location = New System.Drawing.Point(529, 32)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(284, 407)
+        Me.PictureBox2.Size = New System.Drawing.Size(320, 509)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 9
         Me.PictureBox2.TabStop = False
@@ -48,9 +49,10 @@ Partial Class FrmAbout
         Me.PictureBox1.BackColor = System.Drawing.Color.ForestGreen
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = Global.GroupProject.My.Resources.Resources.backBtn
-        Me.PictureBox1.Location = New System.Drawing.Point(733, 424)
+        Me.PictureBox1.Location = New System.Drawing.Point(849, 555)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(74, 57)
+        Me.PictureBox1.Size = New System.Drawing.Size(83, 71)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
@@ -62,9 +64,9 @@ Partial Class FrmAbout
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label3.Location = New System.Drawing.Point(2, 105)
+        Me.Label3.Location = New System.Drawing.Point(2, 131)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(411, 209)
+        Me.Label3.Size = New System.Drawing.Size(510, 275)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = resources.GetString("Label3.Text")
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -75,9 +77,9 @@ Partial Class FrmAbout
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label2.Location = New System.Drawing.Point(18, 325)
+        Me.Label2.Location = New System.Drawing.Point(36, 440)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(381, 102)
+        Me.Label2.Size = New System.Drawing.Size(427, 114)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = resources.GetString("Label2.Text")
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -88,24 +90,27 @@ Partial Class FrmAbout
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 36.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(56, 11)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(208, 73)
+        Me.Label1.Size = New System.Drawing.Size(250, 89)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "About"
         '
         'FrmAbout
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.GroupProject.My.Resources.Resources.greenBG
-        Me.ClientSize = New System.Drawing.Size(808, 484)
+        Me.ClientSize = New System.Drawing.Size(935, 630)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
         Me.Name = "FrmAbout"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmAbout"
