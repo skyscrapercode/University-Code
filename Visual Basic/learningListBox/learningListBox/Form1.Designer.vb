@@ -28,6 +28,7 @@ Partial Class Form1
         Me.lstOutput2 = New System.Windows.Forms.ListBox()
         Me.btnOk = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'btnEnter
@@ -86,11 +87,19 @@ Partial Class Form1
         Me.btnReset.Text = "Reset"
         Me.btnReset.UseVisualStyleBackColor = True
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(87, 177)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
+        Me.DateTimePicker1.TabIndex = 6
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(649, 324)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.lstOutput2)
@@ -109,4 +118,5 @@ Partial Class Form1
     Friend WithEvents lstOutput2 As ListBox
     Friend WithEvents btnOk As Button
     Friend WithEvents btnReset As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

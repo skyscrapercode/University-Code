@@ -1,15 +1,18 @@
 ﻿Public Class Form1
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
-        Dim strInput As String 'To hold month and year
+        'Dim strInput As String 'To hold month and year
 
-        If lstOutput.SelectedIndex = -1 Then
-            MsgBox("Select a month", 1 Or 16, "Error")
-        ElseIf lstOutput2.SelectedIndex = -1 Then
-            MsgBox("Select a year", 1 Or 16, "Error")
-        Else
-            strInput = lstOutput.SelectedItem.ToString() & " " & lstOutput2.SelectedItem.ToString()
-            MsgBox("You selected: " & strInput, 1 Or 32, "Display")
-        End If
+        'If lstOutput.SelectedIndex = -1 Then
+        'MsgBox("Select a month", 1 Or 16, "Error")
+        'ElseIf lstOutput2.SelectedIndex = -1 Then
+        'MsgBox("Select a year", 1 Or 16, "Error")
+        'Else
+        'strInput = lstOutput.SelectedItem.ToString() & " " & lstOutput2.SelectedItem.ToString()
+        'MsgBox("You selected: " & strInput, 1 Or 32, "Display")
+        'End If 
+
+        Dim strLOL As String = "Welcome to CSC301!"
+        MsgBox(strLOL.Substring(8, 9))
 
 
     End Sub
