@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\bin\Debug\concertTicketCalculate(Pass by val and ref).exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\bin\Debug\concertTicketCalculate(Pass by val and ref).exe
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\bin\Debug\concertTicketCalculate(Pass by val and ref).pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\bin\Debug\concertTicketCalculate(Pass by val and ref).xml
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate(Pass by val and ref).vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate_Pass_by_val_and_ref_.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate_Pass_by_val_and_ref_.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate(Pass by val and ref).vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate(Pass by val and ref).vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate(Pass by val and ref).exe
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate(Pass by val and ref).xml
+C:\Users\sheik\Desktop\Code\Visual Studio\concertTicketCalculate(Pass by val and ref)\concertTicketCalculate(Pass by val and ref)\obj\Debug\concertTicketCalculate(Pass by val and ref).pdb

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TreeNode
+comment1.params=d
+comment1.target=TreeNode(Disease)
+comment2.params=d
+comment2.target=void\ insert(Disease)
+numComments=3

@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\bin\Debug\Quiz_20234_Question1_B.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\bin\Debug\Quiz_20234_Question1_B.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\bin\Debug\Quiz_20234_Question1_B.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\bin\Debug\Quiz_20234_Question1_B.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\Quiz_20234_Question1_B\Quiz_20234_Question1_B\obj\Debug\Quiz_20234_Question1_B.pdb

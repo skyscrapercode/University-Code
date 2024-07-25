@@ -1,0 +1,4 @@
+001;100;2021;sinovac
+002;200;2022;sinovac
+003;700;2022;pfizer
+007;999;2021;AstraZeneca

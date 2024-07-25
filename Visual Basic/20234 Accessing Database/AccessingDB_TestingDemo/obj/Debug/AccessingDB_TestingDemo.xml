@@ -1,0 +1,221 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AccessingDB_TestingDemo
+</name>
+</assembly>
+<members>
+<member name="T:AccessingDB_TestingDemo.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AccessingDB_TestingDemo.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AccessingDB_TestingDemo.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1.tblGroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1.tblGroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1.tblGroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.tblGroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(AccessingDB_TestingDemo.ClassRegisDataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(AccessingDB_TestingDemo.ClassRegisDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(AccessingDB_TestingDemo.ClassRegisDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.UpdateAll(AccessingDB_TestingDemo.ClassRegisDataSet1)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet.tblGroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet.tblGroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSet.tblGroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.tblGroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(AccessingDB_TestingDemo.ClassRegisDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(AccessingDB_TestingDemo.ClassRegisDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(AccessingDB_TestingDemo.ClassRegisDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.UpdateAll(AccessingDB_TestingDemo.ClassRegisDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatest">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatest.tblGroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatest.tblGroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatest.tblGroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.tblGroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.UpdateUpdatedRows(AccessingDB_TestingDemo.ClassRegisDataSetLatest,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.UpdateInsertedRows(AccessingDB_TestingDemo.ClassRegisDataSetLatest,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.UpdateDeletedRows(AccessingDB_TestingDemo.ClassRegisDataSetLatest,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.UpdateAll(AccessingDB_TestingDemo.ClassRegisDataSetLatest)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AccessingDB_TestingDemo.ClassRegisDataSetLatestTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,25 @@
+Pfizer-BioNTech;2024-08-15;mRNA;25.99;true;PB001
+Moderna;2024-09-20;mRNA;28.50;true;MD002
+Johnson & Johnson;2024-07-31;Viral Vector;20.75;true;JJ003
+AstraZeneca;2024-08-25;Viral Vector;18.99;true;AZ004
+Sinovac;2024-10-10;Inactivated;15.25;true;SV005
+Sinopharm;2024-09-30;Inactivated;14.99;true;SP006
+Sputnik V;2024-10-15;Viral Vector;22.50;true;SV007
+Covaxin;2024-08-05;Inactivated;16.80;true;CV008
+Sinopharm;2024-09-30;Inactivated;14.99;true;SP009
+Sinovac;2024-10-10;Inactivated;15.25;true;SV010
+Pfizer-BioNTech;2024-08-15;mRNA;25.99;true;PB011
+Moderna;2024-09-20;mRNA;28.50;true;MD012
+Johnson & Johnson;2024-07-31;Viral Vector;20.75;true;JJ013
+AstraZeneca;2024-08-25;Viral Vector;18.99;true;AZ014
+Sinovac;2024-10-10;Inactivated;15.25;true;SV015
+Sinopharm;2024-09-30;Inactivated;14.99;true;SP016
+Sputnik V;2024-10-15;Viral Vector;22.50;true;SV017
+Covaxin;2024-08-05;Inactivated;16.80;true;CV018
+Sinopharm;2024-09-30;Inactivated;14.99;true;SP019
+Sinovac;2024-05-10;Inactivated;15.25;true;SV020
+Pfizer-BioNTech;2024-08-15;mRNA;25.99;true;PB021
+Moderna;2024-09-20;mRNA;28.50;true;MD022
+Johnson & Johnson;2024-07-31;Viral Vector;20.75;true;JJ023
+AstraZeneca;2024-08-25;Viral Vector;18.99;true;AZ024
+Sinovac;2024-10-10;Inactivated;15.25;true;SV025

@@ -1,0 +1,22 @@
+Bulan Bintang;M;200.00
+Omar Ali;L;159.00
+Pokoks;L;129.00
+Rizman Ruzaini;S;299.00
+Jakel;M;99.00
+Jovian Mandagie;M;289.00
+Hatta Dolmat;M;179.00
+Jimmy Choo;L;149.00
+Alia B;L;289.00
+Innai Red;S;269.00
+Khoon Hooi;M;199.00
+Locka;M;239.00
+Mimpi Kita;L;129.00
+Nuria;S;299.00
+Petra;M;99.00
+Poya;M;289.00
+Rico Rinaldi;M;179.00
+Whimsigirl;L;149.00
+Yadotsa;L;289.00
+Ally Mukhriz;S;269.00
+Afiq M;M;199.00
+Fiziwoo;M;239.00

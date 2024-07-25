@@ -1,0 +1,24 @@
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.exe.config
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.exe
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.pdb
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.xml
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.vbprojAssemblyReference.cache
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For_Each_Demo.Form1.resources
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For_Each_Demo.Resources.resources
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.vbproj.GenerateResource.cache
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.vbproj.CoreCompileInputs.cache
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.exe
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.xml
+C:\Users\zz\source\repos\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.pdb
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.exe.config
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.exe
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.pdb
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\bin\Debug\For-Each-Demo.xml
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.vbprojAssemblyReference.cache
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For_Each_Demo.Form1.resources
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For_Each_Demo.Resources.resources
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.vbproj.GenerateResource.cache
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.exe
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.xml
+C:\Users\sheik\Documents\GitHub\University-Code\Visual Basic\For-Each-Demo\For-Each-Demo\obj\Debug\For-Each-Demo.pdb

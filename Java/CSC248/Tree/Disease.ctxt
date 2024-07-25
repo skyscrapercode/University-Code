@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Disease
+comment1.params=name\ pd\ y
+comment1.target=Disease(java.lang.String,\ double,\ int)
+comment1.text=\ Definition\ of\ the\ other\ methods\ including\r\n\ \ \ \ normal\ constructor,\ mutators,\ accessors,\ processors,\ and\r\n\ \ \ \ toString()\ printer\r\n
+comment2.params=name\ pd\ y
+comment2.target=void\ setDisease(java.lang.String,\ double,\ int)
+comment3.params=
+comment3.target=java.lang.String\ getDiseaseName()
+comment4.params=
+comment4.target=double\ getPercentDeath()
+comment5.params=
+comment5.target=int\ getYear()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

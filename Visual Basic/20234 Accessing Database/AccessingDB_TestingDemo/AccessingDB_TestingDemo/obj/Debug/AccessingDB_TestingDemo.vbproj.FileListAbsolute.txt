@@ -1,0 +1,13 @@
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\bin\Debug\AccessingDB_TestingDemo.exe.config
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\bin\Debug\AccessingDB_TestingDemo.exe
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\bin\Debug\AccessingDB_TestingDemo.pdb
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\bin\Debug\AccessingDB_TestingDemo.xml
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.vbprojAssemblyReference.cache
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.Form1.resources
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.Resources.resources
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.vbproj.GenerateResource.cache
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.vbproj.CoreCompileInputs.cache
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.exe
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.xml
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.pdb
+C:\Users\zz\source\repos\AccessingDB_TestingDemo\AccessingDB_TestingDemo\obj\Debug\AccessingDB_TestingDemo.frmMain.resources

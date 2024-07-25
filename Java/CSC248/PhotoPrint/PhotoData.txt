@@ -1,0 +1,8 @@
+classic;G;4;10
+digital;M;5;20
+classic;G;11;5
+digital;M;11;6
+classic;G;4;100
+digital;M;5;200
+classic;G;11;50
+digital;M;11;60

@@ -1,0 +1,12 @@
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\bin\Debug\grossPayCalc.exe.config
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\bin\Debug\grossPayCalc.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\bin\Debug\grossPayCalc.pdb
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\bin\Debug\grossPayCalc.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.vbprojAssemblyReference.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.Form1.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.Resources.resources
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.vbproj.GenerateResource.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.vbproj.CoreCompileInputs.cache
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.exe
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.xml
+C:\Users\sheik\Desktop\Code\Visual Studio\grossPayCalc\grossPayCalc\obj\Debug\grossPayCalc.pdb
