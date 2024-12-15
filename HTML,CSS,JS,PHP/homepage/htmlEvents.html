@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Events</title>
+</head>
+<body>
+
+	<P1 ID= "message"> Welcome to my website! </P1>
+
+	<script type="text/javascript">
+		var input = prompt("Do you want to open Google or CNN page?");
+		if (input.toUpperCase() == "GOOGLE")
+		{
+			window.open("https://google.com");
+			document.getElementById("message").innerHTML = "Welcome to my website, You’ve opened the Google page"; 
+		}
+		else if (input.toUpperCase() == "CNN")
+		{
+			window.open("https://cnn.com");
+			document.getElementById("message").innerHTML = "Welcome to my website, You’ve opened the CNN page"; 
+		}
+		else
+		{
+			alert("Incorrect input, please input CNN or GOOGLE");
+		}
+
+	</script>
+
+</body>
+</html>

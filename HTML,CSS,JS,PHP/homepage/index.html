@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+
+<TITLE> HOMEPAGE </TITLE>
+
+<style>
+
+  body {
+      background-image: url('image/bg.jpg');
+      background-size: cover;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+	#wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+
+  #navigationBar {
+  	position: fixed;
+  	top: 0;
+  	width: 100%;
+  	background: #34731c;
+  	padding: 10;
+  	display:flex;
+  	justify-content: center;
+  	z-index: 1000;
+  	backdrop-filter: blur(5px);
+  	opacity: 80%;
+    align-items: center;
+  }
+
+  .container {
+    background: #234d13;
+    border-radius: 15;
+    box-shadow: 0 0 20 rgba(0, 0, 0, 0.2);
+    max-width: 800;
+    width: 90%;
+    padding: 30;
+    margin: 20;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    opacity: 80%;
+    color:white;
+
+  }
+
+  .textNavBar {
+  	padding: 10;
+  	text-decoration: none;
+  	color:white;
+  	border-radius: 4px
+  	box-shadow: inset 0 0 0 0;
+  	transition: ease-out 0.3s;
+  	outline: none;
+  }
+
+  .textNavBar:hover {
+  	box-shadow: inset 300px 0 0 0 #14db5d;
+  	color:black;
+  }
+
+  .circlePFP {
+  	position: relative;
+  	width: 200px;
+  	height: 200px;
+  	overflow:hidden;
+  	border-radius: 50%;
+  }
+
+</style>
+
+
+</HEAD>
+
+<BODY>
+
+<!-- The wrapper is used to make a standard set of CSS configuration for the website to follow -->
+
+<!-- An ID can only be used by one element in the HTML page while a class can be used by multiple elements in a HTML page  -->
+
+<!-- <a> tag allows for hyperlinks which would be a way to navigate between pages -->
+
+
+<div ID = "navigationBar"> 
+  <a class = "textNavBar" href = '/'> HOMEPAGE </a>
+  <a class = "textNavBar" href = '/aboutme.html'> ABOUT ME </a>
+  <a class = "textNavBar" href = "MAILTO:sheikhadam2004@gmail.com"> EMAIL ME </a>
+</div>
+
+<div ID ="wrapper">
+
+<P1 class = "container"; STYLE = "max-width:200;padding:5px;border-radius:50%;margin-left:60;margin-bottom:10;opacity:95%"> <IMG CLASS = "circlePFP" SRC= "image/me.jpg"> </IMG> </P1>
+
+
+
+	<TABLE CLASS = "container" STYLE = "max-width:300;text-align:left;" >
+		<TR>
+			<TD> <B> WELCOME TO MY WEBSITE! </B> <br> My name is Sheikh Adam </TD>
+		</TR>
+
+		<TR>
+			<TD> <B> Contact Information: </B> <br>
+    		<B> Email: </B> sheikhadam2004@gmail.com <br>
+    		<B> Phone: </B> +0168177726 
+    		</TD>
+    	</TR>
+  </TABLE>
+</DIV>
+
+</BODY>
+
+
+</HTML>

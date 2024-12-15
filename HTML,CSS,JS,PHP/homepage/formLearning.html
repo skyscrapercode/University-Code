@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>System Information for Cats</title>
+
+	<style type="text/css">
+
+	body {
+      background-image: url('image/cat.jpg');
+      background-size: cover;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+  }
+
+  	#wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+	</style>
+
+	<script language="Javascript">
+
+		var guest = prompt("Insert your name");
+		
+		alert("Hello! " + guest);
+
+		for(var i = 0; i < 5; i++)
+		{
+			document.write("<h1> <font color=Green> Welcome " + guest + "</font> </h1>");
+		}
+
+
+
+	</script>
+
+
+</head>
+
+<body ID = wrapper>
+
+<h2> Cat form </h2>
+<form>
+
+<fieldset>
+	<legend>Information of Cat</legend>
+Name of cat : <input type="text" name="catName" required>
+<br>Gender of cat : 
+Male <input type="radio" name="catGender" value="M">
+Female <input type="radio" name="catGender" value="F"> <!-- -->
+<br>Breed :
+<select name = "Breed">
+	<option value="BSH">BSH</option>
+	<option value="DSH">DSH</option>
+	<option value="Mainecoon">Mainecoon</option>
+
+</select>
+</fieldset>
+
+<fieldset>
+	<legend>Cat Owner Information</legend>
+<br>Name of cat owner : <input type="text" name="catOwner">
+<br>Phone Number : <input type="number" name="phoneNumber">
+</fieldset>
+
+
+<br><input type="Submit" name="Send">
+<input type="Reset" name="Remove">
+
+
+</form>
+
+
+</body>
+</html>

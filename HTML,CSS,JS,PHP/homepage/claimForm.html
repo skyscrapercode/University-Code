@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mileage Claim</title>
+
+	<script language="javascript">
+		function calcClaimAmount()
+		{
+
+			if (document.claimForm.staffName.value == " ")
+			{
+				alert("Insert a name");
+				document.claimForm.staffDistance.focus();
+				return false;
+			}
+			else if (!isNaN(document.claimForm.staffName.value))
+			{
+				alert("Name does not contain number");
+				document.claimForm.staffDistance.focus();
+				return false;
+			}
+			else if (document.claimForm.staffDistance.value == " ")
+			{
+				alert("Insert a number in KM");
+				document.claimForm.staffDistance.focus();
+				return false;
+			}
+			else if (isNaN(document.claimForm.staffDistance.value))
+			{
+				alert("Distance Travelled should only contain number");
+				document.claimForm.staffDistance.focus();
+				return false;
+			}
+
+			var tempDistance = document.claimForm.staffDistance.value;
+			var claimAmount = 0;
+
+			if (document.claimForm.vehicleGrade.value == 'A')
+			{
+				if (document.claimForm.staffDistance.value > 1000)
+				{
+					claimAmount += 70 * 500;
+					tempDistance -= 500;
+					claimAmount += 65 * 500;
+					tempDistance -= 500;
+					claimAmount += 55 * tempDistance;
+				}
+				else if (document.claimForm.staffDistance.value > 500)
+				{
+					claimAmount += 70 * 500;
+					tempDistance -= 500;
+					claimAmount += 65 * tempDistance;
+				}
+				else
+				{
+					claimAmount += 70 * tempDistance;
+				}
+			}
+			else if (document.claimForm.vehicleGrade.value == 'B')
+			{
+				if (document.claimForm.staffDistance.value > 1000)
+				{
+					claimAmount += 60 * 500;
+					tempDistance -= 500;
+					claimAmount += 55 * 500;
+					tempDistance -= 500;
+					claimAmount += 50 * tempDistance;
+				}
+				else if (document.claimForm.staffDistance.value > 500)
+				{
+					claimAmount += 60 * 500;
+					tempDistance -= 500;
+					claimAmount += 55 * tempDistance;
+				}
+				else
+				{
+					claimAmount += 60 * tempDistance;
+				}
+			}
+			else
+			{
+				if (document.claimForm.staffDistance.value > 1000)
+				{
+					claimAmount += 50 * 500;
+					tempDistance -= 500;
+					claimAmount += 45 * 500;
+					tempDistance -= 500;
+					claimAmount += 40 * tempDistance;
+				}
+				else if (document.claimForm.staffDistance.value > 500)
+				{
+					claimAmount += 50 * 500;
+					tempDistance -= 500;
+					claimAmount += 45 * tempDistance;
+				}
+				else
+				{
+					claimAmount += 50 * tempDistance;
+				}
+
+			}
+
+			alert("Staff Number : " + document.claimForm.staffNum.value + 
+				"\nStaff Name : " + document.claimForm.staffName.value + 
+				"\nDistance Travelled : " + document.claimForm.staffDistance.value + 
+				" KM\nPosition : " + document.claimForm.Position.value + 
+				"\nClaim Amount : RM " + (claimAmount / 100).toFixed(2));
+
+			return false;
+
+		}
+	</script>
+
+</head>
+<body>
+
+<form name = "claimForm" onsubmit="return calcClaimAmount()">
+
+<fieldset>
+	<legend>Claim Form</legend>
+Staff number : <input type="number" name="staffNum" required>
+<br>Name : <input type="text" name="staffName" required>
+<br>Distance Travelled (KM) : <input type="text" name="staffDistance" required>
+
+<br>
+<select name = "Position">
+	<option value="manager">Manager</option>
+	<option value="assistantManager">Assistant Manager</option>
+	<option value="executiveOfficer">Executive Officer</option>
+
+</select>
+
+<br>Vehicle Grade : 
+A <input type="radio" name="vehicleGrade" value="A" required>
+B <input type="radio" name="vehicleGrade" value="B">
+C <input type="radio" name="vehicleGrade" value="C">
+
+</fieldset>
+
+<br><input type="Submit" name="Send">
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tapah Dominos Pizza</title>
+	<style type="text/css">
+
+	#wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+	</style>
+	<script type="text/javascript">
+
+		function validateForm()
+		{
+			if (document.getElementById("name").value == "")
+			{
+				alert("Insert a name");
+				return false;
+			}
+			else if (!isNaN(document.getElementById("name").value))
+			{
+				alert("You cannot insert number in name")
+				return false;
+			}
+			else if (document.getElementById("address").value == "")
+			{
+				alert("Insert a address");
+				return false
+			}
+			else if (isNaN(document.getElementById("HPno").value))
+			{
+				alert("Insert numeric values only as phone number");
+				return false;
+			}
+			else if (document.getElementById("pizzaSize").value == 'N')
+			{
+				alert("Please choose the size of your pizza");
+				return false;
+			}
+			else if (document.getElementById("HPno").value == "")
+			{
+				alert("Please input phone number");
+				return false;
+			}
+
+			return true;
+		}
+
+		function calcTotalPrice()
+		{
+
+			if (!validateForm())
+			{
+				return false;
+			}
+			var pizzaTotal = 0;
+
+			if (document.getElementById("pizzaSize").value == 'P')
+			{
+				pizzaTotal += 9;
+			}
+			else if (document.getElementById("pizzaSize").value == 'R')
+			{
+				pizzaTotal += 15;
+			}
+			else if (document.getElementById("pizzaSize").value == 'L')
+			{
+				pizzaTotal += 25;
+			}
+
+			if (document.mainOrder.topping[0].checked)
+			{
+				pizzaTotal += 5;
+			}
+			if (document.mainOrder.topping[1].checked)
+			{
+				pizzaTotal += 7;
+			}
+			if (document.mainOrder.topping[2].checked)
+			{
+				pizzaTotal += 5;
+			}
+			if (document.mainOrder.topping[3].checked)
+			{
+				pizzaTotal += 3.50;
+			}
+			if (document.mainOrder.topping[4].checked)
+			{
+				pizzaTotal += 4;
+			}
+			if (document.mainOrder.topping[5].checked)
+			{
+				pizzaTotal += 7;
+			}
+
+			document.getElementById("result").innerHTML = " <h2>TAPAH DOMINOS PIZZA RECEIPT: </h2> <br> ======================================== <br> <p>Your pizza order has been submitted.</p> <p>The total price is RM " + pizzaTotal.toFixed(2) + "</p> <br> ========================================";
+
+
+
+		}
+
+	</script>
+</head>
+<body ID = wrapper>
+
+	<P1 style ="font-weight: bold; font-size: 30px"> TAPAH DOMINOS PIZZA: </P1> <br>
+	<P2 style ="font-weight: bold; font-size: 20px"> Online Order Form </P2>
+
+<form name = mainOrder>
+	<fieldset>
+		<legend>Step 1: Customer Details</legend>
+		Full Name : <input type="text" name="name" id="name"> <br>
+		Delivery Address : <input type="text" name="address" id="address"> <br>
+		Phone Number : <input type="text" name="HPno" id="HPno">
+	</fieldset>
+
+	<fieldset>
+		<legend>Step 2: Order Details</legend>
+		Pizza Size: <br>
+		<select id="pizzaSize">
+		<option value="N">Choose size of pizza..</option>
+		<option value="P">Personal (RM9.00)</option>
+		<option value="R">Regular (RM15.00)</option>
+		<option value="L">Large (RM25.00)</option>
+		</select> <br> <br>
+		Topping(s): <br>
+		<input type="checkbox" name="topping"> Pepperoni (RM5.00) <br>
+		<input type="checkbox" name="topping"> Sausage (RM7.00) <br>
+		<input type="checkbox" name="topping"> Mushrooms (RM5.00) <br>
+		<input type="checkbox" name="topping"> Pineapple (RM3.50) <br>
+		<input type="checkbox" name="topping"> Black Olives (RM4.00) <br>
+		<input type="checkbox" name="topping"> Meatball (RM7.00)
+	</fieldset>
+</form>
+<br>
+
+<div>
+	<input type="button" name="submitOrder" value="Submit Order" onclick="calcTotalPrice()">
+	<input type="button" name="resetOrder" value="Reset">
+</div>
+
+<div id="result"></div>
+
+
+
+
+</body>
+</html>

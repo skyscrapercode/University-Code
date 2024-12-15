@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Assignment</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      color: #1d743b; /* Green theme */
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #db1b1b; /* Red theme */
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #ff9800; /* Orange theme */
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e68a00;
+    }
+
+    .calendar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1d743b;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .calendar span {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="company-info">
+      <img src="image/7eleven.png" alt="7-Eleven Logo">
+      7-Eleven
+    </div>
+    <div class="nav-buttons">
+      <a href="/index.html">&#8592; Back</a>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <div class="header">
+      <h1>Job Assignment Portal</h1>
+    </div>
+
+    <div class="calendar">
+      <span>📅 Today: <span id="currentDate"></span></span>
+      <button id="prevDay">◀</button>
+      <button id="nextDay">▶</button>
+    </div>
+
+    <div class="form-group">
+      <label for="employee">Assign to:</label>
+      <select id="employee">
+        <option value="john">John</option>
+        <option value="sarah">Sarah</option>
+        <option value="alex">Alex</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="job">Job Type:</label>
+      <select id="job">
+        <option value="cashier">Cashier</option>
+        <option value="stocking">Stocking</option>
+        <option value="cleaning">Cleaning</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="shift">Shift Time:</label>
+      <select id="shift">
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="night">Night</option>
+      </select>
+    </div>
+
+    <button onclick="assignJob()">Assign Job</button>
+  </div>
+
+  <script>
+    const currentDateEl = document.getElementById('currentDate');
+    const today = new Date();
+    currentDateEl.innerText = today.toDateString();
+
+    const prevDayBtn = document.getElementById('prevDay');
+    const nextDayBtn = document.getElementById('nextDay');
+    let currentDate = new Date();
+
+    prevDayBtn.onclick = () => {
+      currentDate.setDate(currentDate.getDate() - 1);
+      currentDateEl.innerText = currentDate.toDateString();
+    };
+
+    nextDayBtn.onclick = () => {
+      currentDate.setDate(currentDate.getDate() + 1);
+      currentDateEl.innerText = currentDate.toDateString();
+    };
+
+    function assignJob() {
+      const employee = document.getElementById('employee').value;
+      const job = document.getElementById('job').value;
+      const shift = document.getElementById('shift').value;
+
+      alert(`Assigned ${job} job to ${employee} for the ${shift} shift.`);
+    }
+  </script>
+</body>
+</html>
