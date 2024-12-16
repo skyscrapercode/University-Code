@@ -10,38 +10,27 @@ if (!isset($_SESSION['EMP_ID'])) {
 
 $emp_id = $_SESSION['EMP_ID'];
 
-// Fetch attendance data from the database
-$attendance_query = "SELECT EMP_NAME, ATTENDANCE FROM shift JOIN employee ON shift.EMP_ID = employee.EMP_ID WHERE employee.EMP_ID = ?";
-$stmt = $conn->prepare($attendance_query);
+// Fetch leave status from the database
+$leave_query = "SELECT STARTDATE, ENDDATE, TYPE, LEAVE_STATUS FROM `leave` WHERE EMP_ID = ?";
+$stmt = $conn->prepare($leave_query);
 $stmt->bind_param("i", $emp_id);
 $stmt->execute();
-$attendance_result = $stmt->get_result();
-
-// Function to update attendance
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['attendance'])) {
-    $attendance_status = $_POST['attendance'] === '1' ? 1 : 0;
-    $update_query = "UPDATE shift SET ATTENDANCE = ? WHERE EMP_ID = ?";
-    $stmt = $conn->prepare($update_query);
-    $stmt->bind_param("ii", $attendance_status, $emp_id);
-    $stmt->execute();
-    header("Location: attendance.php"); // Refresh the page after update
-    exit;
-}
+$leave_result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Attendance</title>
+  <title>Leave Status</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       background-color: #FFF8E7;
-      margin: 0; 
+      margin: 0;
     }
 
     .container {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       background-color: #fff;
       padding: 20px;
@@ -73,12 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['attendance'])) {
       background-color: #ff8d8d;
     }
 
-    .back-button {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-    }
-
     button {
       background-color: #f4821f;
       color: white;
@@ -92,10 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['attendance'])) {
       background-color: #008161;
     }
 
-    .update-form {
-      text-align: center;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
@@ -105,42 +84,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['attendance'])) {
       7-Eleven
     </div>
     <div class="nav-buttons">
-      <a href="/groupproject/parttime.php">&#8592; Back</a>
+      <a href="/groupproject/reqleave.php">&#8592; Back</a>
     </div>
   </header>
   <div style="padding: 80px;">
     <div class="container">
-      <h1>Attendance List</h1>
+      <h1>Leave Status</h1>
       <table>
         <thead>
           <tr>
             <th>No</th>
-            <th>Worker Name</th>
-            <th>Attendance</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Leave Type</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          <?php $counter = 1; ?>
-          <?php while ($row = $attendance_result->fetch_assoc()): ?>
+          <?php if ($leave_result->num_rows > 0): ?>
+            <?php $counter = 1; ?>
+            <?php while ($row = $leave_result->fetch_assoc()): ?>
+              <tr>
+                <td><?php echo $counter++; ?></td>
+                <td><?php echo htmlspecialchars($row['STARTDATE']); ?></td>
+                <td><?php echo htmlspecialchars($row['ENDDATE']); ?></td>
+                <td><?php echo htmlspecialchars($row['TYPE']); ?></td>
+                <td><?php echo htmlspecialchars($row['LEAVE_STATUS']); ?></td>
+              </tr>
+            <?php endwhile; ?>
+          <?php else: ?>
             <tr>
-              <td><?php echo $counter++; ?></td>
-              <td><?php echo htmlspecialchars($row['EMP_NAME']); ?></td>
-              <td><?php echo $row['ATTENDANCE'] ? 'Present' : 'Absent'; ?></td>
+              <td colspan="5">No leave requests found.</td>
             </tr>
-          <?php endwhile; ?>
+          <?php endif; ?>
         </tbody>
       </table>
-
-      <div class="update-form">
-        <form method="POST">
-          <label for="attendance">Mark Attendance:</label>
-          <select name="attendance" id="attendance">
-            <option value="1">Present</option>
-            <option value="0">Absent</option>
-          </select>
-          <button type="submit">Update</button>
-        </form>
-      </div>
     </div>
   </div>
 </body>

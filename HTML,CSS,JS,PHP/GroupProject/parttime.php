@@ -4,10 +4,17 @@ session_start(); // Start the session
 include 'dbconnection.php'; // Include the database connection file
 
 // Check if employee details are stored in the session and check if the user is indeed a part timer not manager
-if (!isset($_SESSION['EMP_ID'])) {
-    die("Part timer employee not logged in. Please log in to continue.");
-elseif ($_SESSION['EMP_ROLE'] === 'm')
-    die("Your not an part timer, your a manager, please go to the correct portal")
+if (!isset($_SESSION['EMP_ID'])) 
+{
+    echo "Part timer employee not logged in. Please log in to continue, the system will redirect you to login page in 5 seconds";
+    header("refresh:5; url=/groupproject/login.php");
+    exit();
+}
+elseif ($_SESSION['EMP_ROLE'] == 'manager')
+{
+    echo "Your not an part timer, your a manager, the system will redirect you to the correct portal in 5 seconds";
+    header("refresh:5; url=/groupproject/manager.php");
+    exit();
 }
 
 $emp_id = $_SESSION['EMP_ID'];
@@ -85,10 +92,10 @@ $shift_result = $stmt->get_result();
         7-Eleven
     </div>
     <div class="nav-buttons">
-        <a href="/index.php">&#8592; BACK</a>
-        <a href="/attendance.php">ATTENDANCE</a>
-        <a href="/reqleave.php">REQUEST LEAVE</a>
-        <a href="/profile.php">PPROFILE</a>
+        <a href="/groupproject/attendance.php">Attendance</a>
+        <a href="/groupproject/reqleave.php">Request Leave</a>
+        <a href="/groupproject/profile.php">Profile</a>
+        <a href="/groupproject/index.php">&#8592; Back</a>
     </div>
 </header>
 <div style="display: flex; justify-content: center; align-items: center; padding: 80px">

@@ -115,7 +115,7 @@ $result = $conn->query($sql);
 <body>
     <div class="header">
         <h1>7-Eleven</h1>
-        <img src="/7eleven.png" alt="7-Eleven Logo">
+        <img src="image/7eleven.png" alt="7-Eleven Logo">
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
     </div>
 

@@ -6,12 +6,11 @@ include 'dbconnection.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $full_name = trim($_POST['full_name']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
     // Simple validation
-    if (empty($full_name) || empty($email) || empty($password)) {
+    if ( empty($email) || empty($password)) {
         $error = "All fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Invalid email format.";
@@ -21,26 +20,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Insert into the employee table
 
-        $sql1 = "SELECT EMP_ROLE FROM APPLICANT JOIN APPLICATION ON APP_ID = APP_ID WHERE APP_EMAIL = '$email' AND 'STATUS' =  'accepted'"
+        $sql1 = "SELECT * FROM APPLICANT JOIN APPLICATION ON APPLICANT.APP_ID = APPLICATION.APP_ID WHERE APP_EMAIL = '$email' AND STATUS =  'accepted'";
 
         $result1 = mysqli_query($conn, $sql1);
-      
+
         if ($result1 && mysqli_num_rows($result1) > 0)
         {
-          $sql2 = "INSERT INTO employee (EMP_NAME, EMP_EMAIL, EMP_PASS, EMP_ROLE ) VALUES ('$full_name', '$email', '$hashed_password', '$result1')";
+          $resultData = $result1->fetch_assoc();
+
+          $sql2 = "INSERT INTO employee (EMP_NAME, EMP_GENDER, EMP_PHONE, EMP_EMAIL, EMP_PASS, EMP_ROLE ) VALUES ('{$resultData['APP_NAME']}', '{$resultData['APP_GENDER']}', '{$resultData['APP_PHONE']}', {$resultData['APP_EMAIL']}, '{$resultData['APP_PASS']}', '{$resultData['APP_ROLE']}')";
 
           $result2 = mysqli_query($conn, $sql2);
+          $result3 = mysqli_insert_id($conn)
+          
+          $sql4 = "SELECT EMP_ROLE FROM employee WHERE EMP_EMAIL = '$email' AND EMP_PASS = '$hashed_password'";
 
-          $sql3 = "SELECT EMP_ID FROM employee WHERE EMP_EMAIL = '$email' AND EMP_PASS = '$hashed_password'";
-
-          $result3 = mysqli_query($conn, $sql3);
+          $result4 = mysqli_query($conn, $sql4);
 
           $_SESSION['EMP_ID'] = $result3;
+          $_SESSION['EMP_ROLE'] = $result4
           header("location: parttime.php");
         }
         else
         {
-          die('Your application was not approve or you did not apply');
+          echo "Your application was not approved or you did not apply yet. You will be redirected to the homepage in 5 seconds";
+          header("refresh:5; url=/groupproject/index.php");
+          exit();
         }
     }
 }
@@ -127,15 +132,13 @@ $conn->close();
       7-Eleven
     </div>
     <div class="nav-buttons">
-      <a href="/index.html">&#8592; Back</a>
+      <a href="/index.php">&#8592; Back</a>
     </div>
   </header>
   <div style="padding: 80px;">
     <div class="container">
     <h1>Sign Up</h1>
         <form method="POST">
-            <label for="full_name">Full Name</label>
-            <input type="text" id="full_name" name="full_name" required>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Password</label>
@@ -144,7 +147,7 @@ $conn->close();
         </form>
 
         <div class="switch-link">
-          <p>Already have an account? <a href="login.html">Login</a></p>
+          <p>Already have an account? <a href="login.php">Login</a></p>
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ if (!isset($_SESSION['EMP_ID'])) {
     die("Employee not logged in. Please log in to continue.");
 }
 
+$status_message = "";
+
 $emp_id = $_SESSION['EMP_ID'];
 
 // Handle leave request submission
@@ -23,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $reason = ($type === 'other') ? $other_reason : $type;
 
-    $insert_query = "INSERT INTO leave (EMP_ID, STARTDATE, ENDDATE, TYPE) VALUES (?, ?, ?, ?)";
+    $insert_query = "INSERT INTO `leave` (EMP_ID, STARTDATE, ENDDATE, TYPE) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($insert_query);
     $stmt->bind_param("isss", $emp_id, $start_date, $end_date, $reason);
 
     if ($stmt->execute()) {
-        echo "Leave request submitted successfully.";
+        $status_message = "Leave request submitted <strong style='color:green;'>successfully</strong>.";
     } else {
-        echo "Error: " . $conn->error;
+        $status_message = "<strong style='color:red;'>Error:</strong> " . $conn->error;
     }
 }
 ?>
@@ -100,6 +102,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .hidden {
       display: none;
     }
+
+    .status-message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+    }
   </style>
   <script>
     function toggleOtherReason() {
@@ -122,7 +130,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       7-Eleven
     </div>
     <div class="nav-buttons">
-      <a href="/index.html">&#8592; Back</a>
+      <a href="/groupproject/leavestatus.php">Status</a>
+      <a href="/groupproject/parttime.php">&#8592; Back</a>
     </div>
   </header>
 
@@ -152,6 +161,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Submit Request</button>
       </form>
+        <?php if ($status_message): ?>
+            <div class="status-message">
+                <?php echo $status_message; ?>
+            </div>
+        <?php endif; ?>
     </div>
   </div>
 </body>

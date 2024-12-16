@@ -107,11 +107,11 @@ if ($result && mysqli_num_rows($result) > 0) {
       7-Eleven
     </div>
     <div class="nav-buttons">
-      <a href="index.php">Home</a>
-	    <a href="/aboutus.html">About Us</a>
-	    <a href="/">Status</a>
-	    <a href="/apply.html">Apply Job</a>
-      <a href="/login.php">Login</a>
+      <a href="/groupproject/index.php">Home</a>
+	    <a href="/groupproject/aboutus.html">About Us</a>
+	    <a href="/groupproject/status.php">Status</a>
+	    <a href="/groupproject/apply.php">Apply Job</a>
+      <a href="/groupproject/login.php">Login</a>
     </div>
   </header>
 
@@ -127,12 +127,12 @@ if ($result && mysqli_num_rows($result) > 0) {
 
       <!-- Hiring Notice -->
       <div class="hiring-notice">
-        <p>Hiring Notice</p>
+        <p>Part Time: Hiring Notice</p>
         <ul style="list-style: none; padding: 0;">
           <?php if (!empty($jobs)) : ?>
             <?php foreach ($jobs as $job) : ?>
-              <li>Position: <?php echo htmlspecialchars($job['name']); ?></li>
-              <li>Salary: <?php echo htmlspecialchars($job['salary']); ?></li>
+              <li>Position: <?php echo strtoupper(htmlspecialchars($job['JOB_NAME'])); ?></li>
+              <li>Salary: RM<?php echo strtoupper(htmlspecialchars($job['JOB_SALARY'])); ?></li>
               <hr>
             <?php endforeach; ?>
           <?php else : ?>

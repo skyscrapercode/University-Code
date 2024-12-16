@@ -25,6 +25,7 @@ header {
     height: 80px; /* Expanded height */
     box-sizing: border-box;
     border-bottom: 5px solid #006d52;
+    position: fixed;
   }
 
   .company-info {
