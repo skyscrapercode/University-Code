@@ -3,9 +3,18 @@ session_start(); // Start the session
 
 include 'dbconnection.php'; // Include the database connection file
 
-// Check if employee details are stored in the session
-if (!isset($_SESSION['EMP_ID'])) {
-    die("Employee not logged in. Please log in to continue.");
+// Check if employee details are stored in the session and check if the user is indeed a part timer not manager
+if (!isset($_SESSION['EMP_ID'])) 
+{
+    echo "Part timer employee not logged in. Please log in to continue, the system will redirect you to login page in 5 seconds";
+    header("refresh:5; url=/groupproject/login.php");
+    exit();
+}
+elseif ($_SESSION['EMP_ROLE'] == 'manager')
+{
+    echo "Your not a part timer, your a manager, the system will redirect you to the correct portal in 5 seconds";
+    header("refresh:5; url=/groupproject/manager.php");
+    exit();
 }
 
 $status_message = "";
@@ -15,7 +24,7 @@ $emp_id = $_SESSION['EMP_ID'];
 // Handle leave request submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $start_date = $_POST['start_date'];
-    $end_date = $_POST['end_date'];
+    $duration = (int)$_POST['duration'];
     $type = $_POST['type'];
     $other_reason = $_POST['other_reason'] ?? null;
 
@@ -25,14 +34,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $reason = ($type === 'other') ? $other_reason : $type;
 
-    $insert_query = "INSERT INTO `leave` (EMP_ID, STARTDATE, ENDDATE, TYPE) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($insert_query);
-    $stmt->bind_param("isss", $emp_id, $start_date, $end_date, $reason);
+    // Calculate the end date
+    $end_date = date('Y-m-d', strtotime("$start_date + $duration days"));
 
-    if ($stmt->execute()) {
-        $status_message = "Leave request submitted <strong style='color:green;'>successfully</strong>.";
+    // Check for overlapping leave requests
+    $check_query = "SELECT * FROM `leave` WHERE EMP_ID = ? AND (STARTDATE BETWEEN ? AND ? OR ENDDATE BETWEEN ? AND ? OR (STARTDATE <= ? AND ENDDATE >= ?))";
+    $stmt = $conn->prepare($check_query);
+    $stmt->bind_param("sssssss", $emp_id, $start_date, $end_date, $start_date, $end_date, $start_date, $end_date);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $status_message = "<strong style='color:red;'>Error:</strong> Leave request overlaps with an existing leave.";
     } else {
-        $status_message = "<strong style='color:red;'>Error:</strong> " . $conn->error;
+        // Insert the leave request
+        $insert_query = "INSERT INTO `leave` (EMP_ID, STARTDATE, ENDDATE, TYPE) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($insert_query);
+        $stmt->bind_param("isss", $emp_id, $start_date, $end_date, $reason);
+
+        if ($stmt->execute()) {
+            $status_message = "Leave request submitted <strong style='color:green;'>successfully</strong>.";
+        } else {
+            $status_message = "<strong style='color:red;'>Error:</strong> " . $conn->error;
+        }
     }
 }
 ?>
@@ -41,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <title>Request Leave</title>
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -130,6 +155,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       7-Eleven
     </div>
     <div class="nav-buttons">
+      <a href="/groupproject/reqleave.php">Request Leave</a>
+      <a href="/groupproject/profile.php">Profile</a>
       <a href="/groupproject/leavestatus.php">Status</a>
       <a href="/groupproject/parttime.php">&#8592; Back</a>
     </div>
@@ -140,10 +167,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h1>Request Leave</h1>
       <form method="POST">
         <label for="start-date">Start Date</label>
-        <input type="date" id="start-date" name="start_date" required>
+        <input type="date" id="start-date" name="start_date" min="<?php echo date('Y-m-d'); ?>" required>
 
-        <label for="end-date">End Date</label>
-        <input type="date" id="end-date" name="end_date" required>
+        <label for="duration">Duration (in days)</label>
+        <input type="number" id="duration" name="duration" min="1" required>
 
         <label for="type">Leave Type</label>
         <select id="type" name="type" onchange="toggleOtherReason()" required>

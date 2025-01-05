@@ -1,40 +1,39 @@
 <?php
 session_start();
-
-// Include database connection
 include 'dbconnection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    // Simple validation
     if (empty($email) || empty($password)) {
         $error = "Both fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Invalid email format.";
     } else {
-        // Hash the password to match database storage
-        $hashed_password = md5($password);
-
-        // Prepare SQL to check credentials
-        $sql = "SELECT EMP_ID, EMP_ROLE FROM employee WHERE EMP_EMAIL = '$email' AND EMP_PASS = '$hashed_password'";
-        $result = mysqli_query($conn, $sql);
+        $stmt = $conn->prepare("SELECT EMP_ID, EMP_ROLE, EMP_PASS FROM employee WHERE EMP_EMAIL = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result && $result->num_rows > 0) {
             $user = $result->fetch_assoc();
 
-            // Store EMP_ID in session
-            $_SESSION['EMP_ID'] = $user['EMP_ID'];
-            $_SESSION['EMP_ROLE'] = $user['EMP_ROLE'];
+            // Use password_verify for secure password checking
+            if (password_verify($password, $user['EMP_PASS'])) {
+                $_SESSION['EMP_ID'] = $user['EMP_ID'];
+                $_SESSION['EMP_ROLE'] = $user['EMP_ROLE'];
 
-            // Redirect based on EMP_TYPE
-            if ($user['EMP_ROLE'] === 'manager') {
-                header("Location: manager.php");
+                // Redirect based on EMP_ROLE
+                if ($user['EMP_ROLE'] === 'manager') {
+                    header("Location: manager.php");
+                } else {
+                    header("Location: parttime.php");
+                }
+                exit;
             } else {
-                header("Location: parttime.php");
+                $error = "Invalid email or password.";
             }
-            exit;
         } else {
             $error = "Invalid email or password.";
         }
@@ -42,12 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
   <title>Login</title>
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -149,4 +152,4 @@ $conn->close();
       </div>
     </div>
 </body>
-</html>
+</html> 

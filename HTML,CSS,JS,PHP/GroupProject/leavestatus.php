@@ -22,6 +22,7 @@ $leave_result = $stmt->get_result();
 <html>
 <head>
   <title>Leave Status</title>
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <style>
     body {

@@ -1,34 +1,62 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ptms";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Start the session at the very beginning of the file
 session_start();
+include 'dbconnection.php';
 
-// Check if the email session variable is set
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email']; // Retrieve the email from the session
+$message = ""; // Variable to store success or error message
+
+// Fetch employee data
+$sql = "SELECT emp_id, emp_name, emp_phone, emp_email, emp_addr, emp_dob, emp_gender FROM employee WHERE emp_ID = '{$_SESSION['EMP_ID']}'";
+$stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Query preparation failed: " . $conn->error);
 }
 
-// Fetch employee data (Example: Fetch first employee for demonstration)
-$sql = "SELECT * FROM employee WHERE emp_email = $email"; // Adjust condition as needed
-$result = $conn->query($sql);
+if (!$stmt->execute()) {
+    die("Query execution failed: " . $stmt->error);
+}
 
+$result = $stmt->get_result();
 if ($result && $result->num_rows > 0) {
-    $employee = $result->fetch_assoc(); // Fetch employee data as associative array
+    $employee = $result->fetch_assoc();
 } else {
-    $employee = [];
+    die("No employee found with the provided ID.");
+}
+
+// Update employee data
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $emp_id = $employee['emp_id'];
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $gender = $_POST['gender']; // Get gender from radio buttons
+    $email = $_POST['email'];
+    $new_password = $_POST['password'];
+    $address = $_POST['address'];
+    $dob = $_POST['dob'];
+
+    if (!empty($_POST['password'])) {
+        $update_sql = "UPDATE employee SET emp_name = ?, emp_phone = ?, emp_email = ?, emp_addr = ?, emp_dob = ?, emp_gender = ?, emp_pass = ? WHERE emp_id = ?";
+        $update_stmt = $conn->prepare($update_sql); // Prepare the statement
+        if (!$update_stmt) {
+            $message = "Statement preparation failed: " . $conn->error;
+        }
+
+        $latestPassword = password_hash($new_password, PASSWORD_BCRYPT);
+
+        $update_stmt->bind_param("sssssssi", $name, $phone, $email, $address, $dob, $gender, $latestPassword, $emp_id);
+    } else {
+        $update_sql = "UPDATE employee SET emp_name = ?, emp_phone = ?, emp_gender = ?, emp_email = ?, emp_addr = ?, emp_dob = ? WHERE emp_id = ?";
+        $update_stmt = $conn->prepare($update_sql); // Prepare the statement
+        if (!$update_stmt) {
+            $message = "Statement preparation failed: " . $conn->error;
+        }
+        $update_stmt->bind_param("ssssssi", $name, $phone, $gender, $email, $address, $dob, $emp_id);
+    }
+
+    if ($update_stmt->execute()) {
+        $message = "Profile updated successfully.";
+    } else {
+        $message = "Failed to update profile.";
+    }
 }
 
 // Close the database connection
@@ -39,7 +67,8 @@ $conn->close();
 <html>
 <head>
 <meta charset="utf-8">
-<title>Employee Info</title>
+<title>Edit Employee Info</title>
+<link rel="icon" type="image/x-icon" href="image/favicon.ico">
 <link rel="stylesheet" href="style.css">
 <style>
     body {
@@ -56,13 +85,21 @@ $conn->close();
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    table {
-        margin: auto;
+    .message {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
         text-align: center;
     }
-    .profile-img {
-        border-radius: 50%;
-        border: 5px solid #ff8d8d;
+    .success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
     }
     label {
         display: block;
@@ -80,11 +117,14 @@ $conn->close();
         color: #333;
         background-color: #fff;
     }
-    input[readonly] {
-        background-color: #f8f8f8;
+    input[type="radio"] {
+        margin-right: 10px;
+        width: auto;
+        height: auto;
+        vertical-align: middle;
     }
-    .btn-back {
-        background-color: #f01b2d;
+    .btn {
+        background-color: #008161;
         color: white;
         font-size: 16px;
         border: none;
@@ -93,8 +133,8 @@ $conn->close();
         cursor: pointer;
         margin-top: 20px;
     }
-    .btn-back:hover {
-        background-color: #f4821f;
+    .btn:hover {
+        background-color: #006644;
     }
 </style>
 </head>
@@ -105,49 +145,54 @@ $conn->close();
             7-Eleven
         </div>
         <div class="nav-buttons">
-            <a href="/index.html">&#8592; Back</a>
+            <a href="javascript:void(0);" onclick="window.history.back();">&#8592; Back</a>
         </div>
     </header>
 
     <div class="content">
-        <!-- Profile Picture -->
-        <table width="35%" border="0" align="center">
-            <tbody>
-                <tr>
-                    <td height="105" colspan="2" align="center">
-                        <img src="image/defaultpfp.jpg" width="124" height="124" alt="Logo" class="profile-img">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <h1 style="color:green">Employee Profile:</h1>
+
+        <!-- Display Success or Error Message -->
+        <?php if (!empty($message)): ?>
+            <div class="message <?php echo strpos($message, 'successfully') !== false ? 'success' : 'error'; ?>">
+                <?php echo htmlspecialchars($message); ?>
+            </div>
+        <?php endif; ?>
 
         <!-- Employee Data Form -->
-        <form style="margin-top:20px;">
+        <form method="post" style="margin-top:20px;">
             <p>
                 <label for="name">NAME:</label>
-                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($employee['emp_name']); ?>" readonly>
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($employee['emp_name']); ?>" required>
             </p>
             <p>
                 <label for="phone">PHONE:</label>
-                <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($employee['emp_phone']); ?>" readonly>
+                <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($employee['emp_phone']); ?>" required>
+            </p>
+            <p>
+                <label for="gender">GENDER:</label><br>
+                <input type="radio" id="male" name="gender" value="M" <?php echo ($employee['emp_gender'] == 'M') ? 'checked' : ''; ?>> Male
+                <input type="radio" id="female" name="gender" value="F" <?php echo ($employee['emp_gender'] == 'F') ? 'checked' : ''; ?>> Female
             </p>
             <p>
                 <label for="email">EMAIL:</label>
-                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($employee['emp_email']); ?>" readonly>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($employee['emp_email']); ?>" required>
+            </p>
+            <p>
+                <label for="password">NEW PASSWORD:</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password (leave blank to keep current)">
+            </p>
             <p>
                 <label for="address">ADDRESS:</label>
-                <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($employee['emp_addr']); ?>" readonly>
+                <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($employee['emp_addr']); ?>" required>
             </p>
             <p>
                 <label for="dob">DATE OF BIRTH:</label>
-                <input type="text" id="dob" name="dob" value="<?php echo htmlspecialchars($employee['emp_dob']); ?>" readonly>
+                <input type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($employee['emp_dob']); ?>" required>
             </p>
-            <p>
-                <label for="role">ROLE:</label>
-                <input type="text" id="role" name="role" value="<?php echo htmlspecialchars($employee['emp_role']); ?>" readonly>
-            </p>
-            <button class="btn-back" type="button" onclick="window.history.back();">BACK</button>
+            <button class="btn" type="submit">SAVE CHANGES</button>
         </form>
     </div>
 </body>
 </html>
+

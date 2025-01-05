@@ -22,7 +22,6 @@ if ($result && mysqli_num_rows($result) > 0) {
   <link rel="icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <style>
-
     body {
       margin: 0;
       color: white;
@@ -132,7 +131,7 @@ if ($result && mysqli_num_rows($result) > 0) {
           <?php if (!empty($jobs)) : ?>
             <?php foreach ($jobs as $job) : ?>
               <li>Position: <?php echo strtoupper(htmlspecialchars($job['JOB_NAME'])); ?></li>
-              <li>Salary: RM<?php echo strtoupper(htmlspecialchars($job['JOB_SALARY'])); ?></li>
+              <li>Est. Salary: RM<?php echo strtoupper(htmlspecialchars($job['JOB_SALARY'])); ?></li>
               <hr>
             <?php endforeach; ?>
           <?php else : ?>

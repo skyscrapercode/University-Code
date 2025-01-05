@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the email input
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
-    // SQL query to fetch the approval status of the user
-   $sql = "SELECT a.APP_NAME, app.STATUS 
+    // SQL query to fetch the approval status and interview date of the user
+    $sql = "SELECT a.APP_NAME, app.STATUS, app.INTERVIEW_DATE 
             FROM applicant a
             JOIN application app ON a.APP_ID = app.APP_ID
             WHERE a.APP_EMAIL = '$email'";
@@ -20,21 +20,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        // Fetch user status
+        // Fetch user details
         $row = mysqli_fetch_assoc($result);
         $app_name = $row['APP_NAME'];
         $status = $row['STATUS'];
+        $interview_date = $row['INTERVIEW_DATE'];
 
         // Set the message based on the status
         if (strtolower($status) == "accepted") {
-            $status_message = "Hello $app_name, your status is <strong style='color:green;'>APPROVED</strong>.<p>You can now <a href='signup.php'>Sign up here</p></a>";
+            if ($interview_date) {
+                $formatted_date = date("F j, Y", strtotime($interview_date));
+                $status_message = "Hello $app_name, your application status is <strong style='color:green;'>APPROVED</strong>.<p>Your interview is scheduled on <strong>$formatted_date</strong>.</p><p>You can now <a href='/groupproject/signup.php'>Sign up here</a>.</p>";
+            } else {
+                $status_message = "Hello $app_name, your application status is <strong style='color:green;'>APPROVED</strong>.<p>You can now <a href='/groupproject/signup.php'>Sign up here</a>.</p>";
+            }
         } elseif (strtolower($status) == "rejected") {
-            $status_message = "Hello $app_name, your status is <strong style='color:red;'>REJECTED</strong>.";
+            $status_message = "Hello $app_name, your application status is <strong style='color:red;'>REJECTED</strong>.";
         } else {
-            $status_message = "Hello $app_name, your status is <strong style='color:orange;'>PENDING</strong>.";
+            $status_message = "Hello $app_name, your application status is <strong style='color:orange;'>PENDING</strong>.";
         }
     } else {
-        $status_message = "<span style='color:black;'>It looks like you have not applied yet.<a href='apply.php'><p>APPLY HERE!!!</p></a></span>";
+        $status_message = "<span style='color:black;'>It looks like you have not applied yet.<a href='/groupproject/apply.php'><p>APPLY HERE!!!</p></a></span>";
     }
 }
 ?>
@@ -43,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Status Check</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -107,31 +114,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-    <div class="company-info">
-      <img src="image/7eleven.png" alt="7-Eleven Logo">
-      7-Eleven
-    </div>
-    <div class="nav-buttons">
-      <a href="/groupproject/index.php">&#8592; Back</a>
-    </div>
-  </header>
+        <div class="company-info">
+            <img src="image/7eleven.png" alt="7-Eleven Logo">
+            7-Eleven
+        </div>
+        <div class="nav-buttons">
+            <a href="/groupproject/index.php">&#8592; Back</a>
+        </div>
+    </header>
 
-<div style="padding: 80px;">
-    <div class="container">
-        <h1>Check Status</h1>
-        <form action="" method="POST">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <div style="padding: 80px;">
+        <div class="container">
+            <h1>Check Status</h1>
+            <form action="" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-            <button type="submit">Check</button>
-        </form>
+                <button type="submit">Check</button>
+            </form>
 
-        <?php if ($status_message): ?>
-            <div class="status-message">
-                <?php echo $status_message; ?>
-            </div>
-        <?php endif; ?>
+            <?php if ($status_message): ?>
+                <div class="status-message">
+                    <?php echo $status_message; ?>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
 </body>
 </html>

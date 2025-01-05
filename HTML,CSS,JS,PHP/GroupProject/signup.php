@@ -6,49 +6,51 @@ include 'dbconnection.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+  $email = trim($_POST['email']);
+  $password = trim($_POST['password']);
 
-    // Simple validation
-    if ( empty($email) || empty($password)) {
-        $error = "All fields are required.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Invalid email format.";
-    } else {
-        // Hash the password for security
-        $hashed_password = MD5($password);
+  if (empty($email) || empty($password)) {
+      $error = "All fields are required.";
+  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $error = "Invalid email format.";
+  } else {
+      // Check if email exists
+      $stmt = $conn->prepare("SELECT EMP_EMAIL FROM employee WHERE EMP_EMAIL = ?");
+      $stmt->bind_param("s", $email);
+      $stmt->execute();
+      $stmt->store_result();
 
-        // Insert into the employee table
-
-        $sql1 = "SELECT * FROM APPLICANT JOIN APPLICATION ON APPLICANT.APP_ID = APPLICATION.APP_ID WHERE APP_EMAIL = '$email' AND STATUS =  'accepted'";
-
-        $result1 = mysqli_query($conn, $sql1);
-
-        if ($result1 && mysqli_num_rows($result1) > 0)
-        {
-          $resultData = $result1->fetch_assoc();
-
-          $sql2 = "INSERT INTO employee (EMP_NAME, EMP_GENDER, EMP_PHONE, EMP_EMAIL, EMP_PASS, EMP_ROLE ) VALUES ('{$resultData['APP_NAME']}', '{$resultData['APP_GENDER']}', '{$resultData['APP_PHONE']}', {$resultData['APP_EMAIL']}, '{$resultData['APP_PASS']}', '{$resultData['APP_ROLE']}')";
-
-          $result2 = mysqli_query($conn, $sql2);
-          $result3 = mysqli_insert_id($conn)
-          
-          $sql4 = "SELECT EMP_ROLE FROM employee WHERE EMP_EMAIL = '$email' AND EMP_PASS = '$hashed_password'";
-
-          $result4 = mysqli_query($conn, $sql4);
-
-          $_SESSION['EMP_ID'] = $result3;
-          $_SESSION['EMP_ROLE'] = $result4
-          header("location: parttime.php");
-        }
-        else
-        {
-          echo "Your application was not approved or you did not apply yet. You will be redirected to the homepage in 5 seconds";
-          header("refresh:5; url=/groupproject/index.php");
+      if ($stmt->num_rows > 0) {
+          echo "You already have an account. Redirecting...";
+          header("Location: login.php");
           exit();
-        }
-    }
+      }
+
+      // Process accepted applicants
+      $app_stmt = $conn->prepare("SELECT * FROM APPLICANT JOIN APPLICATION ON APPLICANT.APP_ID = APPLICATION.APP_ID WHERE APP_EMAIL = ? AND STATUS = 'accepted'");
+      $app_stmt->bind_param("s", $email);
+      $app_stmt->execute();
+      $result = $app_stmt->get_result();
+
+      if ($result && $result->num_rows > 0) {
+          $resultData = $result->fetch_assoc();
+          $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+          // Insert into employees
+          $emp_stmt = $conn->prepare("INSERT INTO employee (EMP_NAME, EMP_GENDER, EMP_PHONE, EMP_EMAIL, EMP_PASS, EMP_ADDR, EMP_DOB, EMP_ROLE) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+          $emp_stmt->bind_param("ssssssss", $resultData['APP_NAME'], $resultData['APP_GENDER'], $resultData['APP_PHONE'], $resultData['APP_EMAIL'], $hashed_password, $resultData['APP_ADDR'], $resultData['APP_DOB'], $resultData['APP_TYPE']);
+          $emp_stmt->execute();
+
+          $_SESSION['EMP_ID'] = $conn->insert_id;
+          $_SESSION['EMP_ROLE'] = $resultData['APP_TYPE'];
+          header("Location: parttime.php");
+      } else {
+          echo "Your application was not approved.";
+          header("Location: index.php");
+      }
+  }
 }
+
 
 $conn->close();
 ?>
@@ -56,6 +58,7 @@ $conn->close();
 <html>
 <head>
     <title>Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <style>
     body {
@@ -132,7 +135,7 @@ $conn->close();
       7-Eleven
     </div>
     <div class="nav-buttons">
-      <a href="/index.php">&#8592; Back</a>
+      <a href="/groupproject/index.php">&#8592; Back</a>
     </div>
   </header>
   <div style="padding: 80px;">
@@ -140,9 +143,9 @@ $conn->close();
     <h1>Sign Up</h1>
         <form method="POST">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
             <button type="submit">Sign Up</button>
         </form>
 

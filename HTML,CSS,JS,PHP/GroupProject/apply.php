@@ -12,31 +12,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = htmlspecialchars($_POST['address']);
     $type = $_POST['type'];
 
-    // Insert query
-    $sql = "INSERT INTO applicant (APP_NAME, APP_GENDER, APP_PHONE, APP_EMAIL, APP_ADDR, APP_DOB, APP_TYPE)
-            VALUES ('$name', '$gender', '$phone', '$email', '$address', '$dob', '$type')";
-
-    mysqli_query($conn, $sql);
-
-    $result = mysqli_insert_id($conn);
-
-    $sql3 = "SELECT JOB_ID FROM JOB WHERE JOB_NAME = '$type'";
-
-    $jobResult = mysqli_query($conn, $sql3);
-
-    $jobRow = mysqli_fetch_assoc($jobResult);
-    $jobID = $jobRow['JOB_ID']; 
-
-    $sql4 = "INSERT INTO application (APP_ID, JOB_ID, STATUS) VALUES ('$result', '$jobID', 'NULL')";
-
-    if (mysqli_query($conn, $sql4) === TRUE) {
-        $message = "<p style='color: green;'>Application submitted successfully!</p>";
+    if (strlen($phone) < 8 || strlen($phone) > 12) {
+        $message = "<p style='color: red;'>Error: Phone number must be between 8 and 12 digits.</p>";
     } else {
-        $message = "<p style='color: red;'>Error: " . $conn->error . "</p>";
+        if (!preg_match("/^[a-zA-Z\s]+$/", $name)) {
+            $message = "<p style='color: red;'>Error: Name can only contain letters and spaces.</p>";
+        } else {
+            // Check if the applicant has already applied based on the `apply_date` field
+            $checkquery = "SELECT application.APP_ID FROM application 
+                           INNER JOIN applicant ON application.APP_ID = applicant.APP_ID 
+                           WHERE applicant.APP_EMAIL = '$email' AND application.apply_date IS NOT NULL";
+
+            $result = mysqli_query($conn, $checkquery);
+
+            if ($result && $result->num_rows > 0) {
+                $message = "<p style='color: orange;'>You have already applied today. Please check your status <a href='/groupproject/status.php'>here</a></p>";
+            } else {
+                // Insert the applicant's details
+                $sql = "INSERT INTO applicant (APP_NAME, APP_GENDER, APP_PHONE, APP_EMAIL, APP_ADDR, APP_DOB, APP_TYPE)
+                        VALUES ('$name', '$gender', '$phone', '$email', '$address', '$dob', '$type')";
+
+                if (mysqli_query($conn, $sql)) {
+                    $applicant_id = mysqli_insert_id($conn);
+
+                    // Get the job ID based on the selected type
+                    $sql3 = "SELECT JOB_ID FROM job WHERE JOB_NAME = '$type'";
+                    $jobResult = mysqli_query($conn, $sql3);
+                    $jobRow = mysqli_fetch_assoc($jobResult);
+                    $jobID = $jobRow['JOB_ID']; 
+
+                    // Insert into the application table with the current date
+                    $currentDate = date('Y-m-d');
+                    $sql4 = "INSERT INTO application (APP_ID, JOB_ID, apply_date, STATUS) 
+                             VALUES ('$applicant_id', '$jobID', '$currentDate', 'NULL')";
+
+                    if (mysqli_query($conn, $sql4)) {
+                        $message = "<p style='color: green;'>Application submitted successfully!</p>";
+                    } else {
+                        $message = "<p style='color: red;'>Error: " . $conn->error . "</p>";
+                    }
+                } else {
+                    $message = "<p style='color: red;'>Error: " . $conn->error . "</p>";
+                }
+            }
+        }
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply Job</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -57,10 +80,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #FFF8E7; /* Light cream background */
             color: #000000; /* Black text for contrast */
         }
-        h1 {
-            color: #ffffff;
+        h1 { 
             text-align: center;
+            color: #ffffff; 
             padding-bottom: 5px;
+            background-color: #008161;
+            padding: 5px 10px; /* Add padding around the text */
+            border-radius: 5px; /* Round the edges */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add a shadow to the text */
         }
         form {
             background-color: #ffffff; /* White background for form */
@@ -86,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         input[type="text"],
         input[type="date"],
-        input[type="number"],
+        input[type="tel"],
         input[type="email"] {
             width: 100%;
             padding: 10px;
@@ -142,18 +170,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <fieldset>
             <legend>Personal Information</legend>
 
-            <label for="name">Name:</label>
+            <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" placeholder="Full Name" required>
 
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required>
+            <input type="date" id="dob" name="dob" max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>" required>
+
 
             <label for="gender">Gender:</label>
-            <input type="radio" id="male" name="gender" value="M"><span style="color: #008161;"> Male</span>
+            <input type="radio" id="male" name="gender" value="M" required><span style="color: #008161;"> Male</span>
             <input type="radio" id="female" name="gender" value="F"><span style="color: #008161;"> Female</span>
 
             <label for="phone">Phone Number:</label>
-            <input type="number" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" pattern="\d{8,12}" required>
 
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required>
@@ -162,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="fullAddress" name="address" required>
 
             <label for="type">Job Role:</label>
-            <input type="radio" id="cashier" name="type" value="cashier"><span style="color: #008161;"> Cashier </span><br>
+            <input type="radio" id="cashier" name="type" value="cashier" required><span style="color: #008161;"> Cashier </span><br>
             <input type="radio" id="stocker" name="type" value="stocker"><span style="color: #008161;"> Stocker </span><br>
             <input type="radio" id="cleaner" name="type" value="cleaner"><span style="color: #008161;"> Cleaner </span>
 

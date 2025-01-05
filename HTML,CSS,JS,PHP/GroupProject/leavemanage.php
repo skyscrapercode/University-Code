@@ -1,10 +1,29 @@
 <?php
+session_start();
 // Include the database connection
-include 'db_connection.php';
+include "dbconnection.php";
 
-// Fetch leave requests
-$sql = "SELECT * FROM leave_requests";
-$result = $conn->query($sql);
+// Initialize month filter
+$monthFilter = isset($_POST['month']) ? $_POST['month'] : date('Y-m');
+
+// Fetch leave requests based on the month filter
+$sql = "SELECT e.EMP_ID, e.EMP_NAME, l.STARTDATE, l.ENDDATE, l.TYPE, 
+        DATEDIFF(l.ENDDATE, l.STARTDATE) AS leave_duration, l.LEAVE_STATUS
+        FROM `leave` l 
+        JOIN `employee` e ON l.EMP_ID = e.EMP_ID
+        WHERE DATE_FORMAT(l.STARTDATE, '%Y-%m') = '$monthFilter'"; 
+
+$result = mysqli_query($conn, $sql);
+
+if (!isset($_SESSION['EMP_ID'])) {
+    echo "Manager employee not logged in. Please log in to continue, the system will redirect you to login page in 5 seconds";
+    header("refresh:5; url=/groupproject/login.php");
+    exit();
+} elseif ($_SESSION['EMP_ROLE'] != 'manager') {
+    echo "You are not a manager, you are a part-timer, the system will redirect you to the correct portal in 5 seconds";
+    header("refresh:5; url=/groupproject/parttime.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +32,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Leave Requests</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -22,45 +42,29 @@ $result = $conn->query($sql);
             background-color: #f4f4f4;
         }
 
-        .header {
-            background-color: #026635;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header .back-button {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        .header img {
-            height: 40px;
-        }
-
-        .header .back-button {
-            order: 2;
-        }
-
-        .header h1 {
-            color: #ff6600;
-            margin-left: 10px;
-            order: 1;
-            flex-grow: 1;
-        }
-
         .container {
             padding: 20px;
+            
+        }
+
+        .table-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .filter-container label, .filter-container select {
+            font-size: 16px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
-            background-color: white;
+            margin-top: 10px;
         }
 
         table th, table td {
@@ -96,16 +100,6 @@ $result = $conn->query($sql);
             background-color: #f44336;
         }
 
-        .footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #ff6600;
-            color: white;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
         tr:hover {
             background-color: #f1f1f1;
             transition: background-color 0.3s;
@@ -113,52 +107,82 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>7-Eleven</h1>
-        <img src="image/7eleven.png" alt="7-Eleven Logo">
-        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
-    </div>
+    <header>
+        <div class="company-info">
+            <img src="image/7eleven.png" alt="7-Eleven Logo">
+            7-Eleven
+        </div>
+        <div class="nav-buttons">
+            <a href="/groupproject/attendancelist.php">Check Attendance</a>
+            <a href="/groupproject/assignshift.php">Assign Jobs/Shift</a>
+            <a href="/groupproject/leavemanage.php">Manage Leave</a>
+            <a href="/groupproject/applicants.php">New Applicant</a>
+            <a href="/groupproject/profile.php">Profile</a>
+            <a href="/groupproject/manager.php">&#8592; Back</a>
+        </div>
+    </header>
 
-    <div class="container">
-        <h2>Manage Part-Timer Leave Requests</h2>
+    
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Leave Date</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if ($result->num_rows > 0): ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row['id']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['position']; ?></td>
-                            <td><?php echo $row['leave_date']; ?></td>
-                            <td><?php echo $row['status']; ?></td>
-                            <td>
-                                <button class="button accept">Accept</button>
-                                <button class="button reject">Reject</button>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
+        <!-- Table Section -->
+        <div class="table-container">
+            <h2 style="color:green;">Manage Part-Timer Leave Requests</h2>
+
+            <form method="POST">
+                <label for="month">Filter by Month:</label>
+                <select id="month" name="month" onchange="this.form.submit()">
+                    <?php
+                    $currentYear = date('Y');
+                    $currentMonth = date('m');
+                    for ($i = 0; $i < 12; $i++) {
+                        $monthValue = date('Y-m', strtotime("-$i month"));
+                        $monthLabel = date('F Y', strtotime("-$i month"));
+                        $selected = $monthValue === $monthFilter ? 'selected' : '';
+                        echo "<option value='$monthValue' $selected>$monthLabel</option>";
+                    }
+                    ?>
+                </select>
+            </form>
+
+            <table>
+                <thead>
                     <tr>
-                        <td colspan="6">No leave requests found</td>
+                        <th>No.</th>
+                        <th>Employee Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Type</th>
+                        <th>Leave Duration</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="footer">
-        &copy; 2024 7-Eleven. All rights reserved.
+                </thead>
+                <tbody>
+                    <?php if ($result->num_rows > 0): ?>
+                        <?php $counter = 1; ?>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $counter++; ?></td>
+                                <td><?php echo htmlspecialchars($row['EMP_NAME']); ?></td>
+                                <td><?php echo $row['STARTDATE']; ?></td>
+                                <td><?php echo $row['ENDDATE']; ?></td>
+                                <td><?php echo $row['TYPE']; ?></td>
+                                <td><?php echo $row['leave_duration'] . " Day"; ?></td>
+                                <td><?php echo $row['LEAVE_STATUS']; ?></td>
+                                <td>
+                                    <button class="button accept">Accept</button>
+                                    <button class="button reject">Reject</button>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="8">No leave requests found for this month</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
@@ -188,7 +212,7 @@ $result = $conn->query($sql);
             .then(data => {
                 if (data.success) {
                     alert(`Leave request ${status}`);
-                    location.reload(); // Reload to reflect the changes
+                    location.reload(); 
                 } else {
                     alert(`Error updating leave status: ${data.error}`);
                 }
@@ -200,5 +224,5 @@ $result = $conn->query($sql);
 </html>
 
 <?php
-$conn->close();
+mysqli_close($conn);
 ?>
