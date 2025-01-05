@@ -1,0 +1,64 @@
+/* The basis code for every single body needs to have */
+body {
+    /* background-color: #FFF8E7;
+    margin: 0; */
+    font-family: Arial, sans-serif;
+    background-image: url('image/bg.png');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+  }
+
+
+/* Code for header and it's buttons */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #008161; /* Green background */
+    color: #ffffff;
+    padding: 20px 20px; /* Increased padding for height */
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%; /* Full width */
+    height: 80px; /* Expanded height */
+    box-sizing: border-box;
+    border-bottom: 5px solid #006d52;
+  }
+
+  .company-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .company-info img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .nav-buttons a {
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #006d52;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .nav-buttons a:hover {
+    background-color: #f01b2d;
+    transform: scale(1.05);
+  }
+
+/* Code for the footer */
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f4821f;
+    color: black;
+    margin: auto;   /* Center the footer */
+  }
+
